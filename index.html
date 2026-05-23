@@ -104,48 +104,93 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .iucn-li{display:flex;align-items:center;gap:3px;font-size:.58rem;color:var(--text2)}
 .iucn-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 .cw{position:relative;height:110px}
+```css
 /* LISTA */
-.lista-layout{display:grid;grid-template-columns:230px 1fr;gap:12px;align-items:start}
-.lista-filters{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:var(--sh);position:sticky;top:64px;max-height:calc(100vh - 80px);overflow-y:auto}
+.lista-layout{display:grid;grid-template-columns:230px 1fr;gap:12px;align-items:start;position:relative;z-index:1}
+
+/* fundo fotográfico */
+.lista-layout::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(5,16,24,.74),rgba(5,16,24,.80)),
+url('img/alcatrazes-bg.jpg');
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+z-index:-2;
+}
+
+.lista-layout::after{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top right,rgba(119,217,172,.08),transparent 30%),
+radial-gradient(circle at bottom left,rgba(21,101,192,.10),transparent 35%);
+pointer-events:none;
+z-index:-1;
+}
+
+.lista-filters{background:rgba(15,23,42,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;box-shadow:0 8px 32px rgba(0,0,0,.28);position:sticky;top:64px;max-height:calc(100vh - 80px);overflow-y:auto;}
 .lf-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .lf-hdr-t{font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);font-weight:600}
 .lf-hdr button{background:none;border:none;color:var(--text3);font-size:.63rem;cursor:pointer;font-family:'DM Sans',sans-serif}
 .lf-hdr button:hover{color:var(--green)}
 .lf-sec{margin-bottom:12px}
 .lf-lbl{font-size:.64rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-weight:500;margin-bottom:5px;display:block}
-.lf-inp{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.75rem;padding:5px 8px;border-radius:5px;outline:none;transition:border-color .12s}
+.lf-inp{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.75rem;padding:5px 8px;border-radius:5px;outline:none;transition:border-color .12s}
 .lf-inp:focus{border-color:var(--green)}
 .lf-ckg{display:flex;flex-direction:column;gap:3px;max-height:160px;overflow-y:auto}
 .lf-ck{display:flex;align-items:center;gap:5px;cursor:pointer;padding:2px;border-radius:4px;transition:background .1s}
-.lf-ck:hover{background:var(--bg3)}.lf-ck input[type=checkbox]{accent-color:var(--green);width:12px;height:12px;cursor:pointer}
+.lf-ck:hover{background:rgba(255,255,255,.05)}.lf-ck input[type=checkbox]{accent-color:var(--green);width:12px;height:12px;cursor:pointer}
 .lf-ck span{font-size:.73rem;color:var(--text2);flex:1}.lf-ck small{font-size:.62rem;color:var(--text3)}
-.lf-sep{border:none;border-top:1px solid var(--border);margin:8px 0}
+.lf-sep{border:none;border-top:1px solid rgba(255,255,255,.08);margin:8px 0}
 .col-tog{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
-.col-chip{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:.65rem;padding:2px 7px;border-radius:12px;cursor:pointer;transition:all .12s}
-.col-chip.on{background:rgba(46,125,94,.1);border-color:var(--green);color:var(--green);font-weight:600}
+.col-chip{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--text2);font-size:.65rem;padding:2px 7px;border-radius:12px;cursor:pointer;transition:all .12s}
+.col-chip.on{background:rgba(46,125,94,.14);border-color:var(--green);color:var(--green);font-weight:600}
+
 .sp-search-wrap{position:relative;margin-bottom:5px}
-.sp-search-wrap input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.73rem;padding:4px 8px;border-radius:5px;outline:none}
+.sp-search-wrap input{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.73rem;padding:4px 8px;border-radius:5px;outline:none}
 .sp-search-wrap input:focus{border-color:var(--green)}
-.sp-list{max-height:130px;overflow-y:auto;border:1px solid var(--border);border-radius:5px;background:var(--card)}
+
+.sp-list{max-height:130px;overflow-y:auto;border:1px solid rgba(255,255,255,.08);border-radius:5px;background:rgba(255,255,255,.03)}
 .sp-item{display:flex;align-items:center;gap:5px;padding:3px 7px;cursor:pointer;font-size:.7rem;color:var(--text2);transition:background .1s}
-.sp-item:hover{background:var(--bg3)}.sp-item.sel{color:var(--green);font-weight:600}
+.sp-item:hover{background:rgba(255,255,255,.05)}.sp-item.sel{color:var(--green);font-weight:600}
 .sp-item input[type=checkbox]{accent-color:var(--green);width:11px;height:11px}
-.tbl-wrap2{border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh)}
-.tbl-head-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--card);border-bottom:1px solid var(--border)}
+
+.tbl-wrap2{background:rgba(15,23,42,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.25);overflow:hidden;}
+
+.tbl-head-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(10,18,30,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);}
+
+.scroll-body{overflow-y:auto;max-height:calc(100vh - 180px);background:transparent}
+
+#lista-table{background:transparent;}
+#lista-table tbody tr{background:rgba(255,255,255,.045);}
+#lista-table tbody tr:hover{background:rgba(255,255,255,.09);}
+
 .tbl-count-lbl{font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);font-weight:500}
 .tbl-count-n{font-size:.7rem;color:var(--text3)}
 .tbl-actions{display:flex;gap:6px}
+
 .btn-dl{background:var(--green);color:#fff;font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:600;padding:5px 11px;border:none;border-radius:5px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:4px}
 .btn-dl:hover{background:var(--green2)}
-.scroll-body{overflow-y:auto;max-height:calc(100vh - 180px);background:var(--card)}
+
 table{width:100%;border-collapse:collapse;font-size:.75rem}
-thead th{background:var(--bg3);padding:7px 10px;text-align:left;font-size:.61rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-weight:500;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none}
+
+thead th{background:rgba(10,18,30,.72);backdrop-filter:blur(10px);padding:7px 10px;text-align:left;font-size:.61rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-weight:500;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,.08);white-space:nowrap;cursor:pointer;user-select:none}
+
 thead th:hover{color:var(--green)}
 thead th.sort-asc::after{content:' ▲'}thead th.sort-desc::after{content:' ▼'}
-tbody td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle}
+
+tbody td{padding:6px 10px;border-bottom:1px solid rgba(255,255,255,.06);color:var(--text);vertical-align:middle}
 tbody tr:last-child td{border-bottom:none}
-tbody tr:hover td{background:rgba(46,125,94,.025)}
+tbody tr:hover td{background:rgba(46,125,94,.04)}
+
 .sentinel{height:2px}
+
 .badge{display:inline-block;padding:1px 6px;border-radius:20px;font-size:.61rem;font-weight:600;letter-spacing:.02em;border:1px solid transparent}
 .b-cr{background:rgba(185,28,28,.1);color:var(--cr);border-color:rgba(185,28,28,.2)}
 .b-en{background:rgba(194,65,12,.1);color:var(--en);border-color:rgba(194,65,12,.2)}
@@ -156,10 +201,59 @@ tbody tr:hover td{background:rgba(46,125,94,.025)}
 .b-sim{background:rgba(46,125,94,.1);color:var(--green);border-color:rgba(46,125,94,.2)}
 .b-inv{background:rgba(185,28,28,.1);color:var(--cr);border-color:rgba(185,28,28,.2)}
 .b-nn{background:rgba(201,122,21,.1);color:var(--fauna);border-color:rgba(201,122,21,.2)}
+
 .i-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:2px;vertical-align:middle}
 .i-alc{background:#2c6fad}.i-pal{background:var(--green)}.i-cab{background:var(--fauna)}
+
 .island-legend{display:flex;gap:10px;margin-top:4px;flex-wrap:wrap}
 .il-item{display:flex;align-items:center;gap:4px;font-size:.65rem;color:var(--text2)}
+```
+
+/* ─── SPECIES PAGE BACKGROUND ───────────────── */
+
+.species-bg{
+  position:relative;
+  isolation:isolate;
+}
+
+.species-bg::before{
+  content:'';
+  position:fixed;
+  inset:0;
+
+  background:
+    linear-gradient(
+      rgba(5,16,24,.78),
+      rgba(5,16,24,.82)
+    ),
+    url('img/alcatrazes-bg.jpg');
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+
+  z-index:-2;
+}
+
+/* subtle atmospheric glow */
+.species-bg::after{
+  content:'';
+  position:fixed;
+  inset:0;
+
+  background:
+    radial-gradient(circle at top right,
+      rgba(119,217,172,.08),
+      transparent 30%),
+
+    radial-gradient(circle at bottom left,
+      rgba(21,101,192,.10),
+      transparent 35%);
+
+  pointer-events:none;
+  z-index:-1;
+}
 /* CONTRIBUIR */
 .contrib-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
 .ctab{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.77rem;font-weight:500;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .18s}
@@ -246,6 +340,7 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
   <button class="nav-cta" onclick="goPage('contribuir')">🌿 Colabore</button>
 </nav>
+  
 
 <!-- OVERVIEW -->
 <div id="page-overview" class="page active">
@@ -321,7 +416,7 @@ textarea.fi{resize:vertical;min-height:72px}
 </div>
 
 <!-- LISTA -->
-<div id="page-lista" class="page">
+<div id="page-lista" class="page species-bg">
   <div class="lista-layout">
     <div class="lista-filters">
       <div class="lf-hdr"><span class="lf-hdr-t">Filtros</span><button onclick="resetLista()">↺ Limpar</button></div>
