@@ -18,9 +18,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-/* NAV */
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;
-  background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
 .nav-logo{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--green);line-height:1.1}
 .nav-logo small{display:block;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:300;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
 .nav-tabs{display:flex;gap:2px}
@@ -29,7 +27,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .nav-tab.active{color:var(--green);background:rgba(46,125,94,.09);font-weight:600}
 .nav-cta{background:var(--green);color:#fff;font-family:'DM Sans',sans-serif;font-size:.73rem;font-weight:600;padding:7px 14px;border:none;border-radius:7px;cursor:pointer;transition:all .18s}
 .nav-cta:hover{background:var(--green2);transform:translateY(-1px)}
-/* PAGE */
 .page{display:none;padding:18px 24px;animation:fi .22s ease}
 .page.active{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
@@ -40,13 +37,11 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .ov-main .num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;line-height:1;color:var(--text)}
 .ov-main .sub{font-size:.65rem;color:var(--text3);margin-top:2px}
 .ov-grupos{background:var(--card);padding:12px 16px;display:flex;flex-direction:column;justify-content:center;gap:5px;border-right:1px solid var(--border)}
-.gr{display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 7px;border-radius:6px;transition:background .12s}
+.gr{display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 7px;border-radius:6px;transition:background .12s;flex-wrap:wrap}
 .gr:hover{background:var(--bg3)}.gr.gon{background:rgba(46,125,94,.07)}
 .gr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .gr-name{font-size:.78rem;color:var(--text2);flex:1}.gr-num{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--text);font-weight:700}
 .ov-sides{background:var(--card);display:grid;grid-template-rows:1fr 1fr}
-.ov-donut{background:var(--card);border-left:1px solid var(--border);padding:12px 14px;display:flex;flex-direction:column}
-.ov-donut .lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);font-weight:500;margin-bottom:6px}
 .side-k{padding:11px 16px;display:flex;flex-direction:column;justify-content:center}
 .side-k:first-child{border-bottom:1px solid var(--border)}
 .side-k .num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1}
@@ -55,7 +50,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .fbar{display:flex;flex-wrap:wrap;gap:5px;align-items:center;padding:9px 12px;background:var(--card);border-radius:9px;border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:12px}
 .fbar-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:500;white-space:nowrap}
 .fbar-sep{width:1px;height:16px;background:var(--border);margin:0 3px}
-/* Multi-select */
 .ms-wrap{position:relative}
 .ms-btn{display:flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.72rem;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .12s;white-space:nowrap;user-select:none}
 .ms-btn:hover,.ms-btn.open{border-color:var(--green);color:var(--text)}
@@ -65,15 +59,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .ms-drop.show{display:block;animation:fi .12s ease}
 .ms-opt{display:flex;align-items:center;gap:7px;padding:7px 11px;cursor:pointer;font-size:.75rem;color:var(--text2);transition:background .1s}
 .ms-opt:hover{background:var(--bg3)}.ms-opt.sel{color:var(--green);font-weight:600}
-.ms-opt .ck{width:13px;height:13px;border:1.5px solid var(--border);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .1s;font-size:.55rem}
+.ms-opt .ck{width:13px;height:13px;border:1.5px solid var(--border);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.55rem}
 .ms-opt.sel .ck{background:var(--green);border-color:var(--green);color:#fff}
 .ms-clr{padding:5px 11px;border-top:1px solid var(--border);font-size:.67rem;color:var(--text3);cursor:pointer}
 .ms-clr:hover{color:var(--green)}
-/* Threat list pills */
 .thr-sel{display:flex;gap:3px;align-items:center}
 .thr-pill{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:.68rem;padding:3px 9px;border-radius:20px;cursor:pointer;transition:all .12s;font-weight:500;white-space:nowrap}
 .thr-pill.on{background:rgba(46,125,94,.1);border-color:var(--green);color:var(--green);font-weight:600}
-/* Search */
 .s-wrap{position:relative}
 .s-wrap::before{content:'⌕';position:absolute;left:7px;top:50%;transform:translateY(-50%);font-size:.92rem;color:var(--text3);pointer-events:none;line-height:1}
 .s-wrap input{background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.73rem;padding:4px 9px 4px 24px;border-radius:5px;outline:none;width:170px;transition:all .15s}
@@ -88,13 +80,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .tm-cell:hover{transform:translateY(-2px);box-shadow:var(--sh2)}
 .tm-cell.sel-cell{outline:2.5px solid var(--green);outline-offset:1px}
 .tm-svg-wrap{position:absolute;inset:0;overflow:hidden}
-.tm-svg-wrap svg{width:100%;height:100%;display:block}
-.tm-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.tm-svg-wrap svg,.tm-img{width:100%;height:100%;object-fit:cover;display:block}
 .tm-ovl{position:absolute;inset:0;background:linear-gradient(170deg,transparent 25%,rgba(0,0,0,.72) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:8px 10px}
-.tm-n{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.6)}
-.tm-l{font-size:.6rem;color:rgba(255,255,255,.88);font-weight:500;letter-spacing:.03em;text-shadow:0 1px 3px rgba(0,0,0,.6);margin-top:1px}
+.tm-n{font-family:'Playfair Display',serif;font-weight:700;color:#fff;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.tm-l{color:rgba(255,255,255,.88);font-weight:500;letter-spacing:.03em;text-shadow:0 1px 3px rgba(0,0,0,.6);margin-top:1px}
 .tm-stripe{position:absolute;top:0;left:0;right:0;height:3px}
-/* BOTTOM STATS */
+/* STATS */
 .ov-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 .stat-c{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--sh)}
 .stat-t{font-size:.62rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);font-weight:500;margin-bottom:10px}
@@ -107,14 +98,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .am-p{display:flex;flex-direction:column;align-items:center;gap:1px;background:var(--bg3);border-radius:6px;padding:7px 5px;flex:1;min-width:40px;border:1px solid var(--border)}
 .am-p .av{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;line-height:1}
 .am-p .al{font-size:.57rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text3)}
-/* IUCN ruler */
 .iucn-ruler{display:flex;border-radius:6px;overflow:hidden;margin-top:6px;height:26px}
 .iucn-seg{flex:1;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:#fff;letter-spacing:.03em}
 .iucn-legend{display:flex;flex-wrap:wrap;gap:3px;margin-top:6px}
 .iucn-li{display:flex;align-items:center;gap:3px;font-size:.58rem;color:var(--text2)}
 .iucn-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 .cw{position:relative;height:110px}
-/* LISTA PAGE */
+/* LISTA */
 .lista-layout{display:grid;grid-template-columns:230px 1fr;gap:12px;align-items:start}
 .lista-filters{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:var(--sh);position:sticky;top:64px;max-height:calc(100vh - 80px);overflow-y:auto}
 .lf-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
@@ -126,15 +116,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .lf-inp{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.75rem;padding:5px 8px;border-radius:5px;outline:none;transition:border-color .12s}
 .lf-inp:focus{border-color:var(--green)}
 .lf-ckg{display:flex;flex-direction:column;gap:3px;max-height:160px;overflow-y:auto}
-.lf-ck{display:flex;align-items:center;gap:5px;cursor:pointer;padding:2px 2px;border-radius:4px;transition:background .1s}
+.lf-ck{display:flex;align-items:center;gap:5px;cursor:pointer;padding:2px;border-radius:4px;transition:background .1s}
 .lf-ck:hover{background:var(--bg3)}.lf-ck input[type=checkbox]{accent-color:var(--green);width:12px;height:12px;cursor:pointer}
 .lf-ck span{font-size:.73rem;color:var(--text2);flex:1}.lf-ck small{font-size:.62rem;color:var(--text3)}
 .lf-sep{border:none;border-top:1px solid var(--border);margin:8px 0}
-/* col toggle */
 .col-tog{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
 .col-chip{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:.65rem;padding:2px 7px;border-radius:12px;cursor:pointer;transition:all .12s}
 .col-chip.on{background:rgba(46,125,94,.1);border-color:var(--green);color:var(--green);font-weight:600}
-/* species multi-select search */
 .sp-search-wrap{position:relative;margin-bottom:5px}
 .sp-search-wrap input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.73rem;padding:4px 8px;border-radius:5px;outline:none}
 .sp-search-wrap input:focus{border-color:var(--green)}
@@ -142,7 +130,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .sp-item{display:flex;align-items:center;gap:5px;padding:3px 7px;cursor:pointer;font-size:.7rem;color:var(--text2);transition:background .1s}
 .sp-item:hover{background:var(--bg3)}.sp-item.sel{color:var(--green);font-weight:600}
 .sp-item input[type=checkbox]{accent-color:var(--green);width:11px;height:11px}
-/* table area */
 .tbl-wrap2{border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh)}
 .tbl-head-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--card);border-bottom:1px solid var(--border)}
 .tbl-count-lbl{font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);font-weight:500}
@@ -154,13 +141,11 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 table{width:100%;border-collapse:collapse;font-size:.75rem}
 thead th{background:var(--bg3);padding:7px 10px;text-align:left;font-size:.61rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-weight:500;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none}
 thead th:hover{color:var(--green)}
-thead th.sort-asc::after{content:' ▲'}
-thead th.sort-desc::after{content:' ▼'}
+thead th.sort-asc::after{content:' ▲'}thead th.sort-desc::after{content:' ▼'}
 tbody td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:rgba(46,125,94,.025)}
 .sentinel{height:2px}
-/* badges */
 .badge{display:inline-block;padding:1px 6px;border-radius:20px;font-size:.61rem;font-weight:600;letter-spacing:.02em;border:1px solid transparent}
 .b-cr{background:rgba(185,28,28,.1);color:var(--cr);border-color:rgba(185,28,28,.2)}
 .b-en{background:rgba(194,65,12,.1);color:var(--en);border-color:rgba(194,65,12,.2)}
@@ -173,33 +158,36 @@ tbody tr:hover td{background:rgba(46,125,94,.025)}
 .b-nn{background:rgba(201,122,21,.1);color:var(--fauna);border-color:rgba(201,122,21,.2)}
 .i-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:2px;vertical-align:middle}
 .i-alc{background:#2c6fad}.i-pal{background:var(--green)}.i-cab{background:var(--fauna)}
-/* island legend */
 .island-legend{display:flex;gap:10px;margin-top:4px;flex-wrap:wrap}
 .il-item{display:flex;align-items:center;gap:4px;font-size:.65rem;color:var(--text2)}
-/* COLABORADORES PAGE */
+/* CONTRIBUIR */
 .contrib-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
 .ctab{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.77rem;font-weight:500;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .18s}
 .ctab:hover{color:var(--text);border-color:var(--green)}
 .ctab.active{background:var(--green);color:#fff;border-color:var(--green);font-weight:600}
 .ctab-panel{display:none}
 .ctab-panel.active-panel{display:block;animation:fi .2s ease}
-.colab-layout{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.colab-net-wrap{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;box-shadow:var(--sh)}
-.colab-chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;box-shadow:var(--sh)}
-#net-canvas{width:100%;border-radius:8px;display:block;cursor:grab}
-#net-canvas:active{cursor:grabbing}
+/* COLLABORATOR CARDS */
+.colab-page-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.colab-stats-bar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.colab-stat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;box-shadow:var(--sh);flex:1;min-width:100px;text-align:center}
+.colab-stat .csv{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--green);line-height:1}
+.colab-stat .csl{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-top:2px}
+.colab-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.colab-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:14px;box-shadow:var(--sh);transition:box-shadow .18s}
+.colab-card:hover{box-shadow:var(--sh2)}
+.colab-card-name{font-weight:600;font-size:.85rem;color:var(--text);margin-bottom:3px}
+.colab-card-inst{font-size:.72rem;color:var(--green);font-weight:500;margin-bottom:6px}
+.colab-card-tags{display:flex;flex-wrap:wrap;gap:3px}
+.colab-tag{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:.6rem;padding:1px 7px;border-radius:10px}
+.colab-tag.spec{background:rgba(46,125,94,.08);border-color:rgba(46,125,94,.2);color:var(--green)}
+.colab-tag.grupo{background:rgba(201,122,21,.08);border-color:rgba(201,122,21,.2);color:var(--fauna)}
+.colab-empty{text-align:center;padding:40px;color:var(--text3);font-size:.82rem}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;box-shadow:var(--sh)}
 /* FORMS */
 .pg-title{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:3px}
 .pg-sub{font-size:.8rem;color:var(--text2);margin-bottom:18px;line-height:1.5}
-.contrib-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:28px}
-.cc{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:20px 16px;cursor:pointer;transition:all .2s;text-align:center;box-shadow:var(--sh)}
-.cc:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:var(--sh2)}
-.cc-icon{font-size:1.6rem;margin-bottom:7px}.cc-t{font-weight:600;font-size:.86rem;margin-bottom:3px}.cc-d{font-size:.72rem;color:var(--text2);line-height:1.45}
-.f-sect{display:none;max-width:620px;margin:0 auto}
-.f-sect.show{display:block;animation:fi .22s ease}
 .f-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;box-shadow:var(--sh)}
-.f-t{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:3px}
-.f-d{font-size:.76rem;color:var(--text2);margin-bottom:16px;line-height:1.5}
 .fg{margin-bottom:12px}.fl{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);display:block;margin-bottom:3px;font-weight:500}
 .fi{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.79rem;padding:7px 10px;border-radius:6px;outline:none;transition:border-color .12s}
 .fi:focus{border-color:var(--green)}
@@ -208,51 +196,49 @@ textarea.fi{resize:vertical;min-height:72px}
 .f-sub{background:var(--green);color:#fff;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:700;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;transition:all .18s;width:100%;margin-top:4px;text-transform:uppercase;letter-spacing:.04em}
 .f-sub:hover{background:var(--green2)}
 .ok-msg{background:rgba(46,125,94,.08);border:1px solid rgba(46,125,94,.25);border-radius:6px;padding:11px;text-align:center;color:var(--green);font-size:.78rem;display:none;margin-top:10px}
-.back-b{background:none;border:none;color:var(--text3);font-family:'DM Sans',sans-serif;font-size:.76rem;cursor:pointer;padding:0;margin-bottom:14px;display:flex;align-items:center;gap:4px;transition:color .12s}
-.back-b:hover{color:var(--green)}
 .rb-g{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
 .rb{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.72rem;padding:4px 11px;border-radius:5px;cursor:pointer;transition:all .12s}
 .rb:hover,.rb.on{background:rgba(46,125,94,.1);border-color:var(--green);color:var(--green)}
-/* SOBRE PAGE */
-.sobre-layout{display:grid;grid-template-columns:1fr 340px;gap:18px}
-.sobre-text-col{}
+/* SOBRE */
+.sobre-layout{display:grid;grid-template-columns:1fr 360px;gap:18px}
 .sobre-section{margin-bottom:22px}
 .sobre-h1{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:6px}
 .sobre-h2{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:8px;color:var(--green)}
 .sobre-p{font-size:.84rem;color:var(--text2);line-height:1.7;margin-bottom:8px}
 .sobre-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;box-shadow:var(--sh);margin-bottom:10px}
-.sobre-sidebar{}
 .concept-list{display:flex;flex-direction:column;gap:8px}
 .concept-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px}
 .concept-term{font-size:.78rem;font-weight:600;color:var(--green);margin-bottom:3px}
 .concept-def{font-size:.74rem;color:var(--text2);line-height:1.55}
-/* map placeholder */
-.map-ph{background:linear-gradient(135deg,#0d3b5e 0%,#1565c0 40%,#0d3b5e 100%);border-radius:10px;height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;position:relative;overflow:hidden;box-shadow:var(--sh)}
-.map-ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 45% 55%,rgba(77,217,172,.15) 0%,transparent 60%)}
-.map-isle{position:absolute;border-radius:50%;background:rgba(77,200,150,.8)}
-/* map island interativo */
-.map-island-path{fill:#2d5a2d;stroke:#fff;stroke-width:1;opacity:.9;cursor:pointer;transition:fill .2s,opacity .2s}
-.map-island-path:hover,.map-island-path.map-active{fill:#4caf50;opacity:1}
-/* TAXO */
-.taxo-wrap{max-width:640px;margin:0 auto}
+/* MAP with image + dots */
+.map-container{position:relative;border-radius:10px;overflow:hidden;box-shadow:var(--sh);border:1px solid var(--border);margin-bottom:14px}
+.map-container img{width:100%;display:block}
+.island-dot-wrap{position:absolute;transform:translate(-50%,-50%);cursor:pointer;z-index:10}
+.island-dot-wrap .idot{width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 3px rgba(77,217,172,.4),0 2px 8px rgba(0,0,0,.4);transition:transform .2s,box-shadow .2s;animation:dot-pulse 2.5s infinite}
+.island-dot-wrap:hover .idot,.island-dot-wrap.active-dot .idot{transform:scale(1.4);box-shadow:0 0 0 5px rgba(77,217,172,.5),0 4px 12px rgba(0,0,0,.5)}
+@keyframes dot-pulse{0%,100%{box-shadow:0 0 0 3px rgba(77,217,172,.4),0 2px 8px rgba(0,0,0,.4)}50%{box-shadow:0 0 0 6px rgba(77,217,172,.15),0 2px 8px rgba(0,0,0,.4)}}
+.island-tooltip{position:absolute;background:rgba(13,42,69,.95);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:10px 14px;color:#fff;font-size:.75rem;line-height:1.5;max-width:200px;pointer-events:none;display:none;z-index:20;backdrop-filter:blur(4px);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.island-tooltip.show{display:block;animation:fi .15s ease}
+.island-tooltip strong{font-size:.8rem;color:#77d9ac;display:block;margin-bottom:3px}
+.island-tooltip small{font-size:.63rem;color:rgba(255,255,255,.55);display:block;margin-bottom:4px;font-family:monospace}
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--bg3)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.map-island-path{fill:#2d5a2d;stroke:#fff;stroke-width:1;opacity:.9;cursor:pointer;transition:fill .2s}
+.map-island-path:hover,.map-island-path.map-active{fill:#4caf50;opacity:1}
 @media(max-width:900px){
-  .ov-top,.lista-layout,.colab-layout,.sobre-layout{grid-template-columns:1fr}
+  .ov-top,.lista-layout,.sobre-layout,.colab-page-grid{grid-template-columns:1fr}
   .ov-main,.ov-grupos{border-right:none;border-bottom:1px solid var(--border)}
   .lista-filters{position:static}
-  .contrib-cards{grid-template-columns:1fr}
   .f2{grid-template-columns:1fr}
-  nav{padding:0 12px}
-  .page{padding:14px 12px}
+  nav{padding:0 12px}.page{padding:14px 12px}
   .ov-stats{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <nav>
-  <div class="nav-logo">NGI Alcatrazes <small> Núcleo de Gestão Integrada ICMBio Alcatrazes - Lista de Espécies</small></div>
+  <div class="nav-logo">NGI Alcatrazes<small>Núcleo de Gestão Integrada ICMBio — Lista de Espécies</small></div>
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="goPage('overview')">Visão Geral</button>
     <button class="nav-tab" onclick="goPage('lista')">Lista de Espécies</button>
@@ -261,7 +247,7 @@ textarea.fi{resize:vertical;min-height:72px}
   <button class="nav-cta" onclick="goPage('contribuir')">🌿 Colabore</button>
 </nav>
 
-<!-- ===== OVERVIEW ===== -->
+<!-- OVERVIEW -->
 <div id="page-overview" class="page active">
   <div class="ov-top">
     <div class="ov-main"><div class="lbl">Número Total</div><div class="num" id="kpi-tot">—</div><div class="sub" id="kpi-sub">espécies registradas</div></div>
@@ -323,34 +309,24 @@ textarea.fi{resize:vertical;min-height:72px}
     <div id="tm-grid" style="height:370px"></div>
   </div>
   <div class="ov-stats">
-    <div class="stat-c">
-      <div class="stat-t" id="iucn-bar-title">Ameaça</div>
-      <div id="iucn-bars"></div>
-    </div>
+    <div class="stat-c"><div class="stat-t" id="iucn-bar-title">Ameaça</div><div id="iucn-bars"></div></div>
     <div class="stat-c">
       <div class="stat-t">Ameaçadas por Lista</div>
       <div class="am-row" id="am-pills"></div>
       <div class="iucn-ruler" id="iucn-ruler"></div>
       <div class="iucn-legend" id="iucn-legend"></div>
     </div>
-    <div class="stat-c">
-      <div class="stat-t">Exóticas vs Nativas</div>
-      <div class="cw"><canvas id="ch-exo"></canvas></div>
-    </div>
+    <div class="stat-c"><div class="stat-t">Exóticas vs Nativas</div><div class="cw"><canvas id="ch-exo"></canvas></div></div>
   </div>
 </div>
 
-<!-- ===== LISTA ===== -->
+<!-- LISTA -->
 <div id="page-lista" class="page">
   <div class="lista-layout">
     <div class="lista-filters">
       <div class="lf-hdr"><span class="lf-hdr-t">Filtros</span><button onclick="resetLista()">↺ Limpar</button></div>
-      <div class="lf-sec">
-        <label class="lf-lbl">Busca (espécie / nome popular)</label>
-        <input class="lf-inp" type="text" id="lf-search" placeholder="qualquer termo…" oninput="applyLista()"/>
-      </div>
-      <div class="lf-sec">
-        <label class="lf-lbl">Espécie (múltipla seleção)</label>
+      <div class="lf-sec"><label class="lf-lbl">Busca (espécie / nome popular)</label><input class="lf-inp" type="text" id="lf-search" placeholder="qualquer termo…" oninput="applyLista()"/></div>
+      <div class="lf-sec"><label class="lf-lbl">Espécie (múltipla seleção)</label>
         <div class="sp-search-wrap"><input type="text" id="sp-search-q" placeholder="buscar espécie…" oninput="filterSpList()"/></div>
         <div class="sp-list" id="sp-list"></div>
       </div>
@@ -359,18 +335,9 @@ textarea.fi{resize:vertical;min-height:72px}
       <div class="lf-sec"><label class="lf-lbl">Subgrupo</label><div class="lf-ckg" id="lf-subgrupo"></div></div>
       <div class="lf-sec"><label class="lf-lbl">Grupo Específico</label><div class="lf-ckg" id="lf-gesp"></div></div>
       <hr class="lf-sep"/>
-      <div class="lf-sec">
-        <label class="lf-lbl">Família</label>
-        <input class="lf-inp" type="text" id="lf-familia" placeholder="filtrar família…" oninput="applyLista()"/>
-      </div>
-      <div class="lf-sec">
-        <label class="lf-lbl">Gênero</label>
-        <input class="lf-inp" type="text" id="lf-genero" placeholder="filtrar gênero…" oninput="applyLista()"/>
-      </div>
-      <div class="lf-sec">
-        <label class="lf-lbl">Nome Popular</label>
-        <input class="lf-inp" type="text" id="lf-nompop" placeholder="filtrar nome popular…" oninput="applyLista()"/>
-      </div>
+      <div class="lf-sec"><label class="lf-lbl">Família</label><input class="lf-inp" type="text" id="lf-familia" placeholder="filtrar família…" oninput="applyLista()"/></div>
+      <div class="lf-sec"><label class="lf-lbl">Gênero</label><input class="lf-inp" type="text" id="lf-genero" placeholder="filtrar gênero…" oninput="applyLista()"/></div>
+      <div class="lf-sec"><label class="lf-lbl">Nome Popular</label><input class="lf-inp" type="text" id="lf-nompop" placeholder="filtrar nome popular…" oninput="applyLista()"/></div>
       <hr class="lf-sep"/>
       <div class="lf-sec">
         <label class="lf-lbl">Ameaça por lista</label>
@@ -381,16 +348,14 @@ textarea.fi{resize:vertical;min-height:72px}
         </div>
         <div class="lf-ckg" id="lf-thr"></div>
       </div>
-      <div class="lf-sec">
-        <label class="lf-lbl">Ilhas</label>
+      <div class="lf-sec"><label class="lf-lbl">Ilhas</label>
         <div class="lf-ckg" id="lf-ilhas">
           <label class="lf-ck"><input type="checkbox" value="alcatrazes" onchange="applyLista()"/> <span>🏝 Alcatrazes</span></label>
           <label class="lf-ck"><input type="checkbox" value="palmas" onchange="applyLista()"/> <span>🏝 Palmas</span></label>
           <label class="lf-ck"><input type="checkbox" value="cabras" onchange="applyLista()"/> <span>🏝 Cabras</span></label>
         </div>
       </div>
-      <div class="lf-sec">
-        <label class="lf-lbl">Especial</label>
+      <div class="lf-sec"><label class="lf-lbl">Especial</label>
         <div class="lf-ckg">
           <label class="lf-ck" id="ck-end"><input type="checkbox" onchange="applyLista()"/> <span>Endêmicas</span></label>
           <label class="lf-ck" id="ck-exo"><input type="checkbox" onchange="applyLista()"/> <span>Exóticas</span></label>
@@ -398,10 +363,7 @@ textarea.fi{resize:vertical;min-height:72px}
         </div>
       </div>
       <hr class="lf-sep"/>
-      <div class="lf-sec">
-        <label class="lf-lbl">Colunas visíveis</label>
-        <div class="col-tog" id="col-tog"></div>
-      </div>
+      <div class="lf-sec"><label class="lf-lbl">Colunas visíveis</label><div class="col-tog" id="col-tog"></div></div>
     </div>
     <div>
       <div class="tbl-wrap2">
@@ -430,27 +392,35 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
 </div>
 
-<!-- ===== CONTRIBUIR (unified) ===== -->
+<!-- CONTRIBUIR -->
 <div id="page-contribuir" class="page">
   <div class="contrib-tabs">
-    <button class="ctab active" onclick="showCtab('ct-colab',this)">🔗 Rede de Colaboradores</button>
+    <button class="ctab active" onclick="showCtab('ct-colab',this)">👥 Colaboradores</button>
     <button class="ctab" onclick="showCtab('ct-novo',this)">🦎 Novo Registro</button>
-    <button class="ctab" onclick="showCtab('ct-col',this)">👤 Cadastrar Colaborador</button>
+    <button class="ctab" onclick="showCtab('ct-col',this)">👤 Cadastrar</button>
     <button class="ctab" onclick="showCtab('ct-taxo',this)">🔬 Sugestão Taxonômica</button>
     <button class="ctab" onclick="showCtab('ct-com',this)">💬 Comentário</button>
   </div>
 
-  <!-- TAB: Rede de Colaboradores -->
+  <!-- TAB: Colaboradores — cards + gráfico -->
   <div id="ct-colab" class="ctab-panel active-panel">
-    <div class="pg-sub" style="margin-bottom:14px">Instituições e pesquisadores vinculados ao NGI Alcatrazes. O tamanho dos nós representa o número de especialistas por instituição.</div>
-    <div class="colab-layout">
-      <div class="colab-net-wrap">
-        <div class="stat-t" style="margin-bottom:10px">Rede de Instituições</div>
-        <canvas id="net-canvas" height="380"></canvas>
+    <div id="colab-stats-bar" class="colab-stats-bar"></div>
+    <div class="colab-page-grid">
+      <div>
+        <div class="stat-t" style="margin-bottom:10px">Pesquisadores e colaboradores</div>
+        <div id="colab-card-grid" class="colab-card-grid">
+          <div class="colab-empty">Carregando colaboradores…</div>
+        </div>
       </div>
-      <div class="colab-chart-wrap">
-        <div class="stat-t" style="margin-bottom:10px">Colaboradores por Especialidade</div>
-        <div style="position:relative;height:340px"><canvas id="ch-spec"></canvas></div>
+      <div>
+        <div class="chart-card" style="margin-bottom:12px">
+          <div class="stat-t" style="margin-bottom:10px">Por Especialidade</div>
+          <div style="position:relative;height:220px"><canvas id="ch-spec"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="stat-t" style="margin-bottom:10px">Por Grupo Taxonômico</div>
+          <div style="position:relative;height:180px"><canvas id="ch-grupo-colab"></canvas></div>
+        </div>
       </div>
     </div>
   </div>
@@ -476,8 +446,8 @@ textarea.fi{resize:vertical;min-height:72px}
     <div class="pg-sub" style="margin-bottom:16px">Pesquisador, especialista ou entusiasta? Faça parte da rede do projeto.</div>
     <div class="f-card" style="max-width:640px;margin:0 auto">
       <div class="f2"><div class="fg"><label class="fl">Nome Completo *</label><input class="fi" id="col-nome" type="text"/></div><div class="fg"><label class="fl">E-mail *</label><input class="fi" id="col-email" type="email"/></div></div>
-      <div class="f2"><div class="fg"><label class="fl">Instituição</label><input class="fi" id="col-inst" type="text"/></div><div class="fg"><label class="fl">Especialidade</label><input class="fi" id="col-espec" type="text"/></div></div>
-      <div class="fg"><label class="fl">Grupos de Interesse</label><div class="rb-g" id="rb-gi"><div class="rb on" onclick="selRb(this,'rb-gi')">Flora</div><div class="rb" onclick="selRb(this,'rb-gi')">Fauna</div><div class="rb" onclick="selRb(this,'rb-gi')">Fungos</div><div class="rb" onclick="selRb(this,'rb-gi')">Geral</div></div></div>
+      <div class="f2"><div class="fg"><label class="fl">Vínculo / Instituição</label><input class="fi" id="col-inst" type="text"/></div><div class="fg"><label class="fl">Especialidade</label><input class="fi" id="col-espec" type="text"/></div></div>
+      <div class="fg"><label class="fl">Grupo de Interesse</label><div class="rb-g" id="rb-gi"><div class="rb on" onclick="selRb(this,'rb-gi')">Flora</div><div class="rb" onclick="selRb(this,'rb-gi')">Fauna</div><div class="rb" onclick="selRb(this,'rb-gi')">Fungos</div><div class="rb" onclick="selRb(this,'rb-gi')">Geral</div></div></div>
       <div class="fg"><label class="fl">Lattes / ORCID / Site</label><input class="fi" id="col-site" type="text"/></div>
       <div class="fg"><label class="fl">Como deseja contribuir?</label><textarea class="fi" id="col-contribuir-desc"></textarea></div>
       <button class="f-sub" onclick="okForm('ok-col')">Enviar Cadastro</button>
@@ -489,25 +459,11 @@ textarea.fi{resize:vertical;min-height:72px}
   <div id="ct-taxo" class="ctab-panel">
     <div class="pg-sub" style="margin-bottom:16px">Identificou um erro taxonômico, nome desatualizado ou inconsistência? Reporte abaixo.</div>
     <div class="f-card" style="max-width:640px;margin:0 auto">
-      <div class="fg"><label class="fl">Tipo</label>
-        <div class="rb-g" id="tx-tipo">
-          <div class="rb on" onclick="selRb(this,'tx-tipo')">Erro taxonômico</div>
-          <div class="rb" onclick="selRb(this,'tx-tipo')">Nome desatualizado</div>
-          <div class="rb" onclick="selRb(this,'tx-tipo')">Duplicata</div>
-          <div class="rb" onclick="selRb(this,'tx-tipo')">Classificação incorreta</div>
-          <div class="rb" onclick="selRb(this,'tx-tipo')">Outro</div>
-        </div>
-      </div>
+      <div class="fg"><label class="fl">Tipo</label><div class="rb-g" id="tx-tipo"><div class="rb on" onclick="selRb(this,'tx-tipo')">Erro taxonômico</div><div class="rb" onclick="selRb(this,'tx-tipo')">Nome desatualizado</div><div class="rb" onclick="selRb(this,'tx-tipo')">Duplicata</div><div class="rb" onclick="selRb(this,'tx-tipo')">Classificação incorreta</div><div class="rb" onclick="selRb(this,'tx-tipo')">Outro</div></div></div>
       <div class="fg"><label class="fl">Táxon Afetado</label><input class="fi" id="tax-taxon" type="text" placeholder="Ex: Aphanolejeunea sicaefolia"/></div>
-      <div class="f2">
-        <div class="fg"><label class="fl">Como está registrado</label><input class="fi" id="tax-atual" type="text"/></div>
-        <div class="fg"><label class="fl">Como deveria estar</label><input class="fi" id="tax-sugerido" type="text"/></div>
-      </div>
+      <div class="f2"><div class="fg"><label class="fl">Como está registrado</label><input class="fi" id="tax-atual" type="text"/></div><div class="fg"><label class="fl">Como deveria estar</label><input class="fi" id="tax-sugerido" type="text"/></div></div>
       <div class="fg"><label class="fl">Justificativa / Referência</label><textarea class="fi" id="tax-just"></textarea></div>
-      <div class="f2">
-        <div class="fg"><label class="fl">Nome (opcional)</label><input class="fi" id="tax-nome" type="text"/></div>
-        <div class="fg"><label class="fl">E-mail (opcional)</label><input class="fi" id="tax-email" type="email"/></div>
-      </div>
+      <div class="f2"><div class="fg"><label class="fl">Nome (opcional)</label><input class="fi" id="tax-nome" type="text"/></div><div class="fg"><label class="fl">E-mail (opcional)</label><input class="fi" id="tax-email" type="email"/></div></div>
       <button class="f-sub" onclick="okForm('tx-ok')">Enviar Sugestão</button>
       <div class="ok-msg" id="tx-ok">✅ Sugestão registrada!</div>
     </div>
@@ -526,67 +482,19 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
 </div>
 
-<!-- ===== SOBRE ===== -->
+<!-- SOBRE -->
 <div id="page-sobre" class="page">
   <div class="sobre-layout">
     <div class="sobre-text-col">
       <div class="sobre-section">
         <div class="sobre-h1">Arquipélago de Alcatrazes e Estação Ecológica Tupinambás</div>
-        <div class="sobre-p">
-          <div class="sobre-h2">A Lista de Espécies</div>
-        <div class="sobre-p">A lista de espécies consolidada aqui reúne registros de ocorrência de organismos em duas unidades de conservação: o Refúgio de Vida Silvestre do Arquipélago de Alcatrazes e a Estação Ecológica Tupinambás (Setor I e II). 
-        </div>
-         <div class="sobre-p"> Essas áreas correspondem ao Arquipélago de Alcatrazes, suas ilhas, ilhotas, lajes e parcéis (REVIS Alcatrazes e Setor I da ESEC Tupinambás - São Sebastião) bem como as Ilhas de Cabras e Palmas (Setor II da ESEC Tupinambás - Ubatuba). Os dados apresentados aqui correspondem a informações compiladas a partir de décadas de pesquisa científica, levantamentos de campo e informações históricas de coleções científicas.</div>
-        </div>
-          <div class="sobre-p">Os registros englobam Flora terrestre, Fauna (aves, répteis, peixes, invertebrados marinhos e terrestres, cetáceos), Fungos e Algas. Cada espécie é classificada quanto à sua categoria de ameaça segundo as listas da <strong>IUCN</strong>, <strong>MMA</strong> e <strong>Estado de São Paulo</strong>, e também quanto ao seu status de endemismo e origem (nativa ou exótica).</div>
-        
-    </div>
-      <!-- Mapa interativo com ilhas clicáveis -->
-      <div style="position:relative;background:linear-gradient(135deg,#0d2a45 0%,#153b5c 100%);border-radius:10px;height:320px;overflow:hidden;box-shadow:var(--sh);border:1px solid var(--border);margin-bottom:14px;">
-        <svg viewBox="0 0 400 300" style="width:100%;height:100%;display:block;">
-          <!-- grid -->
-          <line x1="0" y1="75"  x2="400" y2="75"  stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
-          <line x1="0" y1="150" x2="400" y2="150" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
-          <line x1="0" y1="225" x2="400" y2="225" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
-          <line x1="100" y1="0" x2="100" y2="300" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
-          <line x1="200" y1="0" x2="200" y2="300" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
-          <line x1="300" y1="0" x2="300" y2="300" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
-          <!-- Bússola -->
-          <g transform="translate(45,55)" opacity="0.35">
-            <circle cx="0" cy="0" r="18" fill="none" stroke="#fff" stroke-width="0.8"/>
-            <path d="M0 -25 L3 -6 L20 0 L3 6 L0 25 L-3 6 L-20 0 L-3 -6 Z" fill="#fff"/>
-            <text x="-3" y="-28" fill="#fff" font-size="7" font-weight="bold">N</text>
-          </g>
-          <!-- Ilha de Palmas -->
-          <path d="M 85,135 Q 92,122 108,127 T 120,145 T 100,150 Z" class="map-island-path" onclick="selectIsland('Palmas')" onmouseover="hoverIsland('Palmas')"/>
-          <!-- Ilha de Cabras -->
-          <circle cx="150" cy="118" r="6" class="map-island-path" onclick="selectIsland('Cabras')" onmouseover="hoverIsland('Cabras')"/>
-          <!-- Alcatrazes Principal -->
-          <path d="M 210,180 Q 232,138 265,115 Q 282,105 285,120 T 268,160 T 235,195 T 212,202 Z" class="map-island-path" onclick="selectIsland('Alcatrazes')" onmouseover="hoverIsland('Alcatrazes')"/>
-          <!-- Ilha do Paredão -->
-          <path d="M 320,105 Q 325,100 330,105 T 325,115 Z" class="map-island-path" onclick="selectIsland('Paredão')" onmouseover="hoverIsland('Paredão')"/>
-          <!-- Laje da Sapata -->
-          <circle cx="298" cy="85" r="4.5" class="map-island-path" onclick="selectIsland('Sapata')" onmouseover="hoverIsland('Sapata')"/>
-          <!-- Labels -->
-          <text x="240" y="150" fill="#fff" font-size="9" font-weight="bold" pointer-events="none">Alcatrazes</text>
-          <text x="75"  y="165" fill="#fff" font-size="8" pointer-events="none">Palmas</text>
-          <text x="142" y="132" fill="#fff" font-size="8" pointer-events="none">Cabras</text>
-          <text x="310" y="125" fill="#fff" font-size="8" pointer-events="none">Paredão</text>
-        </svg>
-        <!-- Painel de informações -->
-        <div id="island-info-panel" style="position:absolute;bottom:0;left:0;right:0;background:rgba(13,42,69,0.9);border-top:1px solid rgba(255,255,255,0.15);padding:8px 12px;height:90px;backdrop-filter:blur(3px);display:flex;flex-direction:column;justify-content:center;">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span id="island-info-title" style="font-family:'Playfair Display',serif;font-size:.9rem;font-weight:bold;color:#77d9ac;">🏝 Mapa de Alcatrazes</span>
-            <span id="island-info-coords" style="font-size:.6rem;color:var(--text3);font-family:monospace;">Passe o mouse nas ilhas</span>
-          </div>
-          <p id="island-info-desc" style="font-size:.7rem;color:#fff;opacity:.85;margin-top:3px;line-height:1.3;">
-            Explore o território do arquipélago. Clique ou passe o mouse sobre qualquer ilha para ver informações ecológicas.
-          </p>
-        </div>
+        <div class="sobre-h2">A Lista de Espécies</div>
+        <div class="sobre-p">A lista de espécies consolidada aqui reúne registros de ocorrência de organismos em duas unidades de conservação: o Refúgio de Vida Silvestre do Arquipélago de Alcatrazes e a Estação Ecológica Tupinambás (Setor I e II).</div>
+        <div class="sobre-p">Essas áreas correspondem ao Arquipélago de Alcatrazes, suas ilhas, ilhotas, lajes e parcéis (REVIS Alcatrazes e Setor I da ESEC Tupinambás — São Sebastião) bem como as Ilhas de Cabras e Palmas (Setor II da ESEC Tupinambás — Ubatuba). Os dados apresentados aqui correspondem a informações compiladas a partir de décadas de pesquisa científica, levantamentos de campo e informações históricas de coleções científicas.</div>
+        <div class="sobre-p">Os registros englobam Flora terrestre, Fauna (aves, répteis, peixes, invertebrados marinhos e terrestres, cetáceos), Fungos e Algas. Cada espécie é classificada quanto à sua categoria de ameaça segundo as listas da <strong>IUCN</strong>, <strong>MMA</strong> e <strong>Estado de São Paulo</strong>, e também quanto ao seu status de endemismo e origem (nativa ou exótica).</div>
       </div>
-
-      <div style="margin-top:14px">
-        <div class="sobre-h2" style="margin-bottom:8px">Conceitos Principais</div>
+      <div class="sobre-section">
+        <div class="sobre-h2">Conceitos Principais</div>
         <div class="concept-list">
           <div class="concept-item"><div class="concept-term">Espécie Endêmica</div><div class="concept-def">Espécie encontrada exclusivamente em uma determinada área geográfica restrita, não ocorrendo naturalmente em nenhum outro lugar do mundo.</div></div>
           <div class="concept-item"><div class="concept-term">Exótica / Invasora</div><div class="concept-def"><strong>Não nativa:</strong> introduzida fora de sua área de ocorrência natural. <strong>Invasora:</strong> exótica que se reproduz e se dispersa, causando impactos ecológicos.</div></div>
@@ -596,32 +504,56 @@ textarea.fi{resize:vertical;min-height:72px}
         </div>
       </div>
     </div>
+    <!-- SIDEBAR: mapa com imagem + dots -->
+    <div>
+      <div class="sobre-h2" style="margin-bottom:10px">Mapa do Arquipélago</div>
+      <div class="map-container" id="map-container">
+        <!-- Real photo. Island dots are positioned via JS after image loads -->
+        <img src="mapaESECREVIS.jpg" alt="Mapa ESEC REVIS Alcatrazes" id="map-img" style="width:100%;display:block" onload="positionMapDots()"/>
+        <!-- Island dots (hidden until image loads) -->
+        <div class="island-dot-wrap" id="dot-alc" style="top:72%;left:28%;display:none" onclick="selectIsland('Alcatrazes',this)" onmouseenter="hoverIsland('Alcatrazes')">
+          <div class="idot" style="background:#2c6fad"></div>
+        </div>
+        <div class="island-dot-wrap" id="dot-pal" style="top:16%;left:81%;display:none" onclick="selectIsland('Palmas',this)" onmouseenter="hoverIsland('Palmas')">
+          <div class="idot" style="background:#2e7d5e"></div>
+        </div>
+        <div class="island-dot-wrap" id="dot-cab" style="top:22%;left:86%;display:none" onclick="selectIsland('Cabras',this)" onmouseenter="hoverIsland('Cabras')">
+          <div class="idot" style="background:#c97a15"></div>
+        </div>
+        <!-- Floating tooltip -->
+        <div class="island-tooltip" id="island-tooltip"></div>
+      </div>
+      <!-- Island legend -->
+      <div style="display:flex;gap:12px;margin-top:6px;flex-wrap:wrap">
+        <div class="il-item"><span class="i-dot i-alc"></span>Alcatrazes</div>
+        <div class="il-item"><span class="i-dot i-pal"></span>Palmas</div>
+        <div class="il-item"><span class="i-dot i-cab"></span>Cabras</div>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════
-// CONFIG
-// ═══════════════════════════════════════════════════════════════
+// ═══════════════ CONFIG ═══════════════
 const SHEET_ID   = '105nFkb90I3Il6Qjx4qId5WA1IZWxAqYS-RldKAIgSyg';
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGF8MtO3kXOXnXV2YH7vcDe4Rmmj2zJyJocc0BKSL8aMGWHZej_p7sCgx0OOD75n0TCQ/exec';
 
+// Treemap images (relative paths — keep files in same folder as HTML)
 const SVGS = {
-  "Peixes": "img/peixe.jpg",
-  "Aves": "img/aves.jpg",
-  "Invertebrados terrestres": "img/borboleta.jpg",
-  "Algas": "img/alga.jpg",
-  "Baleias e golfinhos": "img/golfinhos.jpg",
-  "Anfíbios e Répteis": "img/repteis.jpg",
-  "Fungos macroscópicos": "img/fungos.jpeg",
-  "Répteis marinhos": "img/repteismarinhos.jpg",
-  "Flora terrestre": "img/planta.jpg",
-  "Invertebrados marinhos": "img/nudibranqio.jpg"
+  "Peixes":                  "img/peixe.jpg",
+  "Aves":                    "img/aves.jpg",
+  "Invertebrados terrestres":"img/borboleta.jpg",
+  "Algas":                   "img/alga.jpg",
+  "Baleias e golfinhos":     "img/golfinhos.jpg",
+  "Anfíbios e Répteis":      "img/repteis.jpg",
+  "Fungos macroscópicos":    "img/fungos.jpeg",
+  "Répteis marinhos":        "img/repteismarinhos.jpg",
+  "Flora terrestre":         "img/planta.jpg",
+  "Invertebrados marinhos":  "img/nudibranquio.jpg"
 };
-  
-// ─── LOADING UI ───────────────────────────────────────────────
-let ALL = [], _loaded = false;
 
+// ═══════════════ LOADING ═══════════════
+let ALL=[], _loaded=false;
 function showLoading(msg){
   let el=document.getElementById('_ld');
   if(!el){el=document.createElement('div');el.id='_ld';
@@ -633,12 +565,11 @@ function showLoading(msg){
 function hideLoading(){const el=document.getElementById('_ld');if(el)el.style.display='none';}
 function showToast(msg,err){
   const el=document.createElement('div');
-  el.style.cssText=`position:fixed;bottom:20px;right:20px;background:${err?'#b91c1c':'#2e7d5e'};color:#fff;font-family:DM Sans,sans-serif;font-size:.8rem;padding:11px 18px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:9999;max-width:360px;line-height:1.5;animation:fi .2s ease`;
-  el.textContent=msg; document.body.appendChild(el);
-  setTimeout(()=>el.remove(),5000);
+  el.style.cssText=`position:fixed;bottom:20px;right:20px;background:${err?'#b91c1c':'#2e7d5e'};color:#fff;font-family:DM Sans,sans-serif;font-size:.8rem;padding:11px 18px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:9999;max-width:360px;line-height:1.5`;
+  el.textContent=msg;document.body.appendChild(el);setTimeout(()=>el.remove(),5000);
 }
 
-// ─── NORMALIZE ────────────────────────────────────────────────
+// ═══════════════ NORMALIZE ═══════════════
 function trim(v){return v===null||v===undefined?'':String(v).trim();}
 function toBin(v){
   if(v===1||v==='1'||v===true||v==='TRUE'||v==='true'||v==='Sim'||v==='sim')return 1;
@@ -646,58 +577,47 @@ function toBin(v){
 }
 function normalizeRow(r){
   return{
-    id:               r['id']                          || '',
-    grande_grupo:     trim(r['grande_grupo']           || ''),
-    grupo:            trim(r['grande_grupo_II']        || ''),
-    grupo_especifico: trim(r['grupo_especifico_popular']|| r['grupo_popular'] || ''),
-    nome_popular:     trim(r['nome_popular']           || ''),
-    filo:             trim(r['filo/divisao']           || ''),
-    classe:           trim(r['classe']                 || ''),
-    ordem:            trim(r['ordem']                  || ''),
-    familia:          trim(r['familia']                || ''),
-    especie:          trim(r['MenorNivelTax_Formatado']|| ''),
+    id:               trim(r['id']||''),
+    grande_grupo:     trim(r['grande_grupo']||''),
+    grupo:            trim(r['grande_grupo_II']||''),
+    grupo_especifico: trim(r['grupo_especifico_popular']||r['grupo_popular']||''),
+    nome_popular:     trim(r['nome_popular']||''),
+    filo:             trim(r['filo/divisao']||''),
+    classe:           trim(r['classe']||''),
+    ordem:            trim(r['ordem']||''),
+    familia:          trim(r['familia']||''),
+    especie:          trim(r['MenorNivelTax_Formatado']||''),
     endemica:         toBin(r['endemica']),
     alcatrazes:       toBin(r['Alcatrazes']),
     palmas:           toBin(r['Palmas']),
     cabras:           toBin(r['Cabras']),
-    iucn:             trim(r['IUCN']                   || ''),
-    mma:              trim(r['MMA']                    || ''),
-    sp:               trim(r['SP']                     || ''),
-    exotica:          trim(r['exoticas_invasoras']      || r['exoticas'] || ''),
-    interesse_comercial: trim(r['interesse_comercial'] || ''),
+    iucn:             trim(r['IUCN']||''),
+    mma:              trim(r['MMA']||''),
+    sp:               trim(r['SP']||''),
+    exotica:          trim(r['exoticas_invasoras']||r['exoticas']||''),
+    interesse_comercial: trim(r['interesse_comercial']||''),
   };
 }
+// Colaboradores — colunas exatas do sheet:
+// Timestamp, Nome_completo, email, Vinculo, Especialidade, Grupo,
+// Lattes/orcid/site, Contribuicao_desejada, Status, Ultima_contribuicao, ID, Equipe
 function normalizeColab(r){
   return{
-    nome:         trim(r['Nome']              || ''),
-    grupo:        trim(r['Grupo']             || ''),
-    especialidade:trim(r['Especialidades']    || r['Especialidade'] || ''),
-    vinculo:      trim(r['Vínculo']           || r['Vinculo'] || ''),
-    email:        trim(r['email']             || ''),
-    equipe:       trim(r['equipe']            || ''),
-    lattes:       trim(r['Lattes / ORCID / Site'] || ''),
-    contribuir:   trim(r['Como deseja contribuir'] || r['Como deseja contribuir?'] || ''),
-    id:           trim(r['ID_colaborador']    || ''),
+    nome:         trim(r['Nome_completo']       ||r['Nome']||''),
+    email:        trim(r['email']               ||''),
+    vinculo:      trim(r['Vinculo']             ||r['Vínculo']||''),
+    especialidade:trim(r['Especialidade']       ||r['Especialidades']||''),
+    grupo:        trim(r['Grupo']               ||''),
+    lattes:       trim(r['Lattes/orcid/site']   ||r['Lattes / ORCID / Site']||''),
+    contribuicao: trim(r['Contribuicao_desejada']||r['Como deseja contribuir']||''),
+    status:       trim(r['Status']              ||''),
+    equipe:       trim(r['Equipe']              ||r['equipe']||''),
+    id:           trim(r['ID']                  ||r['ID_colaborador']||''),
+    ultima_contrib:trim(r['Ultima_contribuicao']||''),
   };
 }
 
-  // ─── NORMALIZA COLABORADORES ─────────────────────────────
-
-function normalizeColab(c){
-  return{
-    nome: c['Nome'] || '',
-    grupo: c['Grupo'] || '',
-    especialidade: c['Especialidades'] || '',
-    vinculo: c['Vínculo'] || '',
-    email: c['email'] || '',
-    equipe: c['equipe'] || '',
-    links: c['Lattes / ORCID / Site'] || '',
-    contribuicao: c['Como deseja contribuir'] || '',
-    status: c['Status'] || ''
-  };
-}
-  
-  // ─── FETCH DATA ───────────────────────────────────────────────
+// ═══════════════ FETCH ═══════════════
 async function loadData(force=false){
   if(_loaded&&!force)return;
   showLoading('Conectando ao Google Sheets…');
@@ -706,7 +626,7 @@ async function loadData(force=false){
     if(!res.ok)throw new Error('HTTP '+res.status);
     const json=await res.json();
     if(json.error)throw new Error(json.error);
-    if(!Array.isArray(json.data)||!json.data.length)throw new Error('Dados não encontrados');
+    if(!Array.isArray(json.data)||!json.data.length)throw new Error('Planilha vazia ou sem acesso');
     ALL=json.data.map(normalizeRow);
     _loaded=true;
     hideLoading();
@@ -716,9 +636,7 @@ async function loadData(force=false){
     applyAll();
     if(document.getElementById('page-lista').classList.contains('active')){buildListaSidebar();applyLista();}
   }catch(e){
-    hideLoading();
-    showToast('Erro ao carregar dados: '+e.message,true);
-    ALL=[];applyAll();
+    hideLoading();showToast('Erro ao carregar: '+e.message,true);ALL=[];applyAll();
   }
 }
 
@@ -732,27 +650,20 @@ async function loadColabData(){
   }catch(e){console.warn('loadColabData:',e);return[];}
 }
 
-// ─── POST para o Sheets com todos os campos descritivos ───────
-async function postToSheet(action, data){
+async function postToSheet(action,data){
   try{
-    // Normalização NFC para evitar incompatibilidade de acentos no Sheets
-    const payload = {action, timestamp: new Date().toISOString()};
-    for(const [key, val] of Object.entries(data)){
-      const k = typeof key==='string' ? key.normalize('NFC') : key;
-      const v = typeof val==='string' ? val.normalize('NFC') : val;
-      payload[k] = v;
+    const payload={action,timestamp:new Date().toISOString()};
+    for(const [k,v] of Object.entries(data)){
+      payload[typeof k==='string'?k.normalize('NFC'):k]=typeof v==='string'?v.normalize('NFC'):v;
     }
-    const res=await fetch(SCRIPT_URL,{method:'POST',
-      headers:{'Content-Type':'text/plain'},
-      body:JSON.stringify(payload)});
-    const j=await res.json();
-    return j.success!==false;
-  }catch(e){console.error('postToSheet:',e);return false;}
+    const res=await fetch(SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
+    const j=await res.json();return j.success!==false;
+  }catch(e){console.error(e);return false;}
 }
 
 setInterval(()=>loadData(true),5*60*1000);
 
-// ─── NAV ──────────────────────────────────────────────────────
+// ═══════════════ NAV ═══════════════
 function goPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
@@ -763,14 +674,12 @@ function goPage(id){
   if(id==='contribuir')setTimeout(()=>buildColabPage(),60);
   if(id==='overview')applyAll();
 }
-
 document.addEventListener('click',e=>{if(!e.target.closest('.ms-wrap'))closeAllDrops();});
 
-// ─── MULTI-SELECT DROPDOWNS ───────────────────────────────────
+// ═══════════════ FILTERS ═══════════════
 const SEL={grupo:new Set(),sub:new Set(),thr:new Set(),esp:new Set()};
 let activeThrLists=new Set(['sp']),activeThrListsL=new Set(['sp']),activeTMsub=null;
-let ovFiltered=[],listFiltered=[];
-let charts={};
+let ovFiltered=[],listFiltered=[],charts={};
 const CHUNK=60;let ltRendered=0,sortCol='',sortDir=1;
 
 function toggleDrop(id){
@@ -798,21 +707,15 @@ function clearDrop(wrapId,key){
 function refreshSubDrop(){
   const grupos=SEL.grupo.size?[...SEL.grupo]:null;
   const subs=[...new Set(ALL.filter(r=>!grupos||grupos.includes(r.grande_grupo)).map(r=>r.grupo))].filter(Boolean).sort();
-  const c=document.getElementById('sub-opts');
-  if(!c)return;
+  const c=document.getElementById('sub-opts');if(!c)return;
   c.innerHTML=subs.map(s=>{const sel=SEL.sub.has(s);return`<div class="ms-opt${sel?' sel':''}" onclick="toggleOpt(this,'sub','${s.replace(/'/g,"\\'")}')"><div class="ck">${sel?'✓':''}</div>${s}</div>`;}).join('')+`<div class="ms-clr" onclick="clearDrop('ms-sub','sub')">↺ Limpar</div>`;
   document.querySelector('#ms-sub .ms-btn').classList.toggle('has-sel',SEL.sub.size>0);
 }
 function toggleThr(el){const t=el.dataset.thr;el.classList.toggle('on');activeThrLists[el.classList.contains('on')?'add':'delete'](t);applyAll();}
 function toggleThrL(el){const t=el.dataset.thr;el.classList.toggle('on');activeThrListsL[el.classList.contains('on')?'add':'delete'](t);applyLista();}
 
-// ─── FILTER LOGIC ─────────────────────────────────────────────
 const THR_ORDER=['CR','EN','VU','NT','LC','DD'];
-function getThreatVal(r,lists){
-  let best='';
-  for(const l of lists){const v=r[l];if(v&&(!best||THR_ORDER.indexOf(v)<THR_ORDER.indexOf(best)))best=v;}
-  return best;
-}
+function getThreatVal(r,lists){let best='';for(const l of lists){const v=r[l];if(v&&(!best||THR_ORDER.indexOf(v)<THR_ORDER.indexOf(best)))best=v;}return best;}
 
 function filterData(){
   const search=(document.getElementById('f-search')?.value||'').toLowerCase();
@@ -831,25 +734,18 @@ function filterData(){
   });
 }
 
-function applyAll(){
-  refreshSubDrop();
-  ovFiltered=filterData();
-  updateTopBar();
-  requestAnimationFrame(buildTreemap);
-  updateStats();
-}
+function applyAll(){refreshSubDrop();ovFiltered=filterData();updateTopBar();requestAnimationFrame(buildTreemap);updateStats();}
 function resetAll(){
   ['grupo','sub','thr','esp'].forEach(k=>SEL[k].clear());
   document.querySelectorAll('.ms-opt').forEach(o=>{o.classList.remove('sel');o.querySelector('.ck').textContent='';});
   document.querySelectorAll('.ms-btn').forEach(b=>b.classList.remove('has-sel'));
   document.querySelectorAll('#page-overview .thr-pill').forEach(p=>p.classList.toggle('on',p.dataset.thr==='sp'));
   activeThrLists=new Set(['sp']);activeTMsub=null;
-  document.getElementById('f-search').value='';
-  applyAll();
+  document.getElementById('f-search').value='';applyAll();
 }
 window.addEventListener('resize',()=>{if(document.getElementById('page-overview').classList.contains('active'))requestAnimationFrame(buildTreemap);});
 
-// ─── TOP BAR ──────────────────────────────────────────────────
+// ═══════════════ TOP BAR ═══════════════
 function updateTopBar(){
   const f=ovFiltered;
   document.getElementById('kpi-tot').textContent=f.length.toLocaleString('pt-BR');
@@ -881,39 +777,36 @@ function clickGrupo(g){
   applyAll();
 }
 
-// ─── TREEMAP ──────────────────────────────────────────────────
+// ═══════════════ TREEMAP ═══════════════
 const GG_OF={};
 function buildTreemap(){
   if(!ALL.length)return;
   ALL.forEach(r=>{if(r.grupo&&r.grande_grupo)GG_OF[r.grupo]=r.grande_grupo;});
-  const cnts={};
-  ovFiltered.forEach(r=>{if(r.grupo)cnts[r.grupo]=(cnts[r.grupo]||0)+1;});
+  const cnts={};ovFiltered.forEach(r=>{if(r.grupo)cnts[r.grupo]=(cnts[r.grupo]||0)+1;});
   const entries=Object.entries(cnts).sort((a,b)=>b[1]-a[1]);
   if(!entries.length){document.getElementById('tm-grid').innerHTML='';return;}
   const total=entries.reduce((s,[,v])=>s+v,0)||1;
   const STRIPE={Fauna:'#c97a15',Flora:'#2e7d5e',Fungos:'#6d28d9'};
   const BGCOL={Fauna:'rgba(201,122,21,.85)',Flora:'rgba(46,125,94,.85)',Fungos:'rgba(109,40,217,.85)'};
   const grid=document.getElementById('tm-grid');
-  const W=grid.clientWidth||800, H=370;
+  const W=grid.clientWidth||800,H=370;
   grid.style.height=H+'px';
   const items=entries.map(([name,cnt])=>({name,cnt,value:cnt/total}));
   const rects=squarify(items,{x:0,y:0,w:W,h:H});
   const pad=3;
   grid.innerHTML=rects.map(({item,x,y,w,h})=>{
-    const {name,cnt}=item;
+    const{name,cnt}=item;
     const gg=GG_OF[name]||'';
-    const sc=STRIPE[gg]||'#888';
-    const bg=BGCOL[gg]||'rgba(100,100,100,.8)';
+    const sc=STRIPE[gg]||'#888',bg=BGCOL[gg]||'rgba(100,100,100,.8)';
     const sel=activeTMsub===name?' sel-cell':'';
-    const svgStr=SVGS[name]||'';
+    const imgSrc=SVGS[name]||'';
     const rx=Math.min(7,Math.min(w,h)*0.06);
     const nSize=Math.min(22,Math.max(9,Math.min(w,h)*0.2));
     const lSize=Math.min(12,Math.max(7,Math.min(w,h)*0.1));
-    const cx=x+pad, cy=y+pad, cw=w-pad*2, ch=h-pad*2;
-    if(cw<10||ch<10)return '';
-    return `<div class="tm-cell${sel}" style="left:${cx}px;top:${cy}px;width:${cw}px;height:${ch}px;border-radius:${rx}px;background:${bg}"
-      onclick="clickTM('${name.replace(/'/g,"\\'")}')" title="${name}: ${cnt}">
-      ${svgStr ? `<div class="tm-svg-wrap"><img src="${svgStr}" class="tm-img" alt="${name}"></div>` : ''}
+    const cx=x+pad,cy=y+pad,cw=w-pad*2,ch=h-pad*2;
+    if(cw<10||ch<10)return'';
+    return`<div class="tm-cell${sel}" style="left:${cx}px;top:${cy}px;width:${cw}px;height:${ch}px;border-radius:${rx}px;background:${bg}" onclick="clickTM('${name.replace(/'/g,"\\'")}')" title="${name}: ${cnt}">
+      ${imgSrc?`<div class="tm-svg-wrap"><img src="${imgSrc}" class="tm-img" alt="${name}" loading="lazy" onerror="this.parentElement.remove()"/></div>`:''}
       <div class="tm-stripe" style="background:${sc}"></div>
       <div class="tm-ovl">
         ${ch>44?`<div class="tm-n" style="font-size:${nSize}px">${cnt.toLocaleString('pt-BR')}</div>`:''}
@@ -924,18 +817,16 @@ function buildTreemap(){
 }
 function clickTM(name){activeTMsub=activeTMsub===name?null:name;applyAll();}
 
-// Squarify
 function squarify(items,rect){const out=[];_sq(items,rect.x,rect.y,rect.w,rect.h,out);return out;}
 function _sq(items,x,y,w,h,out){
   if(!items.length)return;
   if(items.length===1){out.push({item:items[0],x,y,w,h});return;}
   const total=items.reduce((s,i)=>s+i.value,0);
-  let best=-1,bestW=Infinity,rowSum=0;
-  const sh=Math.min(w,h);
+  let best=-1,bestW=Infinity,rowSum=0;const sh=Math.min(w,h);
   for(let i=0;i<items.length;i++){
     rowSum+=items[i].value;
     const rowLen=(w>=h)?w*(rowSum/total):h*(rowSum/total);
-    let worst=0;let rs=0;
+    let worst=0,rs=0;
     for(let j=0;j<=i;j++){rs+=items[j].value;const side=sh*(items[j].value/rowSum);const r=Math.max(rowLen/side,side/rowLen)||Infinity;if(r>worst)worst=r;}
     if(worst<bestW){bestW=worst;best=i;}else if(worst>bestW*1.05)break;
   }
@@ -944,22 +835,20 @@ function _sq(items,x,y,w,h,out){
   if(w>=h){
     const rw=w*(rowVal/total);let cy=y;
     row.forEach(it=>{const ch=h*(it.value/rowVal);out.push({item:it,x,y:cy,w:rw,h:ch});cy+=ch;});
-    if(rest.length){_sq(rest.map(i=>({...i,value:i.value})),x+rw,y,w-rw,h,out);}
+    if(rest.length)_sq(rest.map(i=>({...i})),x+rw,y,w-rw,h,out);
   }else{
     const rh=h*(rowVal/total);let cx=x;
     row.forEach(it=>{const cw=w*(it.value/rowVal);out.push({item:it,x:cx,y,w:cw,h:rh});cx+=cw;});
-    if(rest.length)_sq(rest.map(i=>({...i,value:i.value})),x,y+rh,w,h-rh,out);
+    if(rest.length)_sq(rest.map(i=>({...i})),x,y+rh,w,h-rh,out);
   }
 }
 
-// ─── STATS ────────────────────────────────────────────────────
+// ═══════════════ STATS ═══════════════
 const THR_COLORS={CR:'var(--cr)',EN:'var(--en)',VU:'var(--vu)',NT:'var(--nt)',LC:'var(--lc)',DD:'var(--dd)'};
 const IUCN_BG={CR:'#b91c1c',EN:'#c2410c',VU:'#b45309',NT:'#4d7c0f',LC:'#15803d',DD:'#475569'};
 const IUCN_DESC={CR:'Criticamente em Perigo',EN:'Em Perigo',VU:'Vulnerável',NT:'Quase Ameaçada',LC:'Pouco Preocupante',DD:'Dados Insuficientes'};
-
 function updateStats(){
-  const f=ovFiltered;
-  const thrL=[...activeThrLists];
+  const f=ovFiltered,thrL=[...activeThrLists];
   document.getElementById('iucn-bar-title').textContent='Ameaça: '+(thrL.length?thrL.join('+'):'—');
   const cnts={};THR_ORDER.forEach(k=>cnts[k]=0);
   f.forEach(r=>{const v=getThreatVal(r,thrL.length?thrL:['iucn','mma','sp']);if(cnts[v]!==undefined)cnts[v]++;});
@@ -971,29 +860,19 @@ function updateStats(){
   const nativa=f.filter(r=>!r.exotica).length,invasora=f.filter(r=>r.exotica==='Exótica Invasora').length,naoNat=f.filter(r=>r.exotica&&r.exotica!=='Exótica Invasora').length;
   if(charts['exo'])charts['exo'].destroy();
   charts['exo']=new Chart(document.getElementById('ch-exo'),{type:'doughnut',
-    data:{labels:['Nativas','Invasoras','Não Nativas'],datasets:[{data:[nativa,invasora,naoNat],
-      backgroundColor:['rgba(46,125,94,.75)','rgba(185,28,28,.75)','rgba(201,122,21,.75)'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},
-    options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
-      plugins:{legend:{position:'right',labels:{color:'#475569',font:{family:'DM Sans',size:10},boxWidth:9,padding:5}}}}});
+    data:{labels:['Nativas','Invasoras','Não Nativas'],datasets:[{data:[nativa,invasora,naoNat],backgroundColor:['rgba(46,125,94,.75)','rgba(185,28,28,.75)','rgba(201,122,21,.75)'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'right',labels:{color:'#475569',font:{family:'DM Sans',size:10},boxWidth:9,padding:5}}}}});
 }
 
-// ─── LISTA PAGE ───────────────────────────────────────────────
+// ═══════════════ LISTA ═══════════════
 const ALL_COLS=[
-  {k:'grande_grupo',l:'Grande Grupo',def:true},
-  {k:'grupo',l:'Subgrupo',def:true},
-  {k:'grupo_especifico',l:'Grupo Específico',def:false},
-  {k:'nome_popular',l:'Nome Popular',def:true},
-  {k:'especie',l:'Espécie',def:true},
-  {k:'filo',l:'Filo / Divisão',def:false},
-  {k:'classe',l:'Classe',def:false},
-  {k:'ordem',l:'Ordem',def:false},
-  {k:'familia',l:'Família',def:true},
-  {k:'ilhas',l:'Ilhas',def:true},
-  {k:'iucn',l:'IUCN',def:true},
-  {k:'mma',l:'MMA',def:true},
-  {k:'sp',l:'SP',def:true},
-  {k:'exotica',l:'Exótica',def:true},
-  {k:'endemica',l:'Endêmica',def:true},
+  {k:'grande_grupo',l:'Grande Grupo',def:true},{k:'grupo',l:'Subgrupo',def:true},
+  {k:'grupo_especifico',l:'Grupo Específico',def:false},{k:'nome_popular',l:'Nome Popular',def:true},
+  {k:'especie',l:'Espécie',def:true},{k:'filo',l:'Filo / Divisão',def:false},
+  {k:'classe',l:'Classe',def:false},{k:'ordem',l:'Ordem',def:false},
+  {k:'familia',l:'Família',def:true},{k:'ilhas',l:'Ilhas',def:true},
+  {k:'iucn',l:'IUCN',def:true},{k:'mma',l:'MMA',def:true},{k:'sp',l:'SP',def:true},
+  {k:'exotica',l:'Exótica',def:true},{k:'endemica',l:'Endêmica',def:true},
 ];
 let visibleCols=new Set(ALL_COLS.filter(c=>c.def).map(c=>c.k));
 let selectedSpecies=new Set();
@@ -1005,12 +884,9 @@ function buildListaSidebar(){
   const gesps=[...new Set(ALL.map(r=>r.grupo_especifico))].filter(Boolean).sort();
   document.getElementById('lf-gesp').innerHTML=gesps.map(g=>`<label class="lf-ck"><input type="checkbox" value="${g}" onchange="applyLista()"/><span>${g}</span></label>`).join('');
   document.getElementById('lf-thr').innerHTML=THR_ORDER.map(k=>`<label class="lf-ck"><input type="checkbox" value="${k}" onchange="applyLista()"/><span>${k}</span></label>`).join('');
-  buildSpList('');
-  buildColToggle();
+  buildSpList('');buildColToggle();
 }
-function buildColToggle(){
-  document.getElementById('col-tog').innerHTML=ALL_COLS.map(c=>`<div class="col-chip${visibleCols.has(c.k)?' on':''}" onclick="toggleCol('${c.k}',this)">${c.l}</div>`).join('');
-}
+function buildColToggle(){document.getElementById('col-tog').innerHTML=ALL_COLS.map(c=>`<div class="col-chip${visibleCols.has(c.k)?' on':''}" onclick="toggleCol('${c.k}',this)">${c.l}</div>`).join('');}
 function toggleCol(k,el){el.classList.toggle('on');if(visibleCols.has(k))visibleCols.delete(k);else visibleCols.add(k);buildListaHeader();ltRendered=0;document.getElementById('lt-body').innerHTML='';renderMoreRows();}
 function buildSpList(q){
   const sp=[...new Set(ALL.map(r=>r.especie))].filter(s=>s&&(!q||s.toLowerCase().includes(q.toLowerCase()))).sort().slice(0,200);
@@ -1050,8 +926,7 @@ function applyLista(){
   });
   if(sortCol){listFiltered.sort((a,b)=>String(a[sortCol]||'').localeCompare(String(b[sortCol]||''),'pt')*sortDir);}
   document.getElementById('lt-count').textContent=`${listFiltered.length.toLocaleString('pt-BR')} registros`;
-  ltRendered=0;document.getElementById('lt-body').innerHTML='';
-  buildListaHeader();renderMoreRows();
+  ltRendered=0;document.getElementById('lt-body').innerHTML='';buildListaHeader();renderMoreRows();
 }
 function resetLista(){
   ['lf-search','lf-familia','lf-genero','lf-nompop','sp-search-q'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
@@ -1064,7 +939,7 @@ function buildListaHeader(){
   document.getElementById('lista-thead-row').innerHTML=cols.map(c=>`<th onclick="sortBy('${c.k}')" class="${sortCol===c.k?(sortDir===1?'sort-asc':'sort-desc'):''}">${c.l}</th>`).join('');
 }
 function sortBy(k){if(sortCol===k)sortDir*=-1;else{sortCol=k;sortDir=1;}applyLista();}
-function badgeThr(v){if(!v||v==='nan'||v==='None')return'—';const cl=v.toLowerCase();return`<span class="badge b-${cl}">${v}</span>`;}
+function badgeThr(v){if(!v||v==='nan'||v==='None')return'—';return`<span class="badge b-${v.toLowerCase()}">${v}</span>`;}
 function badgeExo(v){if(!v||v==='nan')return'—';return v.includes('Invasora')?`<span class="badge b-inv">Invasora</span>`:`<span class="badge b-nn">Não Nativa</span>`;}
 function idots(r){let d='';if(r.alcatrazes)d+=`<span class="i-dot i-alc" title="Alcatrazes"></span>`;if(r.palmas)d+=`<span class="i-dot i-pal" title="Palmas"></span>`;if(r.cabras)d+=`<span class="i-dot i-cab" title="Cabras"></span>`;return d||'—';}
 function cellVal(r,k){
@@ -1084,170 +959,81 @@ function renderMoreRows(){
   ltRendered+=slice.length;
 }
 const obs=new IntersectionObserver(es=>{if(es[0].isIntersecting&&ltRendered<listFiltered.length)renderMoreRows();},{rootMargin:'200px'});
-
 function downloadCSV(){
   const cols=ALL_COLS.filter(c=>visibleCols.has(c.k));
   const header=cols.map(c=>c.l).join(',');
-  const rows=listFiltered.map(r=>cols.map(c=>{let v=r[c.k];if(c.k==='alcatrazes'||c.k==='palmas'||c.k==='cabras'||c.k==='endemica')v=v?'Sim':'';v=String(v||'');return v.includes(',')||v.includes('"')?`"${v.replace(/"/g,'""')}"`:v;}).join(','));
+  const rows=listFiltered.map(r=>cols.map(c=>{let v=r[c.k];if(['alcatrazes','palmas','cabras','endemica'].includes(c.k))v=v?'Sim':'';v=String(v||'');return v.includes(',')||v.includes('"')?`"${v.replace(/"/g,'""')}"`:v;}).join(','));
   const csv='\uFEFF'+[header,...rows].join('\n');
   const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='especies_alcatrazes.csv';a.click();
 }
 
-// ─── COLABORADORES: rede com eixo central ICMBio ──────────────
-// Busca dados REAIS do Sheets; sem dados inventados
-let netAnim=null, colabData=[];
+// ═══════════════ COLABORADORES — cards + charts ═══════════════
+const COLAB_COLORS=['#2e7d5e','#1565c0','#c62828','#6a1b9a','#e65100','#2e7d32','#ad1457','#00838f','#bf360c','#558b2f','#00695c','#283593'];
 
 async function buildColabPage(){
-  showLoading('Carregando colaboradores…');
-  colabData=await loadColabData();
-  hideLoading();
+  document.getElementById('colab-card-grid').innerHTML='<div class="colab-empty">Carregando…</div>';
+  const data=await loadColabData();
 
-  const canvas=document.getElementById('net-canvas');
-  if(!canvas)return;
-  const dpr=window.devicePixelRatio||1;
-  const W=canvas.parentElement.clientWidth-32;
-  const H=380;
-  canvas.style.width=W+'px';canvas.style.height=H+'px';
-  canvas.width=W*dpr;canvas.height=H*dpr;
-  const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
+  // ── Stats bar ──
+  const vincs=[...new Set(data.map(c=>c.vinculo).filter(Boolean))];
+  const specs=[...new Set(data.flatMap(c=>c.especialidade.split(/[,;]/).map(s=>s.trim()).filter(Boolean)))];
+  document.getElementById('colab-stats-bar').innerHTML=[
+    {val:data.length,lbl:'Colaboradores'},
+    {val:vincs.length,lbl:'Instituições'},
+    {val:specs.length,lbl:'Especialidades'},
+  ].map(s=>`<div class="colab-stat"><div class="csv">${s.val}</div><div class="csl">${s.lbl}</div></div>`).join('');
 
-  // Agrupa por instituição a partir dos dados reais
-  const instMap={};
-  colabData.forEach(c=>{
-    const inst=c.vinculo||c.equipe||'Independente';
-    if(!instMap[inst])instMap[inst]={name:inst,count:0,specs:new Set()};
-    instMap[inst].count++;
-    if(c.especialidade)c.especialidade.split(/[,;]/).forEach(s=>{const st=s.trim();if(st)instMap[inst].specs.add(st);});
-  });
-
-  // Agrupa especialidades reais (de todos os colaboradores)
-  const specMap={};
-  colabData.forEach(c=>{
-    if(c.especialidade)c.especialidade.split(/[,;]/).forEach(s=>{
-      const st=s.trim();if(st)specMap[st]=(specMap[st]||0)+1;
-    });
-  });
-
-  const insts=Object.values(instMap).sort((a,b)=>b.count-a.count);
-  const specs=Object.entries(specMap).sort((a,b)=>b[1]-a[1]).slice(0,8);
-  const maxCount=Math.max(...insts.map(i=>i.count),1);
-  const cx=W/2, cy=H/2;
-
-  const INST_COLORS=['#1565c0','#00838f','#4a148c','#e65100','#2e7d32','#ad1457','#558b2f','#00695c','#bf360c'];
-  const SPEC_COLORS=['#c97a15','#b45309','#92400e','#78350f','#a16207','#854d0e','#7c2d12','#6b21a8'];
-
-  // Nós: instituições em arco superior, especialidades em arco inferior
-  const instNodes=insts.map((inst,i)=>{
-    const total=insts.length||1;
-    const angle=Math.PI*(0.1+0.8*(i/(total>1?total-1:1)))+Math.PI; // arco superior (180°–360°)
-    const R=Math.min(W,H)*0.36;
-    const r=12+Math.round((inst.count/maxCount)*20);
-    return{type:'inst',label:inst.name,count:inst.count,cx:cx+Math.cos(angle)*R,cy:cy+Math.sin(angle)*R,r,color:INST_COLORS[i%INST_COLORS.length]};
-  });
-
-  const specNodes=specs.map(([name,cnt],i)=>{
-    const total=specs.length||1;
-    const angle=Math.PI*(0.1+0.8*(i/(total>1?total-1:1))); // arco inferior (0°–180°)
-    const R=Math.min(W,H)*0.32;
-    return{type:'spec',label:name,count:cnt,cx:cx+Math.cos(angle)*R,cy:cy+Math.sin(angle)*R,r:9,color:SPEC_COLORS[i%SPEC_COLORS.length]};
-  });
-
-  const t_ref={val:0};
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-
-    // Linhas: ICMBio → instituições
-    instNodes.forEach(n=>{
-      ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(n.cx,n.cy);
-      ctx.strokeStyle='rgba(21,101,192,.22)';ctx.lineWidth=1.5*(n.count/maxCount)+0.5;ctx.stroke();
-    });
-    // Linhas: ICMBio → especialidades
-    specNodes.forEach(n=>{
-      ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(n.cx,n.cy);
-      ctx.strokeStyle='rgba(201,122,21,.18)';ctx.lineWidth=1;ctx.stroke();
-    });
-
-    // Nós de instituição
-    instNodes.forEach(n=>{
-      ctx.beginPath();ctx.arc(n.cx,n.cy,n.r,0,Math.PI*2);
-      ctx.fillStyle=n.color+'cc';ctx.fill();
-      ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
-      // Contagem
-      ctx.font=`bold ${Math.max(7,n.r*0.55)}px DM Sans`;
-      ctx.fillStyle='#fff';ctx.textAlign='center';
-      ctx.fillText(n.count,n.cx,n.cy+n.r+12);
-      // Nome — quebra em 2 linhas se necessário
-      const words=n.label.split(' ');
-      const lines=[];let cur='';
-      words.forEach(w=>{if((cur+' '+w).trim().length>12&&cur){lines.push(cur.trim());cur=w;}else cur=(cur+' '+w).trim();});
-      if(cur)lines.push(cur);
-      ctx.font=`500 ${Math.max(7,Math.min(9,n.r*0.55))}px DM Sans`;
-      ctx.fillStyle='#fff';
-      const fs=Math.max(7,Math.min(9,n.r*0.55));
-      lines.forEach((l,li)=>ctx.fillText(l,n.cx,n.cy+(li-(lines.length-1)/2)*fs*1.25+fs*0.38));
-    });
-
-    // Nós de especialidade
-    specNodes.forEach(n=>{
-      ctx.beginPath();ctx.arc(n.cx,n.cy,n.r,0,Math.PI*2);
-      ctx.fillStyle=n.color+'bb';ctx.fill();
-      ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();
-      ctx.font='500 7px DM Sans';ctx.fillStyle=n.color;ctx.textAlign='center';
-      ctx.fillText(n.label,n.cx,n.cy+n.r+10);
-    });
-
-    // Nó central ICMBio — pulsa suavemente
-    const pulse=2.5*Math.sin(t_ref.val*0.05);
-    ctx.beginPath();ctx.arc(cx,cy,38+pulse,0,Math.PI*2);
-    ctx.fillStyle='rgba(46,125,94,.12)';ctx.fill();
-    ctx.beginPath();ctx.arc(cx,cy,36,0,Math.PI*2);
-    ctx.fillStyle='#2e7d5e';ctx.fill();
-    ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.stroke();
-    ctx.fillStyle='#fff';ctx.textAlign='center';
-    ctx.font='bold 8.5px DM Sans';ctx.fillText('ICMBio',cx,cy-5);
-    ctx.font='500 7.5px DM Sans';ctx.fillText('Alcatrazes',cx,cy+7);
-
-    // Legenda
-    if(instNodes.length){
-      ctx.font='500 8px DM Sans';ctx.fillStyle='rgba(46,125,94,.7)';ctx.textAlign='left';
-      ctx.fillText('● Instituições',8,14);
-    }
-    if(specNodes.length){
-      ctx.font='500 8px DM Sans';ctx.fillStyle='rgba(201,122,21,.7)';
-      ctx.fillText('● Especialidades',8,26);
-    }
-    if(!colabData.length){
-      ctx.font='500 11px DM Sans';ctx.fillStyle='rgba(148,163,184,.8)';ctx.textAlign='center';
-      ctx.fillText('Sem dados de colaboradores na planilha',cx,cy+60);
-    }
-
-    t_ref.val++;
-    netAnim=requestAnimationFrame(draw);
+  // ── Cards ──
+  if(!data.length){
+    document.getElementById('colab-card-grid').innerHTML='<div class="colab-empty">Nenhum colaborador encontrado na planilha.<br><small>Verifique se a aba "Colaboradores" existe e tem dados.</small></div>';
+  }else{
+    document.getElementById('colab-card-grid').innerHTML=data.map(c=>{
+      const specs=c.especialidade.split(/[,;]/).map(s=>s.trim()).filter(Boolean);
+      const grupos=c.grupo.split(/[,;]/).map(s=>s.trim()).filter(Boolean);
+      const hasLink=c.lattes&&c.lattes.startsWith('http');
+      return`<div class="colab-card">
+        <div class="colab-card-name">${hasLink?`<a href="${c.lattes}" target="_blank" style="color:inherit;text-decoration:none" title="Lattes/ORCID">${c.nome} 🔗</a>`:c.nome||'—'}</div>
+        <div class="colab-card-inst">${c.vinculo||c.equipe||'—'}</div>
+        <div class="colab-card-tags">
+          ${grupos.map(g=>`<span class="colab-tag grupo">${g}</span>`).join('')}
+          ${specs.map(s=>`<span class="colab-tag spec">${s}</span>`).join('')}
+          ${c.status?`<span class="colab-tag">${c.status}</span>`:''}
+        </div>
+      </div>`;
+    }).join('');
   }
-  if(netAnim)cancelAnimationFrame(netAnim);
-  draw();
 
-  // Gráfico de especialidades
+  // ── Chart: Por Especialidade ──
+  const specMap={};
+  data.forEach(c=>c.especialidade.split(/[,;]/).forEach(s=>{const k=s.trim();if(k)specMap[k]=(specMap[k]||0)+1;}));
+  const specEntries=Object.entries(specMap).sort((a,b)=>b[1]-a[1]).slice(0,10);
   if(charts['spec'])charts['spec'].destroy();
-  if(specs.length){
+  if(specEntries.length){
     charts['spec']=new Chart(document.getElementById('ch-spec'),{
       type:'bar',
-      data:{labels:specs.map(e=>e[0]),datasets:[{label:'Colaboradores',data:specs.map(e=>e[1]),
-        backgroundColor:SPEC_COLORS.slice(0,specs.length),borderRadius:4,borderSkipped:false}]},
-      options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{display:false}},
-        scales:{x:{ticks:{color:'#475569',font:{size:10}},grid:{color:'rgba(0,0,0,.06)'}},
-                y:{ticks:{color:'#1e293b',font:{size:10}},grid:{display:false}}}}
+      data:{labels:specEntries.map(e=>e[0]),datasets:[{data:specEntries.map(e=>e[1]),backgroundColor:COLAB_COLORS.slice(0,specEntries.length),borderRadius:4,borderSkipped:false}]},
+      options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+        scales:{x:{ticks:{color:'#475569',font:{size:10}},grid:{color:'rgba(0,0,0,.06)'}},y:{ticks:{color:'#1e293b',font:{size:10}},grid:{display:false}}}}
     });
   }else{
-    // Fallback se não há dados
-    const ctx2=document.getElementById('ch-spec').getContext('2d');
-    ctx2.font='13px DM Sans';ctx2.fillStyle='#94a3b8';ctx2.textAlign='center';
-    ctx2.fillText('Sem especialidades registradas',document.getElementById('ch-spec').width/2,80);
+    const ctx=document.getElementById('ch-spec');if(ctx){const c2=ctx.getContext('2d');c2.clearRect(0,0,ctx.width,ctx.height);}
+  }
+
+  // ── Chart: Por Grupo Taxonômico ──
+  const grupoMap={};
+  data.forEach(c=>c.grupo.split(/[,;]/).forEach(g=>{const k=g.trim();if(k)grupoMap[k]=(grupoMap[k]||0)+1;}));
+  const grupoEntries=Object.entries(grupoMap).sort((a,b)=>b[1]-a[1]);
+  if(charts['gcolab'])charts['gcolab'].destroy();
+  if(grupoEntries.length){
+    charts['gcolab']=new Chart(document.getElementById('ch-grupo-colab'),{
+      type:'doughnut',
+      data:{labels:grupoEntries.map(e=>e[0]),datasets:[{data:grupoEntries.map(e=>e[1]),backgroundColor:COLAB_COLORS.slice(0,grupoEntries.length),borderWidth:2,borderColor:'#fff',hoverOffset:4}]},
+      options:{responsive:true,maintainAspectRatio:false,cutout:'50%',plugins:{legend:{position:'right',labels:{color:'#475569',font:{family:'DM Sans',size:10},boxWidth:9,padding:5}}}}
+    });
   }
 }
 
-// ─── CONTRIB TAB SWITCHER ─────────────────────────────────────
+// ═══════════════ CONTRIB TABS ═══════════════
 function showCtab(id,btn){
   document.querySelectorAll('.ctab-panel').forEach(p=>p.classList.remove('active-panel'));
   document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('active'));
@@ -1256,149 +1042,91 @@ function showCtab(id,btn){
   if(id==='ct-colab')buildColabPage();
 }
 
-// ─── FORM SUBMISSION — campos descritivos corretamente enviados ─
+// ═══════════════ FORMS ═══════════════
 function okForm(successId){
   const panel=document.querySelector('.ctab-panel.active-panel');
   if(!panel)return;
-
   let data={};
   const actionMap={'ok-reg':'newRecord','ok-col':'newCollaborator','ok-com':'newComment','tx-ok':'newTaxoSuggestion'};
   const action=actionMap[successId]||'genericSubmit';
-
   if(successId==='ok-reg'){
-    // Coleta ilhas selecionadas (botões rb)
-    const ilhasSel=[];
-    document.querySelectorAll('#reg-ilhas .rb.on').forEach(b=>ilhasSel.push(b.textContent.replace('🏝 ','').trim()));
-    data={
-      'Grande Grupo':       document.getElementById('reg-grupo')?.value||'',
-      'Subgrupo':           document.getElementById('reg-subg')?.value||'',
-      'Nome Científico':    document.getElementById('reg-cientifico')?.value||'',
-      'Nome Popular':       document.getElementById('reg-popular')?.value||'',
-      'Família':            document.getElementById('reg-familia')?.value||'',
-      'Ordem':              document.getElementById('reg-ordem')?.value||'',
-      'Ilhas com Registro': ilhasSel.join(', '),
-      'Referência / DOI':   document.getElementById('reg-ref')?.value||'',
-      'Data do Registro':   document.getElementById('reg-data')?.value||'',
-      'Observações':        document.getElementById('reg-obs')?.value||'',
-      'Nome do Contribuidor': document.getElementById('reg-nome')?.value||'',
-      'E-mail':             document.getElementById('reg-email')?.value||'',
-    };
+    const ilhas=[];document.querySelectorAll('#reg-ilhas .rb.on').forEach(b=>ilhas.push(b.textContent.replace('🏝 ','').trim()));
+    data={'Grande Grupo':document.getElementById('reg-grupo')?.value||'','Subgrupo':document.getElementById('reg-subg')?.value||'','Nome Científico':document.getElementById('reg-cientifico')?.value||'','Nome Popular':document.getElementById('reg-popular')?.value||'','Família':document.getElementById('reg-familia')?.value||'','Ordem':document.getElementById('reg-ordem')?.value||'','Ilhas com Registro':ilhas.join(', '),'Referência / DOI':document.getElementById('reg-ref')?.value||'','Data do Registro':document.getElementById('reg-data')?.value||'','Observações':document.getElementById('reg-obs')?.value||'','Nome do Contribuidor':document.getElementById('reg-nome')?.value||'','E-mail':document.getElementById('reg-email')?.value||''};
   }else if(successId==='ok-col'){
-    const grupoInt=document.querySelector('#rb-gi .rb.on')?.textContent?.trim()||'';
-    data={
-      'Nome Completo':              document.getElementById('col-nome')?.value||'',
-      'Nome':                       document.getElementById('col-nome')?.value||'',
-      'E-mail':                     document.getElementById('col-email')?.value||'',
-      'Instituição':                document.getElementById('col-inst')?.value||'',
-      'Vínculo':                    document.getElementById('col-inst')?.value||'',
-      'Especialidade':              document.getElementById('col-espec')?.value||'',
-      'Especialidades':             document.getElementById('col-espec')?.value||'',
-      'Grupos de Interesse':        grupoInt,
-      'Grupo':                      grupoInt,
-      'Lattes / ORCID / Site':     document.getElementById('col-site')?.value||'',
-      'Como deseja contribuir?':    document.getElementById('col-contribuir-desc')?.value||'',
-      'Como deseja contribuir':     document.getElementById('col-contribuir-desc')?.value||'',
-    };
+    const gi=document.querySelector('#rb-gi .rb.on')?.textContent?.trim()||'';
+    data={'Nome_completo':document.getElementById('col-nome')?.value||'','email':document.getElementById('col-email')?.value||'','Vinculo':document.getElementById('col-inst')?.value||'','Especialidade':document.getElementById('col-espec')?.value||'','Grupo':gi,'Lattes/orcid/site':document.getElementById('col-site')?.value||'','Contribuicao_desejada':document.getElementById('col-contribuir-desc')?.value||''};
   }else if(successId==='tx-ok'){
-    const taxTipo=document.querySelector('#tx-tipo .rb.on')?.textContent?.trim()||'';
-    data={
-      'Tipo':                    taxTipo,
-      'Táxon Afetado':           document.getElementById('tax-taxon')?.value||'',
-      'Como está registrado':    document.getElementById('tax-atual')?.value||'',
-      'Como deveria estar':      document.getElementById('tax-sugerido')?.value||'',
-      'Justificativa / Referência': document.getElementById('tax-just')?.value||'',
-      'Nome':                    document.getElementById('tax-nome')?.value||'',
-      'E-mail':                  document.getElementById('tax-email')?.value||'',
-    };
+    const tp=document.querySelector('#tx-tipo .rb.on')?.textContent?.trim()||'';
+    data={'Tipo':tp,'Táxon Afetado':document.getElementById('tax-taxon')?.value||'','Como está registrado':document.getElementById('tax-atual')?.value||'','Como deveria estar':document.getElementById('tax-sugerido')?.value||'','Justificativa / Referência':document.getElementById('tax-just')?.value||'','Nome':document.getElementById('tax-nome')?.value||'','E-mail':document.getElementById('tax-email')?.value||''};
   }else if(successId==='ok-com'){
-    const comTipo=document.querySelector('#rb-mt .rb.on')?.textContent?.trim()||'';
-    data={
-      'Tipo':    comTipo,
-      'Mensagem': document.getElementById('com-msg')?.value||'',
-      'Nome':    document.getElementById('com-nome')?.value||'',
-      'E-mail':  document.getElementById('com-email')?.value||'',
-    };
+    const tp=document.querySelector('#rb-mt .rb.on')?.textContent?.trim()||'';
+    data={'Tipo':tp,'Mensagem':document.getElementById('com-msg')?.value||'','Nome':document.getElementById('com-nome')?.value||'','E-mail':document.getElementById('com-email')?.value||''};
   }
-
   const btn=panel.querySelector('.f-sub');
   if(btn){btn.disabled=true;btn.textContent='Enviando…';}
-
   postToSheet(action,data).then(ok=>{
     if(btn){btn.disabled=false;btn.textContent='Enviar';}
-    if(ok){
-      const el=document.getElementById(successId);
-      if(el){el.style.display='block';setTimeout(()=>el.style.display='none',5000);}
-      // Limpa campos de texto
-      panel.querySelectorAll('input.fi,textarea.fi').forEach(i=>i.value='');
-    }else{showToast('Erro ao enviar. Verifique sua conexão.',true);}
+    if(ok){const el=document.getElementById(successId);if(el){el.style.display='block';setTimeout(()=>el.style.display='none',5000);}panel.querySelectorAll('input.fi,textarea.fi').forEach(i=>i.value='');}
+    else showToast('Erro ao enviar. Verifique sua conexão.',true);
+  });
+}
+function selRb(el,gid){document.querySelectorAll('#'+gid+' .rb').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
+
+// ═══════════════ MAP ═══════════════
+// Island dots are positioned via CSS top/left in the HTML
+// Show/hide them once the image loads
+function positionMapDots(){
+  ['dot-alc','dot-pal','dot-cab'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.style.display='block';
   });
 }
 
-// ─── MAPA INTERATIVO (Sobre) ───────────────────────────────────
 const ISLAND_DATA={
-  'Alcatrazes':{
-    title:'🏝 Alcatrazes (Ilha Principal)',
-    coords:'24°06\'S, 45°41\'O',
-    desc:'Maior ilha do arquipélago (~135 ha). Santuário de nidificação de fragatas e atobás; abrigo exclusivo da Jararaca-de-Alcatrazes (Bothrops alcatraz).'
-  },
-  'Palmas':{
-    title:'🏝 Ilha de Palmas',
-    coords:'24°06\'S, 45°42\'O',
-    desc:'Segunda maior ilha, com vegetação arbustiva densa e herpetofauna nativa adaptada à salinidade marinha extrema.'
-  },
-  'Cabras':{
-    title:'🏝 Ilha de Cabras',
-    coords:'24°06\'S, 45°41\'O',
-    desc:'Ilhota rochosa cercada de ricos recifes de coral com abundante fauna de peixes recifais protegida integralmente.'
-  },
-  'Paredão':{
-    title:'🏝 Ilha do Paredão',
-    coords:'24°04\'S, 45°41\'O',
-    desc:'Extremo norte — paredão rochoso vertical que serve como repouso e área de alimentação para aves marinhas pelágicas.'
-  },
-  'Sapata':{
-    title:'🏝 Laje da Sapata',
-    coords:'24°03\'S, 45°40\'O',
-    desc:'Ponto de mergulho científico com alta biodiversidade bentônica, recifes profundos e peixes de passagem.'
-  }
+  'Alcatrazes':{title:'🏝 Alcatrazes (Ilha Principal)',coords:"24°06'S, 45°41'O",desc:'Maior ilha do arquipélago (~135 ha). Santuário de nidificação de fragatas e atobás; abrigo exclusivo da Jararaca-de-Alcatrazes (Bothrops alcatraz).'},
+  'Palmas':{title:'🏝 Ilha de Palmas',coords:"24°06'S, 45°42'O",desc:'Segunda maior ilha, com vegetação arbustiva densa e herpetofauna nativa adaptada à salinidade marinha extrema.'},
+  'Cabras':{title:'🏝 Ilha de Cabras',coords:"24°06'S, 45°41'O",desc:'Ilhota rochosa cercada de ricos recifes de coral com abundante fauna de peixes recifais protegida integralmente.'},
 };
-
 function hoverIsland(name){
-  const info=ISLAND_DATA[name];
-  if(!info)return;
-  document.getElementById('island-info-title').textContent=info.title;
-  document.getElementById('island-info-coords').textContent=info.coords;
-  document.getElementById('island-info-desc').textContent=info.desc;
+  const info=ISLAND_DATA[name];if(!info)return;
+  const tt=document.getElementById('island-tooltip');
+  tt.innerHTML=`<strong>${info.title}</strong><small>${info.coords}</small>${info.desc}`;
+  tt.classList.add('show');
+  // position tooltip away from edges
+  const dot=event.currentTarget;
+  const cont=document.getElementById('map-container');
+  const dRect=dot.getBoundingClientRect(),cRect=cont.getBoundingClientRect();
+  let top=(dRect.top-cRect.top)-80,left=(dRect.left-cRect.left)+20;
+  if(left+210>cont.clientWidth)left=cont.clientWidth-215;
+  if(top<0)top=dRect.bottom-cRect.top+5;
+  tt.style.top=top+'px';tt.style.left=left+'px';
 }
-function selectIsland(name){
+function selectIsland(name,el){
   hoverIsland(name);
-  document.querySelectorAll('.map-island-path').forEach(p=>p.classList.remove('map-active'));
-  // Destaca o elemento clicado via evento
-  event.target.classList.add('map-active');
+  document.querySelectorAll('.island-dot-wrap').forEach(d=>d.classList.remove('active-dot'));
+  el.classList.add('active-dot');
 }
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.island-dot-wrap')){
+    const tt=document.getElementById('island-tooltip');
+    if(tt)tt.classList.remove('show');
+  }
+});
 
-// ─── FORM HELPERS ────────────────────────────────────────────
-function showFsect(id){hideFsects();const s=document.getElementById(id);if(s){s.classList.add('show');s.scrollIntoView({behavior:'smooth',block:'start'});}}
-function hideFsects(){document.querySelectorAll('.f-sect').forEach(f=>f.classList.remove('show'));}
-function selRb(el,gid){document.querySelectorAll('#'+gid+' .rb').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
-
-// ─── INIT ────────────────────────────────────────────────────
+// ═══════════════ INIT ═══════════════
 (function init(){
   loadData();
   setTimeout(()=>{
-    const s=document.getElementById('sentinel');
-    if(s)obs.observe(s);
+    const s=document.getElementById('sentinel');if(s)obs.observe(s);
     const nav=document.querySelector('nav');
     if(nav){
       const btn=document.createElement('button');
-      btn.title='Recarregar dados do Sheets';
+      btn.title='Recarregar dados';
       btn.style.cssText='background:none;border:1px solid #d5dde8;color:#94a3b8;font-family:DM Sans,sans-serif;font-size:.68rem;padding:4px 9px;border-radius:5px;cursor:pointer;margin-right:6px;transition:all .15s';
       btn.textContent='↺';
       btn.onmouseenter=()=>{btn.style.borderColor='#2e7d5e';btn.style.color='#2e7d5e';};
       btn.onmouseleave=()=>{btn.style.borderColor='#d5dde8';btn.style.color='#94a3b8';};
       btn.onclick=()=>loadData(true);
-      const cta=nav.querySelector('.nav-cta');
-      if(cta)nav.insertBefore(btn,cta);
+      const cta=nav.querySelector('.nav-cta');if(cta)nav.insertBefore(btn,cta);
     }
   },300);
 })();
