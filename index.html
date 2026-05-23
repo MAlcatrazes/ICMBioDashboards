@@ -17,7 +17,12 @@
   --sh2:0 4px 20px rgba(0,0,0,.1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;background-image:url('alcatrazes-bg.jpg');background-size:cover;background-attachment:fixed;background-position:center;background-repeat:no-repeat;}
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  background: var(--bg) url('alcatrazes-bg.jpg') center/cover no-repeat fixed;
+}
 nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;background:rgba(255,255,255,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(213,221,232,0.45);position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
 .nav-logo{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--green);line-height:1.1}
 .nav-logo small{display:block;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:300;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
@@ -486,7 +491,7 @@ textarea.fi{resize:vertical;min-height:72px}
     <div>
       <div class="sobre-h2" style="margin-bottom:10px">Mapa do Arquipélago</div>
       <div class="map-container" id="map-container">
-        <img src="mapaESECREVIS.png" alt="Mapa ESEC REVIS Alcatrazes" id="map-img" style="width:100%;display:block" onload="positionMapDots()"/>
+        <img src="img/mapaESECREVIS.png" alt="Mapa ESEC REVIS Alcatrazes" id="map-img" style="width:100%;display:block" onload="positionMapDots()"/>
         <div class="island-dot-wrap" id="dot-alc" style="top:72%;left:28%;display:none" onclick="selectIsland('Alcatrazes',this)" onmouseenter="hoverIsland('Alcatrazes')">
           <div class="idot" style="background:#2c6fad"></div>
         </div>
