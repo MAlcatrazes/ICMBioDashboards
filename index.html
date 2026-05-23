@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{
-  --bg:#eef1f6;--bg2:#fff;--bg3:#e4e9f2;--card:#fff;--border:#d5dde8;
+  --bg:rgba(238,241,246,0.45);--bg2:rgba(255,255,255,0.78);--bg3:rgba(228,233,242,0.60);--card:rgba(255,255,255,0.78);--border:#d5dde8;
   --green:#2e7d5e;--green2:#1b5e45;
   --fauna:#c97a15;--flora:#2e7d5e;--fungos:#6d28d9;
   --cr:#b91c1c;--en:#c2410c;--vu:#b45309;--nt:#4d7c0f;--lc:#15803d;--dd:#475569;
@@ -17,8 +17,8 @@
   --sh2:0 4px 20px rgba(0,0,0,.1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;background-image:url('alcatrazes-bg.jpg');background-size:cover;background-attachment:fixed;background-position:center;background-repeat:no-repeat;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;background:rgba(255,255,255,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(213,221,232,0.45);position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
 .nav-logo{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--green);line-height:1.1}
 .nav-logo small{display:block;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:300;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
 .nav-tabs{display:flex;gap:2px}
@@ -31,7 +31,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .page.active{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 /* TOP BAR */
-.ov-top{display:grid;grid-template-columns:180px 1fr 200px;border-radius:11px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:12px}
+.ov-top{display:grid;grid-template-columns:180px 1fr 200px;border-radius:11px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .ov-main{background:var(--card);padding:20px 24px;border-right:1px solid var(--border)}
 .ov-main .lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);font-weight:500;margin-bottom:3px}
 .ov-main .num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;line-height:1;color:var(--text)}
@@ -47,7 +47,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .side-k .num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1}
 .side-k .lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-top:2px}
 /* FILTER BAR */
-.fbar{display:flex;flex-wrap:wrap;gap:5px;align-items:center;padding:9px 12px;background:var(--card);border-radius:9px;border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:12px}
+.fbar{display:flex;flex-wrap:wrap;gap:5px;align-items:center;padding:9px 12px;background:var(--card);border-radius:9px;border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .fbar-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:500;white-space:nowrap}
 .fbar-sep{width:1px;height:16px;background:var(--border);margin:0 3px}
 .ms-wrap{position:relative}
@@ -55,7 +55,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .ms-btn:hover,.ms-btn.open{border-color:var(--green);color:var(--text)}
 .ms-btn.has-sel{border-color:var(--green);background:rgba(46,125,94,.08);color:var(--green);font-weight:600}
 .ms-btn .arr{font-size:.58rem;transition:transform .2s}.ms-btn.open .arr{transform:rotate(180deg)}
-.ms-drop{position:absolute;top:calc(100% + 3px);left:0;min-width:200px;background:var(--card);border:1px solid var(--border);border-radius:8px;box-shadow:var(--sh2);z-index:400;display:none;overflow:hidden;max-height:260px;overflow-y:auto}
+.ms-drop{position:absolute;top:calc(100% + 3px);left:0;min-width:200px;background:var(--card);border:1px solid var(--border);border-radius:8px;box-shadow:var(--sh2);z-index:400;display:none;overflow:hidden;max-height:260px;overflow-y:auto;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .ms-drop.show{display:block;animation:fi .12s ease}
 .ms-opt{display:flex;align-items:center;gap:7px;padding:7px 11px;cursor:pointer;font-size:.75rem;color:var(--text2);transition:background .1s}
 .ms-opt:hover{background:var(--bg3)}.ms-opt.sel{color:var(--green);font-weight:600}
@@ -87,7 +87,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .tm-stripe{position:absolute;top:0;left:0;right:0;height:3px}
 /* STATS */
 .ov-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.stat-c{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--sh)}
+.stat-c{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--sh);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .stat-t{font-size:.62rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);font-weight:500;margin-bottom:10px}
 .thr-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
 .tr-lbl{font-size:.68rem;color:var(--text2);width:24px;flex-shrink:0;font-weight:600}
@@ -106,7 +106,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .cw{position:relative;height:110px}
 /* LISTA */
 .lista-layout{display:grid;grid-template-columns:230px 1fr;gap:12px;align-items:start}
-.lista-filters{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:var(--sh);position:sticky;top:64px;max-height:calc(100vh - 80px);overflow-y:auto}
+.lista-filters{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:var(--sh);position:sticky;top:64px;max-height:calc(100vh - 80px);overflow-y:auto;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .lf-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .lf-hdr-t{font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);font-weight:600}
 .lf-hdr button{background:none;border:none;color:var(--text3);font-size:.63rem;cursor:pointer;font-family:'DM Sans',sans-serif}
@@ -130,7 +130,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .sp-item{display:flex;align-items:center;gap:5px;padding:3px 7px;cursor:pointer;font-size:.7rem;color:var(--text2);transition:background .1s}
 .sp-item:hover{background:var(--bg3)}.sp-item.sel{color:var(--green);font-weight:600}
 .sp-item input[type=checkbox]{accent-color:var(--green);width:11px;height:11px}
-.tbl-wrap2{border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh)}
+.tbl-wrap2{border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .tbl-head-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--card);border-bottom:1px solid var(--border)}
 .tbl-count-lbl{font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);font-weight:500}
 .tbl-count-n{font-size:.7rem;color:var(--text3)}
@@ -162,7 +162,7 @@ tbody tr:hover td{background:rgba(46,125,94,.025)}
 .il-item{display:flex;align-items:center;gap:4px;font-size:.65rem;color:var(--text2)}
 /* CONTRIBUIR */
 .contrib-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
-.ctab{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.77rem;font-weight:500;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .18s}
+.ctab{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.77rem;font-weight:500;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .18s;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
 .ctab:hover{color:var(--text);border-color:var(--green)}
 .ctab.active{background:var(--green);color:#fff;border-color:var(--green);font-weight:600}
 .ctab-panel{display:none}
@@ -170,11 +170,11 @@ tbody tr:hover td{background:rgba(46,125,94,.025)}
 /* COLLABORATOR CARDS */
 .colab-page-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .colab-stats-bar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-.colab-stat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;box-shadow:var(--sh);flex:1;min-width:100px;text-align:center}
+.colab-stat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;box-shadow:var(--sh);flex:1;min-width:100px;text-align:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .colab-stat .csv{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--green);line-height:1}
 .colab-stat .csl{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-top:2px}
 .colab-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.colab-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:14px;box-shadow:var(--sh);transition:box-shadow .18s}
+.colab-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:14px;box-shadow:var(--sh);transition:box-shadow .18s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .colab-card:hover{box-shadow:var(--sh2)}
 .colab-card-name{font-weight:600;font-size:.85rem;color:var(--text);margin-bottom:3px}
 .colab-card-inst{font-size:.72rem;color:var(--green);font-weight:500;margin-bottom:6px}
@@ -183,11 +183,11 @@ tbody tr:hover td{background:rgba(46,125,94,.025)}
 .colab-tag.spec{background:rgba(46,125,94,.08);border-color:rgba(46,125,94,.2);color:var(--green)}
 .colab-tag.grupo{background:rgba(201,122,21,.08);border-color:rgba(201,122,21,.2);color:var(--fauna)}
 .colab-empty{text-align:center;padding:40px;color:var(--text3);font-size:.82rem}
-.chart-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;box-shadow:var(--sh)}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;box-shadow:var(--sh);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 /* FORMS */
 .pg-title{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:3px}
 .pg-sub{font-size:.8rem;color:var(--text2);margin-bottom:18px;line-height:1.5}
-.f-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;box-shadow:var(--sh)}
+.f-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;box-shadow:var(--sh);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .fg{margin-bottom:12px}.fl{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);display:block;margin-bottom:3px;font-weight:500}
 .fi{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.79rem;padding:7px 10px;border-radius:6px;outline:none;transition:border-color .12s}
 .fi:focus{border-color:var(--green)}
@@ -205,9 +205,9 @@ textarea.fi{resize:vertical;min-height:72px}
 .sobre-h1{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:6px}
 .sobre-h2{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:8px;color:var(--green)}
 .sobre-p{font-size:.84rem;color:var(--text2);line-height:1.7;margin-bottom:8px}
-.sobre-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;box-shadow:var(--sh);margin-bottom:10px}
+.sobre-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;box-shadow:var(--sh);margin-bottom:10px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .concept-list{display:flex;flex-direction:column;gap:8px}
-.concept-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px}
+.concept-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .concept-term{font-size:.78rem;font-weight:600;color:var(--green);margin-bottom:3px}
 .concept-def{font-size:.74rem;color:var(--text2);line-height:1.55}
 /* MAP with image + dots */
@@ -226,6 +226,8 @@ textarea.fi{resize:vertical;min-height:72px}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 .map-island-path{fill:#2d5a2d;stroke:#fff;stroke-width:1;opacity:.9;cursor:pointer;transition:fill .2s}
 .map-island-path:hover,.map-island-path.map-active{fill:#4caf50;opacity:1}
+/* Sobre text column cards */
+.sobre-text-col .sobre-section{background:rgba(255,255,255,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(213,221,232,0.5);border-radius:12px;padding:18px 20px;box-shadow:var(--sh);}
 @media(max-width:900px){
   .ov-top,.lista-layout,.sobre-layout,.colab-page-grid{grid-template-columns:1fr}
   .ov-main,.ov-grupos{border-right:none;border-bottom:1px solid var(--border)}
@@ -395,38 +397,14 @@ textarea.fi{resize:vertical;min-height:72px}
 <!-- CONTRIBUIR -->
 <div id="page-contribuir" class="page">
   <div class="contrib-tabs">
-    <button class="ctab active" onclick="showCtab('ct-colab',this)">👥 Colaboradores</button>
-    <button class="ctab" onclick="showCtab('ct-novo',this)">🦎 Novo Registro</button>
+    <button class="ctab active" onclick="showCtab('ct-novo',this)">🦎 Novo Registro</button>
     <button class="ctab" onclick="showCtab('ct-col',this)">👤 Cadastrar</button>
     <button class="ctab" onclick="showCtab('ct-taxo',this)">🔬 Sugestão Taxonômica</button>
     <button class="ctab" onclick="showCtab('ct-com',this)">💬 Comentário</button>
   </div>
 
-  <!-- TAB: Colaboradores — cards + gráfico -->
-  <div id="ct-colab" class="ctab-panel active-panel">
-    <div id="colab-stats-bar" class="colab-stats-bar"></div>
-    <div class="colab-page-grid">
-      <div>
-        <div class="stat-t" style="margin-bottom:10px">Pesquisadores e colaboradores</div>
-        <div id="colab-card-grid" class="colab-card-grid">
-          <div class="colab-empty">Carregando colaboradores…</div>
-        </div>
-      </div>
-      <div>
-        <div class="chart-card" style="margin-bottom:12px">
-          <div class="stat-t" style="margin-bottom:10px">Por Especialidade</div>
-          <div style="position:relative;height:220px"><canvas id="ch-spec"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="stat-t" style="margin-bottom:10px">Por Grupo Taxonômico</div>
-          <div style="position:relative;height:180px"><canvas id="ch-grupo-colab"></canvas></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- TAB: Novo Registro -->
-  <div id="ct-novo" class="ctab-panel">
+  <div id="ct-novo" class="ctab-panel active-panel">
     <div class="pg-sub" style="margin-bottom:16px">Observou uma espécie que não está listada? Todos os registros são validados antes da incorporação.</div>
     <div class="f-card" style="max-width:640px;margin:0 auto">
       <div class="f2"><div class="fg"><label class="fl">Grande Grupo *</label><select class="fi" id="reg-grupo"><option>Fauna</option><option>Flora</option><option>Fungos</option></select></div><div class="fg"><label class="fl">Subgrupo</label><input class="fi" id="reg-subg" type="text"/></div></div>
@@ -508,9 +486,7 @@ textarea.fi{resize:vertical;min-height:72px}
     <div>
       <div class="sobre-h2" style="margin-bottom:10px">Mapa do Arquipélago</div>
       <div class="map-container" id="map-container">
-        <!-- Real photo. Island dots are positioned via JS after image loads -->
-        <img src="mapaESECREVIS.jpg" alt="Mapa ESEC REVIS Alcatrazes" id="map-img" style="width:100%;display:block" onload="positionMapDots()"/>
-        <!-- Island dots (hidden until image loads) -->
+        <img src="mapaESECREVIS.png" alt="Mapa ESEC REVIS Alcatrazes" id="map-img" style="width:100%;display:block" onload="positionMapDots()"/>
         <div class="island-dot-wrap" id="dot-alc" style="top:72%;left:28%;display:none" onclick="selectIsland('Alcatrazes',this)" onmouseenter="hoverIsland('Alcatrazes')">
           <div class="idot" style="background:#2c6fad"></div>
         </div>
@@ -520,10 +496,8 @@ textarea.fi{resize:vertical;min-height:72px}
         <div class="island-dot-wrap" id="dot-cab" style="top:22%;left:86%;display:none" onclick="selectIsland('Cabras',this)" onmouseenter="hoverIsland('Cabras')">
           <div class="idot" style="background:#c97a15"></div>
         </div>
-        <!-- Floating tooltip -->
         <div class="island-tooltip" id="island-tooltip"></div>
       </div>
-      <!-- Island legend -->
       <div style="display:flex;gap:12px;margin-top:6px;flex-wrap:wrap">
         <div class="il-item"><span class="i-dot i-alc"></span>Alcatrazes</div>
         <div class="il-item"><span class="i-dot i-pal"></span>Palmas</div>
@@ -538,7 +512,6 @@ textarea.fi{resize:vertical;min-height:72px}
 const SHEET_ID   = '105nFkb90I3Il6Qjx4qId5WA1IZWxAqYS-RldKAIgSyg';
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGF8MtO3kXOXnXV2YH7vcDe4Rmmj2zJyJocc0BKSL8aMGWHZej_p7sCgx0OOD75n0TCQ/exec';
 
-// Treemap images (relative paths — keep files in same folder as HTML)
 const SVGS = {
   "Peixes":                  "img/peixe.jpg",
   "Aves":                    "img/aves.jpg",
@@ -557,7 +530,7 @@ let ALL=[], _loaded=false;
 function showLoading(msg){
   let el=document.getElementById('_ld');
   if(!el){el=document.createElement('div');el.id='_ld';
-    el.style.cssText='position:fixed;inset:0;background:rgba(238,241,246,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;font-family:DM Sans,sans-serif;gap:16px';
+    el.style.cssText='position:fixed;inset:0;background:rgba(238,241,246,.92);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;font-family:DM Sans,sans-serif;gap:16px';
     el.innerHTML='<div style="width:46px;height:46px;border:3px solid #d5dde8;border-top-color:#2e7d5e;border-radius:50%;animation:_sp .7s linear infinite"></div><div id="_ldm" style="font-size:.86rem;color:#475569;font-weight:500">Carregando…</div><style>@keyframes _sp{to{transform:rotate(360deg)}}</style>';
     document.body.appendChild(el);}
   else{document.getElementById('_ldm').textContent=msg||'Carregando…';el.style.display='flex';}
@@ -598,9 +571,6 @@ function normalizeRow(r){
     interesse_comercial: trim(r['interesse_comercial']||''),
   };
 }
-// Colaboradores — colunas exatas do sheet:
-// Timestamp, Nome_completo, email, Vinculo, Especialidade, Grupo,
-// Lattes/orcid/site, Contribuicao_desejada, Status, Ultima_contribuicao, ID, Equipe
 function normalizeColab(r){
   return{
     nome:         trim(r['Nome_completo']       ||r['Nome']||''),
@@ -671,7 +641,6 @@ function goPage(id){
   const map={overview:0,lista:1,sobre:2};
   if(map[id]!==undefined)document.querySelectorAll('.nav-tab')[map[id]].classList.add('active');
   if(id==='lista'){buildListaSidebar();applyLista();setTimeout(()=>{const s=document.getElementById('sentinel');if(s)obs.observe(s);},100);}
-  if(id==='contribuir')setTimeout(()=>buildColabPage(),60);
   if(id==='overview')applyAll();
 }
 document.addEventListener('click',e=>{if(!e.target.closest('.ms-wrap'))closeAllDrops();});
@@ -967,79 +936,12 @@ function downloadCSV(){
   const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='especies_alcatrazes.csv';a.click();
 }
 
-// ═══════════════ COLABORADORES — cards + charts ═══════════════
-const COLAB_COLORS=['#2e7d5e','#1565c0','#c62828','#6a1b9a','#e65100','#2e7d32','#ad1457','#00838f','#bf360c','#558b2f','#00695c','#283593'];
-
-async function buildColabPage(){
-  document.getElementById('colab-card-grid').innerHTML='<div class="colab-empty">Carregando…</div>';
-  const data=await loadColabData();
-
-  // ── Stats bar ──
-  const vincs=[...new Set(data.map(c=>c.vinculo).filter(Boolean))];
-  const specs=[...new Set(data.flatMap(c=>c.especialidade.split(/[,;]/).map(s=>s.trim()).filter(Boolean)))];
-  document.getElementById('colab-stats-bar').innerHTML=[
-    {val:data.length,lbl:'Colaboradores'},
-    {val:vincs.length,lbl:'Instituições'},
-    {val:specs.length,lbl:'Especialidades'},
-  ].map(s=>`<div class="colab-stat"><div class="csv">${s.val}</div><div class="csl">${s.lbl}</div></div>`).join('');
-
-  // ── Cards ──
-  if(!data.length){
-    document.getElementById('colab-card-grid').innerHTML='<div class="colab-empty">Nenhum colaborador encontrado na planilha.<br><small>Verifique se a aba "Colaboradores" existe e tem dados.</small></div>';
-  }else{
-    document.getElementById('colab-card-grid').innerHTML=data.map(c=>{
-      const specs=c.especialidade.split(/[,;]/).map(s=>s.trim()).filter(Boolean);
-      const grupos=c.grupo.split(/[,;]/).map(s=>s.trim()).filter(Boolean);
-      const hasLink=c.lattes&&c.lattes.startsWith('http');
-      return`<div class="colab-card">
-        <div class="colab-card-name">${hasLink?`<a href="${c.lattes}" target="_blank" style="color:inherit;text-decoration:none" title="Lattes/ORCID">${c.nome} 🔗</a>`:c.nome||'—'}</div>
-        <div class="colab-card-inst">${c.vinculo||c.equipe||'—'}</div>
-        <div class="colab-card-tags">
-          ${grupos.map(g=>`<span class="colab-tag grupo">${g}</span>`).join('')}
-          ${specs.map(s=>`<span class="colab-tag spec">${s}</span>`).join('')}
-          ${c.status?`<span class="colab-tag">${c.status}</span>`:''}
-        </div>
-      </div>`;
-    }).join('');
-  }
-
-  // ── Chart: Por Especialidade ──
-  const specMap={};
-  data.forEach(c=>c.especialidade.split(/[,;]/).forEach(s=>{const k=s.trim();if(k)specMap[k]=(specMap[k]||0)+1;}));
-  const specEntries=Object.entries(specMap).sort((a,b)=>b[1]-a[1]).slice(0,10);
-  if(charts['spec'])charts['spec'].destroy();
-  if(specEntries.length){
-    charts['spec']=new Chart(document.getElementById('ch-spec'),{
-      type:'bar',
-      data:{labels:specEntries.map(e=>e[0]),datasets:[{data:specEntries.map(e=>e[1]),backgroundColor:COLAB_COLORS.slice(0,specEntries.length),borderRadius:4,borderSkipped:false}]},
-      options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-        scales:{x:{ticks:{color:'#475569',font:{size:10}},grid:{color:'rgba(0,0,0,.06)'}},y:{ticks:{color:'#1e293b',font:{size:10}},grid:{display:false}}}}
-    });
-  }else{
-    const ctx=document.getElementById('ch-spec');if(ctx){const c2=ctx.getContext('2d');c2.clearRect(0,0,ctx.width,ctx.height);}
-  }
-
-  // ── Chart: Por Grupo Taxonômico ──
-  const grupoMap={};
-  data.forEach(c=>c.grupo.split(/[,;]/).forEach(g=>{const k=g.trim();if(k)grupoMap[k]=(grupoMap[k]||0)+1;}));
-  const grupoEntries=Object.entries(grupoMap).sort((a,b)=>b[1]-a[1]);
-  if(charts['gcolab'])charts['gcolab'].destroy();
-  if(grupoEntries.length){
-    charts['gcolab']=new Chart(document.getElementById('ch-grupo-colab'),{
-      type:'doughnut',
-      data:{labels:grupoEntries.map(e=>e[0]),datasets:[{data:grupoEntries.map(e=>e[1]),backgroundColor:COLAB_COLORS.slice(0,grupoEntries.length),borderWidth:2,borderColor:'#fff',hoverOffset:4}]},
-      options:{responsive:true,maintainAspectRatio:false,cutout:'50%',plugins:{legend:{position:'right',labels:{color:'#475569',font:{family:'DM Sans',size:10},boxWidth:9,padding:5}}}}
-    });
-  }
-}
-
 // ═══════════════ CONTRIB TABS ═══════════════
 function showCtab(id,btn){
   document.querySelectorAll('.ctab-panel').forEach(p=>p.classList.remove('active-panel'));
   document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('active'));
   const p=document.getElementById(id);if(p)p.classList.add('active-panel');
   if(btn)btn.classList.add('active');
-  if(id==='ct-colab')buildColabPage();
 }
 
 // ═══════════════ FORMS ═══════════════
@@ -1073,8 +975,6 @@ function okForm(successId){
 function selRb(el,gid){document.querySelectorAll('#'+gid+' .rb').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
 
 // ═══════════════ MAP ═══════════════
-// Island dots are positioned via CSS top/left in the HTML
-// Show/hide them once the image loads
 function positionMapDots(){
   ['dot-alc','dot-pal','dot-cab'].forEach(id=>{
     const el=document.getElementById(id);if(el)el.style.display='block';
@@ -1091,7 +991,6 @@ function hoverIsland(name){
   const tt=document.getElementById('island-tooltip');
   tt.innerHTML=`<strong>${info.title}</strong><small>${info.coords}</small>${info.desc}`;
   tt.classList.add('show');
-  // position tooltip away from edges
   const dot=event.currentTarget;
   const cont=document.getElementById('map-container');
   const dRect=dot.getBoundingClientRect(),cRect=cont.getBoundingClientRect();
@@ -1121,10 +1020,10 @@ document.addEventListener('click',e=>{
     if(nav){
       const btn=document.createElement('button');
       btn.title='Recarregar dados';
-      btn.style.cssText='background:none;border:1px solid #d5dde8;color:#94a3b8;font-family:DM Sans,sans-serif;font-size:.68rem;padding:4px 9px;border-radius:5px;cursor:pointer;margin-right:6px;transition:all .15s';
+      btn.style.cssText='background:none;border:1px solid rgba(213,221,232,0.6);color:#94a3b8;font-family:DM Sans,sans-serif;font-size:.68rem;padding:4px 9px;border-radius:5px;cursor:pointer;margin-right:6px;transition:all .15s';
       btn.textContent='↺';
       btn.onmouseenter=()=>{btn.style.borderColor='#2e7d5e';btn.style.color='#2e7d5e';};
-      btn.onmouseleave=()=>{btn.style.borderColor='#d5dde8';btn.style.color='#94a3b8';};
+      btn.onmouseleave=()=>{btn.style.borderColor='rgba(213,221,232,0.6)';btn.style.color='#94a3b8';};
       btn.onclick=()=>loadData(true);
       const cta=nav.querySelector('.nav-cta');if(cta)nav.insertBefore(btn,cta);
     }
