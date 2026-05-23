@@ -477,10 +477,10 @@ textarea.fi{resize:vertical;min-height:72px}
             <div class="island-dot-wrap" id="dot-alc" style="top:74.3%;left:28.2%;display:none" onclick="selectIsland('Alcatrazes',this);event.stopPropagation()" onmouseenter="hoverIsland('Alcatrazes')">
               <div class="idot" style="background:#2c6fad"></div>
             </div>
-            <div class="island-dot-wrap" id="dot-pal" style="top:11%;left:77.5%;display:none" onclick="selectIsland('Palmas',this);event.stopPropagation()" onmouseenter="hoverIsland('Palmas')">
+            <div class="island-dot-wrap" id="dot-pal" style="top:11%;left:77.5%;display:none" onclick="selectIsland('Cabras',this);event.stopPropagation()" onmouseenter="hoverIsland('Palmas')">
               <div class="idot" style="background:#2e7d5e"></div>
             </div>
-            <div class="island-dot-wrap" id="dot-cab" style="top:14.5%;left:78%;display:none" onclick="selectIsland('Cabras',this);event.stopPropagation()" onmouseenter="hoverIsland('Cabras')">
+            <div class="island-dot-wrap" id="dot-cab" style="top:14.5%;left:78%;display:none" onclick="selectIsland('Palmas',this);event.stopPropagation()" onmouseenter="hoverIsland('Cabras')">
               <div class="idot" style="background:#c97a15"></div>
             </div>
             <div class="island-tooltip" id="island-tooltip"></div>
@@ -934,7 +934,7 @@ function positionMapDots(){
 const ISLAND_DATA={
   'Alcatrazes':{title:'🏝 Alcatrazes (Ilha Principal)',coords:"24°06'S, 45°42'O",desc:'Maior ilha do arquipélago de Alcatrazes (~135 ha) com áreas tanto da REVIS Alcatrazes quanto da ESEC Tupinambás. Local onde ficam concentrados os maiores esforços de pesquisa e monitoramento.'},
   'Cabras':{title:'🏝 Ilha das Cabras',coords:"23°31'S, 45°02'O",desc:'Ilhota rochosa - Setor II da Esec Tupinambás no arquipélago da ilha Anchieta'},
-  'Palmas':{title:'🏝 Ilha das Palmas',coords:"23°32'S, 45°01'O",desc:'A Ilha e o ilhote das Palmas - Setor II da ESEC Tupinambás no arquipélago da ilha Anchieta'},
+  'Palmas':{title:'🏝 Ilha das Palmas',coords:"23°32'S, 45°01'O",desc:'Ilha das Palmas e ilhote - Setor II da ESEC Tupinambás no arquipélago da ilha Anchieta'},
 };
 function hoverIsland(name){
   const info=ISLAND_DATA[name];if(!info)return;
