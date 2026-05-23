@@ -18,6 +18,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
 /* NAV */
 nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;
   background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
@@ -29,10 +30,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .nav-tab.active{color:var(--green);background:rgba(46,125,94,.09);font-weight:600}
 .nav-cta{background:var(--green);color:#fff;font-family:'DM Sans',sans-serif;font-size:.73rem;font-weight:600;padding:7px 14px;border:none;border-radius:7px;cursor:pointer;transition:all .18s}
 .nav-cta:hover{background:var(--green2);transform:translateY(-1px)}
+
 /* PAGE */
 .page{display:none;padding:18px 24px;animation:fi .22s ease}
 .page.active{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
 /* TOP BAR */
 .ov-top{display:grid;grid-template-columns:180px 1fr 200px;border-radius:11px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:12px}
 .ov-main{background:var(--card);padding:20px 24px;border-right:1px solid var(--border)}
@@ -51,10 +54,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .side-k:first-child{border-bottom:1px solid var(--border)}
 .side-k .num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1}
 .side-k .lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-top:2px}
+
 /* FILTER BAR */
 .fbar{display:flex;flex-wrap:wrap;gap:5px;align-items:center;padding:9px 12px;background:var(--card);border-radius:9px;border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:12px}
 .fbar-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:500;white-space:nowrap}
 .fbar-sep{width:1px;height:16px;background:var(--border);margin:0 3px}
+
 /* Multi-select */
 .ms-wrap{position:relative}
 .ms-btn{display:flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.72rem;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .12s;white-space:nowrap;user-select:none}
@@ -69,10 +74,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .ms-opt.sel .ck{background:var(--green);border-color:var(--green);color:#fff}
 .ms-clr{padding:5px 11px;border-top:1px solid var(--border);font-size:.67rem;color:var(--text3);cursor:pointer}
 .ms-clr:hover{color:var(--green)}
+
 /* Threat list pills */
 .thr-sel{display:flex;gap:3px;align-items:center}
 .thr-pill{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:.68rem;padding:3px 9px;border-radius:20px;cursor:pointer;transition:all .12s;font-weight:500;white-space:nowrap}
 .thr-pill.on{background:rgba(46,125,94,.1);border-color:var(--green);color:var(--green);font-weight:600}
+
 /* Search */
 .s-wrap{position:relative}
 .s-wrap::before{content:'⌕';position:absolute;left:7px;top:50%;transform:translateY(-50%);font-size:.92rem;color:var(--text3);pointer-events:none;line-height:1}
@@ -80,6 +87,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .s-wrap input:focus{border-color:var(--green);width:210px}
 .btn-clr2{background:none;border:1px solid var(--border);color:var(--text3);font-family:'DM Sans',sans-serif;font-size:.7rem;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .12s}
 .btn-clr2:hover{border-color:var(--green);color:var(--green)}
+
 /* TREEMAP */
 .tm-sect{margin-bottom:12px}
 .sect-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);font-weight:500;margin-bottom:7px}
@@ -93,6 +101,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .tm-n{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.6)}
 .tm-l{font-size:.6rem;color:rgba(255,255,255,.88);font-weight:500;letter-spacing:.03em;text-shadow:0 1px 3px rgba(0,0,0,.6);margin-top:1px}
 .tm-stripe{position:absolute;top:0;left:0;right:0;height:3px}
+
 /* BOTTOM STATS */
 .ov-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 .stat-c{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--sh)}
@@ -106,6 +115,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .am-p{display:flex;flex-direction:column;align-items:center;gap:1px;background:var(--bg3);border-radius:6px;padding:7px 5px;flex:1;min-width:40px;border:1px solid var(--border)}
 .am-p .av{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;line-height:1}
 .am-p .al{font-size:.57rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text3)}
+
 /* IUCN ruler */
 .iucn-ruler{display:flex;border-radius:6px;overflow:hidden;margin-top:6px;height:26px}
 .iucn-seg{flex:1;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:#fff;letter-spacing:.03em}
@@ -113,6 +123,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .iucn-li{display:flex;align-items:center;gap:3px;font-size:.58rem;color:var(--text2)}
 .iucn-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 .cw{position:relative;height:110px}
+
 /* LISTA PAGE */
 .lista-layout{display:grid;grid-template-columns:230px 1fr;gap:12px;align-items:start}
 .lista-filters{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:var(--sh);position:sticky;top:64px;max-height:calc(100vh - 80px);overflow-y:auto}
@@ -129,18 +140,21 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .lf-ck:hover{background:var(--bg3)}.lf-ck input[type=checkbox]{accent-color:var(--green);width:12px;height:12px;cursor:pointer}
 .lf-ck span{font-size:.73rem;color:var(--text2);flex:1}.lf-ck small{font-size:.62rem;color:var(--text3)}
 .lf-sep{border:none;border-top:1px solid var(--border);margin:8px 0}
+
 /* col toggle */
 .col-tog{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
 .col-chip{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:.65rem;padding:2px 7px;border-radius:12px;cursor:pointer;transition:all .12s}
 .col-chip.on{background:rgba(46,125,94,.1);border-color:var(--green);color:var(--green);font-weight:600}
+
 /* species multi-select search */
 .sp-search-wrap{position:relative;margin-bottom:5px}
 .sp-search-wrap input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.73rem;padding:4px 8px;border-radius:5px;outline:none}
 .sp-search-wrap input:focus{border-color:var(--green)}
 .sp-list{max-height:130px;overflow-y:auto;border:1px solid var(--border);border-radius:5px;background:var(--card)}
-.sp-item{display:flex;align-items:center;gap:5px;padding:3px 7px;cursor:pointer;font-size:.7rem;color:var(--text2);transition:background .1s}
+.sp-item{display:flex;align-items:center;gap:5px;padding:3px 7px;cursor:pointer;font-size:.7;color:var(--text2);transition:background .1s}
 .sp-item:hover{background:var(--bg3)}.sp-item.sel{color:var(--green);font-weight:600}
 .sp-item input[type=checkbox]{accent-color:var(--green);width:11px;height:11px}
+
 /* table area */
 .tbl-wrap2{border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh)}
 .tbl-head-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--card);border-bottom:1px solid var(--border)}
@@ -159,6 +173,7 @@ tbody td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:rgba(46,125,94,.025)}
 .sentinel{height:2px}
+
 /* badges */
 .badge{display:inline-block;padding:1px 6px;border-radius:20px;font-size:.61rem;font-weight:600;letter-spacing:.02em;border:1px solid transparent}
 .b-cr{background:rgba(185,28,28,.1);color:var(--cr);border-color:rgba(185,28,28,.2)}
@@ -172,9 +187,11 @@ tbody tr:hover td{background:rgba(46,125,94,.025)}
 .b-nn{background:rgba(201,122,21,.1);color:var(--fauna);border-color:rgba(201,122,21,.2)}
 .i-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:2px;vertical-align:middle}
 .i-alc{background:#2c6fad}.i-pal{background:var(--green)}.i-cab{background:var(--fauna)}
+
 /* island legend */
 .island-legend{display:flex;gap:10px;margin-top:4px;flex-wrap:wrap}
 .il-item{display:flex;align-items:center;gap:4px;font-size:.65rem;color:var(--text2)}
+
 /* COLABORADORES PAGE */
 .contrib-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
 .ctab{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.77rem;font-weight:500;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .18s}
@@ -187,6 +204,7 @@ tbody tr:hover td{background:rgba(46,125,94,.025)}
 .colab-chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;box-shadow:var(--sh)}
 #net-canvas{width:100%;border-radius:8px;display:block;cursor:grab}
 #net-canvas:active{cursor:grabbing}
+
 /* FORMS */
 .pg-title{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:3px}
 .pg-sub{font-size:.8rem;color:var(--text2);margin-bottom:18px;line-height:1.5}
@@ -212,6 +230,7 @@ textarea.fi{resize:vertical;min-height:72px}
 .rb-g{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
 .rb{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.72rem;padding:4px 11px;border-radius:5px;cursor:pointer;transition:all .12s}
 .rb:hover,.rb.on{background:rgba(46,125,94,.1);border-color:var(--green);color:var(--green)}
+
 /* SOBRE PAGE */
 .sobre-layout{display:grid;grid-template-columns:1fr 340px;gap:18px}
 .sobre-text-col{}
@@ -225,15 +244,27 @@ textarea.fi{resize:vertical;min-height:72px}
 .concept-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px}
 .concept-term{font-size:.78rem;font-weight:600;color:var(--green);margin-bottom:3px}
 .concept-def{font-size:.74rem;color:var(--text2);line-height:1.55}
-/* map placeholder */
-.map-ph{background:linear-gradient(135deg,#0d3b5e 0%,#1565c0 40%,#0d3b5e 100%);border-radius:10px;height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;position:relative;overflow:hidden;box-shadow:var(--sh)}
-.map-ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 45% 55%,rgba(77,217,172,.15) 0%,transparent 60%)}
-.map-isle{position:absolute;border-radius:50%;background:rgba(77,200,150,.8)}
+
+/* Interactive Map Stylings */
+.map-island-path {
+  fill: rgba(77, 200, 150, 0.45);
+  stroke: #77d9ac;
+  stroke-width: 1.5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.map-island-path:hover, .map-island-path.map-active {
+  fill: #77d9ac;
+  stroke: #fff;
+  filter: drop-shadow(0px 0px 8px rgba(119, 217, 172, 0.8));
+}
+
 /* TAXO */
 .taxo-wrap{max-width:640px;margin:0 auto}
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--bg3)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
 @media(max-width:900px){
   .ov-top,.lista-layout,.colab-layout,.sobre-layout{grid-template-columns:1fr}
   .ov-main,.ov-grupos{border-right:none;border-bottom:1px solid var(--border)}
@@ -266,8 +297,8 @@ textarea.fi{resize:vertical;min-height:72px}
       <div class="side-k"><div class="num" id="kpi-end" style="color:var(--cr)">—</div><div class="lbl">Endêmicas</div></div>
       <div class="side-k"><div class="num" id="kpi-exo" style="color:var(--fauna)">—</div><div class="lbl">Exóticas</div></div>
     </div>
-
   </div>
+  
   <div class="fbar">
     <span class="fbar-lbl">Filtrar</span><div class="fbar-sep"></div>
     <div class="ms-wrap" id="ms-grupo">
@@ -342,18 +373,15 @@ textarea.fi{resize:vertical;min-height:72px}
   <div class="lista-layout">
     <div class="lista-filters">
       <div class="lf-hdr"><span class="lf-hdr-t">Filtros</span><button onclick="resetLista()">↺ Limpar</button></div>
-
       <div class="lf-sec">
         <label class="lf-lbl">Busca (espécie / nome popular)</label>
         <input class="lf-inp" type="text" id="lf-search" placeholder="qualquer termo…" oninput="applyLista()"/>
       </div>
-
       <div class="lf-sec">
         <label class="lf-lbl">Espécie (múltipla seleção)</label>
         <div class="sp-search-wrap"><input type="text" id="sp-search-q" placeholder="buscar espécie…" oninput="filterSpList()"/></div>
         <div class="sp-list" id="sp-list"></div>
       </div>
-
       <hr class="lf-sep"/>
       <div class="lf-sec"><label class="lf-lbl">Grande Grupo</label><div class="lf-ckg" id="lf-grupo"></div></div>
       <div class="lf-sec"><label class="lf-lbl">Subgrupo</label><div class="lf-ckg" id="lf-subgrupo"></div></div>
@@ -457,794 +485,1530 @@ textarea.fi{resize:vertical;min-height:72px}
 
   <!-- TAB: Novo Registro -->
   <div id="ct-novo" class="ctab-panel">
-    <div class="pg-sub" style="margin-bottom:16px">Observou uma espécie que não está listada? Todos os registros são validados antes da incorporação.</div>
-    <div class="f-card" style="max-width:640px;margin:0 auto">
-      <div class="f2"><div class="fg"><label class="fl">Grande Grupo *</label><select class="fi"><option>Fauna</option><option>Flora</option><option>Fungos</option></select></div><div class="fg"><label class="fl">Subgrupo</label><input class="fi" type="text"/></div></div>
-      <div class="f2"><div class="fg"><label class="fl">Nome Científico *</label><input class="fi" type="text" placeholder="Genus species"/></div><div class="fg"><label class="fl">Nome Popular</label><input class="fi" type="text"/></div></div>
-      <div class="f2"><div class="fg"><label class="fl">Família</label><input class="fi" type="text"/></div><div class="fg"><label class="fl">Ordem</label><input class="fi" type="text"/></div></div>
-      <div class="fg"><label class="fl">Ilhas com Registro *</label><div class="rb-g"><div class="rb" onclick="this.classList.toggle('on')">🏝 Alcatrazes</div><div class="rb" onclick="this.classList.toggle('on')">🏝 Palmas</div><div class="rb" onclick="this.classList.toggle('on')">🏝 Cabras</div></div></div>
-      <div class="f2"><div class="fg"><label class="fl">Referência / DOI</label><input class="fi" type="text"/></div><div class="fg"><label class="fl">Data do Registro</label><input class="fi" type="date"/></div></div>
-      <div class="fg"><label class="fl">Observações</label><textarea class="fi"></textarea></div>
-      <div class="f2"><div class="fg"><label class="fl">Seu Nome *</label><input class="fi" type="text"/></div><div class="fg"><label class="fl">E-mail *</label><input class="fi" type="email"/></div></div>
-      <button class="f-sub" onclick="okForm('ok-reg')">Enviar Registro</button>
-      <div class="ok-msg" id="ok-reg">✅ Registro enviado! Nossa equipe validará os dados.</div>
+    <div class="f-sect show">
+      <form class="f-card" onsubmit="submitForm(event, 'newRecord')">
+        <h2 class="f-t">🦎 Enviar Novo Registro</h2>
+        <p class="f-d">Insira observações científicas ou novos avistamentos biológicos feitos nas ilhas do arquipélago.</p>
+        
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Grande Grupo</span>
+            <select class="fi" id="reg-grupo" required>
+              <option value="Fauna">Fauna</option>
+              <option value="Flora">Flora</option>
+              <option value="Fungos">Fungos</option>
+            </select>
+          </div>
+          <div class="fg">
+            <span class="fl">Subgrupo</span>
+            <input class="fi" type="text" id="reg-subg" placeholder="Ex: Répteis, Aves, Angiospermas..." required/>
+          </div>
+        </div>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Nome Científico</span>
+            <input class="fi" type="text" id="reg-cientifico" placeholder="Gênero + epíteto específico" required/>
+          </div>
+          <div class="fg">
+            <span class="fl">Nome Popular</span>
+            <input class="fi" type="text" id="reg-popular" placeholder="Nome popular comum"/>
+          </div>
+        </div>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Família</span>
+            <input class="fi" type="text" id="reg-familia" placeholder="Família taxonômica"/>
+          </div>
+          <div class="fg">
+            <span class="fl">Ordem</span>
+            <input class="fi" type="text" id="reg-ordem" placeholder="Ordem taxonômica"/>
+          </div>
+        </div>
+
+        <div class="fg">
+          <span class="fl">Local de Avistamento (Ilhas)</span>
+          <div class="rb-g" id="reg-ilhas">
+            <div class="rb on" data-val="Alcatrazes" onclick="toggleRb(this)">Alcatrazes (Principal)</div>
+            <div class="rb" data-val="Palmas" onclick="toggleRb(this)">Palmas</div>
+            <div class="rb" data-val="Cabras" onclick="toggleRb(this)">Cabras</div>
+          </div>
+        </div>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Data do Registro</span>
+            <input class="fi" type="date" id="reg-data" required/>
+          </div>
+          <div class="fg">
+            <span class="fl">Referência / DOI</span>
+            <input class="fi" type="text" id="reg-ref" placeholder="DOI de publicação de apoio"/>
+          </div>
+        </div>
+
+        <div class="fg">
+          <span class="fl">Observações Adicionais</span>
+          <textarea class="fi" id="reg-obs" placeholder="Escreva aqui detalhes sobre o registro biológico..."></textarea>
+        </div>
+
+        <hr class="lf-sep" style="margin: 15px 0;"/>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Nome do Contribuidor</span>
+            <input class="fi" type="text" id="reg-nome" placeholder="Seu nome" required/>
+          </div>
+          <div class="fg">
+            <span class="fl">E-mail para Contato</span>
+            <input class="fi" type="email" id="reg-email" placeholder="seu@email.com" required/>
+          </div>
+        </div>
+
+        <button class="f-sub" type="submit">Enviar Registro</button>
+        <div class="ok-msg" id="msg-novo">✨ Registro enviado com sucesso! Seus dados foram guardados na planilha de moderação.</div>
+      </form>
     </div>
   </div>
 
   <!-- TAB: Cadastrar Colaborador -->
   <div id="ct-col" class="ctab-panel">
-    <div class="pg-sub" style="margin-bottom:16px">Pesquisador, especialista ou entusiasta? Faça parte da rede do projeto. Após análise, a equipe entrará em contato.</div>
-    <div class="f-card" style="max-width:640px;margin:0 auto">
-      <div class="f2"><div class="fg"><label class="fl">Nome Completo *</label><input class="fi" type="text"/></div><div class="fg"><label class="fl">E-mail *</label><input class="fi" type="email"/></div></div>
-      <div class="f2"><div class="fg"><label class="fl">Instituição</label><input class="fi" type="text"/></div><div class="fg"><label class="fl">Especialidade</label><input class="fi" type="text"/></div></div>
-      <div class="fg"><label class="fl">Grupos de Interesse</label><div class="rb-g" id="rb-gi"><div class="rb on" onclick="selRb(this,'rb-gi')">Flora</div><div class="rb" onclick="selRb(this,'rb-gi')">Fauna</div><div class="rb" onclick="selRb(this,'rb-gi')">Fungos</div><div class="rb" onclick="selRb(this,'rb-gi')">Geral</div></div></div>
-      <div class="fg"><label class="fl">Lattes / ORCID / Site</label><input class="fi" type="text"/></div>
-      <div class="fg"><label class="fl">Como deseja contribuir?</label><textarea class="fi"></textarea></div>
-      <button class="f-sub" onclick="okForm('ok-col')">Enviar Cadastro</button>
-      <div class="ok-msg" id="ok-col">✅ Cadastro enviado!</div>
+    <div class="f-sect show">
+      <form class="f-card" onsubmit="submitForm(event, 'newCollaborator')">
+        <h2 class="f-t">👤 Cadastro de Colaborador / Pesquisador</h2>
+        <p class="f-d">Registre-se como um pesquisador associado para enriquecer o banco de dados do NGI Alcatrazes.</p>
+
+        <div class="fg">
+          <span class="fl">Nome Completo</span>
+          <input class="fi" type="text" id="col-nome" placeholder="Seu nome completo" required/>
+        </div>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">E-mail de Trabalho</span>
+            <input class="fi" type="email" id="col-email" placeholder="seu@email.com" required/>
+          </div>
+          <div class="fg">
+            <span class="fl">Instituição de Vínculo</span>
+            <input class="fi" type="text" id="col-inst" placeholder="Ex: USP, UNESP, UNIFESP, ICMBio..." required/>
+          </div>
+        </div>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Especialidade Principal</span>
+            <input class="fi" type="text" id="col-espec" placeholder="Ex: Herpetologia, Botânica..." required/>
+          </div>
+          <div class="fg">
+            <span class="fl">Grupos taxonômicos de Interesse</span>
+            <input class="fi" type="text" id="col-grupo-int" placeholder="Ex: Répteis, Angiospermas..." required/>
+          </div>
+        </div>
+
+        <div class="fg">
+          <span class="fl">Currículo Lattes / ORCID / Site Profissional</span>
+          <input class="fi" type="url" id="col-site" placeholder="https://lattes.cnpq.br/xxxxx"/>
+        </div>
+
+        <div class="fg">
+          <span class="fl">Como deseja contribuir nas pesquisas de Alcatrazes?</span>
+          <textarea class="fi" id="col-contribuir-desc" placeholder="Detalhes de projetos, pesquisas ou interesse em coletas ecológicas..."></textarea>
+        </div>
+
+        <button class="f-sub" type="submit">Cadastrar Colaborador</button>
+        <div class="ok-msg" id="msg-col">✨ Solicitação de cadastro enviada! Seus dados de rede de colaboração foram salvos com sucesso.</div>
+      </form>
     </div>
   </div>
 
   <!-- TAB: Sugestão Taxonômica -->
   <div id="ct-taxo" class="ctab-panel">
-    <div class="pg-sub" style="margin-bottom:16px">Identificou um erro taxonômico, nome desatualizado ou inconsistência? Reporte abaixo.</div>
-    <div class="f-card" style="max-width:640px;margin:0 auto">
-      <div class="fg"><label class="fl">Tipo</label>
-        <div class="rb-g" id="tx-tipo">
-          <div class="rb on" onclick="selRb(this,'tx-tipo')">Erro taxonômico</div>
-          <div class="rb" onclick="selRb(this,'tx-tipo')">Nome desatualizado</div>
-          <div class="rb" onclick="selRb(this,'tx-tipo')">Duplicata</div>
-          <div class="rb" onclick="selRb(this,'tx-tipo')">Classificação incorreta</div>
-          <div class="rb" onclick="selRb(this,'tx-tipo')">Outro</div>
+    <div class="f-sect show">
+      <form class="f-card" onsubmit="submitForm(event, 'newTaxoSuggestion')">
+        <h2 class="f-t">🔬 Sugestão de Atualização Taxonômica</h2>
+        <p class="f-d">Se você detectou um erro de sinonímia, grafia ou atualização científica de espécies no dashboard, relate abaixo.</p>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Tipo de Atualização</span>
+            <select class="fi" id="tax-tipo">
+              <option value="Sinonímia">Sinonímia (Atualização de Nome)</option>
+              <option value="Grafia Incorreta">Correção ortográfica</option>
+              <option value="Reclassificação Família/Gênero">Reclassificação sistemática</option>
+              <option value="Outro">Outro tipo de ajuste</option>
+            </select>
+          </div>
+          <div class="fg">
+            <span class="fl">Táxon de Referência</span>
+            <input class="fi" type="text" id="tax-taxon" placeholder="Nome científico da espécie atualmente listada" required/>
+          </div>
         </div>
-      </div>
-      <div class="fg"><label class="fl">Táxon Afetado</label><input class="fi" type="text" placeholder="Ex: Aphanolejeunea sicaefolia"/></div>
-      <div class="f2">
-        <div class="fg"><label class="fl">Como está registrado</label><input class="fi" type="text"/></div>
-        <div class="fg"><label class="fl">Como deveria estar</label><input class="fi" type="text"/></div>
-      </div>
-      <div class="fg"><label class="fl">Justificativa / Referência</label><textarea class="fi"></textarea></div>
-      <div class="f2">
-        <div class="fg"><label class="fl">Nome (opcional)</label><input class="fi" type="text"/></div>
-        <div class="fg"><label class="fl">E-mail (opcional)</label><input class="fi" type="email"/></div>
-      </div>
-      <button class="f-sub" onclick="okForm('tx-ok')">Enviar Sugestão</button>
-      <div class="ok-msg" id="tx-ok">✅ Sugestão registrada!</div>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Como está registrado no dashboard</span>
+            <input class="fi" type="text" id="tax-atual" placeholder="Como o termo aparece aqui"/>
+          </div>
+          <div class="fg">
+            <span class="fl">Como deveria ser registrado</span>
+            <input class="fi" type="text" id="tax-sugerido" placeholder="Proposta científica correta" required/>
+          </div>
+        </div>
+
+        <div class="fg">
+          <span class="fl">Justificativa Científica ou Referência Bibliográfica</span>
+          <textarea class="fi" id="tax-just" placeholder="Citações bibliográficas, links para artigos ou revisões taxonômicas de apoio..." required></textarea>
+        </div>
+
+        <hr class="lf-sep" style="margin: 15px 0;"/>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Seu Nome</span>
+            <input class="fi" type="text" id="tax-nome" placeholder="Nome científico" required/>
+          </div>
+          <div class="fg">
+            <span class="fl">E-mail para Feedback</span>
+            <input class="fi" type="email" id="tax-email" placeholder="seu@email.com" required/>
+          </div>
+        </div>
+
+        <button class="f-sub" type="submit">Enviar Sugestão</button>
+        <div class="ok-msg" id="msg-taxo">✨ Proposta científica de revisão taxonômica enviada para curadoria!</div>
+      </form>
     </div>
   </div>
 
   <!-- TAB: Comentário -->
   <div id="ct-com" class="ctab-panel">
-    <div class="pg-sub" style="margin-bottom:16px">Dúvidas, sugestões gerais ou feedback sobre os dados.</div>
-    <div class="f-card" style="max-width:640px;margin:0 auto">
-      <div class="fg"><label class="fl">Tipo</label><div class="rb-g" id="rb-mt"><div class="rb on" onclick="selRb(this,'rb-mt')">Dúvida</div><div class="rb" onclick="selRb(this,'rb-mt')">Sugestão</div><div class="rb" onclick="selRb(this,'rb-mt')">Feedback</div><div class="rb" onclick="selRb(this,'rb-mt')">Outro</div></div></div>
-      <div class="fg"><label class="fl">Mensagem *</label><textarea class="fi" style="min-height:90px"></textarea></div>
-      <div class="f2"><div class="fg"><label class="fl">Nome (opcional)</label><input class="fi" type="text"/></div><div class="fg"><label class="fl">E-mail (opcional)</label><input class="fi" type="email"/></div></div>
-      <button class="f-sub" onclick="okForm('ok-com')">Enviar Mensagem</button>
-      <div class="ok-msg" id="ok-com">✅ Mensagem enviada!</div>
+    <div class="f-sect show">
+      <form class="f-card" onsubmit="submitForm(event, 'newComment')">
+        <h2 class="f-t">💬 Deixe seu Comentário</h2>
+        <p class="f-d">Se você tem críticas, melhorias na interface ou dúvidas gerais sobre a preservação de Alcatrazes, use o canal direto abaixo.</p>
+
+        <div class="fg">
+          <span class="fl">Tipo de Mensagem</span>
+          <select class="fi" id="com-tipo">
+            <option value="Dúvida">Dúvida Ecológica</option>
+            <option value="Sugestão de Interface">Sugestão de Layout / Funcionalidade</option>
+            <option value="Crítica">Crítica construtiva</option>
+            <option value="Outro">Outro assunto</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <span class="fl">Sua Mensagem</span>
+          <textarea class="fi" id="com-msg" placeholder="Escreva detalhadamente sua mensagem aqui..." required></textarea>
+        </div>
+
+        <hr class="lf-sep" style="margin: 15px 0;"/>
+
+        <div class="f2">
+          <div class="fg">
+            <span class="fl">Seu Nome</span>
+            <input class="fi" type="text" id="com-nome" placeholder="Seu nome" required/>
+          </div>
+          <div class="fg">
+            <span class="fl">Seu E-mail</span>
+            <input class="fi" type="email" id="com-email" placeholder="seu@email.com" required/>
+          </div>
+        </div>
+
+        <button class="f-sub" type="submit">Enviar Comentário</button>
+        <div class="ok-msg" id="msg-com">✨ Mensagem guardada! Muito obrigado pelo seu feedback.</div>
+      </form>
     </div>
   </div>
 </div>
-
 
 <!-- ===== SOBRE ===== -->
 <div id="page-sobre" class="page">
   <div class="sobre-layout">
     <div class="sobre-text-col">
       <div class="sobre-section">
-        <div class="sobre-h1">O que é o NGI Alcatrazes?</div>
-        <div class="sobre-p">O <strong>Núcleo de Gestão Integrada (NGI) Alcatrazes</strong> é uma unidade administrativa do Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio), responsável pela gestão da <strong>Área de Proteção Ambiental (APA) Marinha do Litoral Norte</strong> e do <strong>Refúgio de Vida Silvestre (RVS) Alcatrazes</strong>, no litoral norte do Estado de São Paulo.</div>
-        <div class="sobre-p">O arquipélago de Alcatrazes é composto por um conjunto de ilhas e ilhotas localizadas a aproximadamente 35 km do município de São Sebastião. Suas águas abrigam um dos ecossistemas marinhos mais ricos e preservados do Atlântico Sul, com recifes de corais, pradarias de algas e grande diversidade de espécies marinhas e terrestres.</div>
-        <div class="sobre-card">
-          <div class="sobre-h2">Unidades de Conservação</div>
-          <div class="sobre-p"><strong>APA Marinha do Litoral Norte:</strong> Unidade de uso sustentável que abrange uma extensa faixa marinha do litoral norte paulista, protegendo ambientes costeiros e marinhos de elevada biodiversidade.</div>
-          <div class="sobre-p"><strong>RVS Alcatrazes:</strong> Refúgio de proteção integral que abrange o arquipélago e suas áreas marinhas adjacentes. Destaca-se por ser um dos poucos locais de reprodução da <em>Bothrops alcatraz</em> (jararaca-ilhoa), serpente endêmica da ilha principal.</div>
-        </div>
-      </div>
-      <div class="sobre-section">
-        <div class="sobre-h2">A Lista de Espécies</div>
-        <div class="sobre-p">A lista de espécies consolidada aqui reúne registros de ocorrência de organismos nas ilhas do arquipélago (Alcatrazes, Palmas e Cabras), compilados a partir de décadas de pesquisa científica, levantamentos de campo e dados de coleções científicas.</div>
-        <div class="sobre-p">Os registros englobam Flora terrestre, Fauna (aves, répteis, peixes, invertebrados marinhos e terrestres, cetáceos), Fungos e Algas. Cada espécie é classificada quanto à sua categoria de ameaça segundo as listas da <strong>IUCN</strong>, <strong>MMA</strong> e <strong>Estado de São Paulo</strong>, e também quanto ao seu status de endemismo e origem (nativa, exótica ou invasora).</div>
+        <h1 class="sobre-h1">Refúgio de Alcatrazes: Um Santuário de Biodiversidade</h1>
+        <p class="sobre-p">
+          Localizado a cerca de 35 km da costa de São Sebastião, no Litoral Norte do Estado de São Paulo, o <strong>Refúgio de Vida Silvestre do Arquipélago de Alcatrazes (REVIS)</strong> é a segunda maior área de proteção integral marinha do Brasil. Criada em 2016, a unidade desempenha papel central na conservação de ecossistemas únicos e endemismos insulares raríssimos.
+        </p>
+        <p class="sobre-p">
+          O isolamento geográfico decorrente das flutuações do nível do mar ao longo dos milênios forçou um caminho evolutivo único para as espécies locais. Alcatrazes é famoso por abrigar anfíbios e répteis herpetológicos exclusivos, como a temida e fascinante <strong>Jararaca-de-Alcatrazes (Bothrops alcatraz)</strong>, além de importantes ninhais de aves oceânicas como atobás e fragatas.
+        </p>
       </div>
     </div>
+
     <div class="sobre-sidebar">
-      <div class="sobre-h2" style="margin-bottom:10px">Mapa do Arquipélago</div>
-      <div class="map-ph">
-        <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
-          <defs><radialGradient id="sg" cx="50%" cy="50%"><stop offset="0%" stop-color="#1e6fa8"/><stop offset="100%" stop-color="#0d3b5e"/></radialGradient></defs>
-          <rect width="340" height="260" fill="url(#sg)"/>
-          <!-- grid lines -->
-          <line x1="0" y1="87" x2="340" y2="87" stroke="#fff" stroke-width=".3" opacity=".15"/>
-          <line x1="0" y1="173" x2="340" y2="173" stroke="#fff" stroke-width=".3" opacity=".15"/>
-          <line x1="113" y1="0" x2="113" y2="260" stroke="#fff" stroke-width=".3" opacity=".15"/>
-          <line x1="226" y1="0" x2="226" y2="260" stroke="#fff" stroke-width=".3" opacity=".15"/>
-          <!-- Alcatrazes main island (largest) -->
-          <ellipse cx="170" cy="130" rx="38" ry="22" fill="#3a7a3a" opacity=".9"/>
-          <ellipse cx="170" cy="130" rx="38" ry="22" fill="#2d5a2d"/>
-          <path d="M145 122 Q160 110 185 118 Q195 128 188 140 Q175 150 155 148 Q138 144 138 132 Z" fill="#3d7a3d" opacity=".8"/>
-          <text x="170" y="133" text-anchor="middle" fill="#fff" font-size="9" font-family="DM Sans" opacity=".9">Alcatrazes</text>
-          <!-- Palmas island -->
-          <ellipse cx="105" cy="88" rx="14" ry="9" fill="#2d5a2d" opacity=".85"/>
-          <text x="105" y="76" text-anchor="middle" fill="#fff" font-size="7.5" font-family="DM Sans" opacity=".85">Palmas</text>
-          <!-- Cabras island -->
-          <ellipse cx="245" cy="170" rx="12" ry="8" fill="#2d5a2d" opacity=".85"/>
-          <text x="245" y="158" text-anchor="middle" fill="#fff" font-size="7.5" font-family="DM Sans" opacity=".85">Cabras</text>
-          <!-- compass -->
-          <text x="310" y="30" text-anchor="middle" fill="#fff" font-size="10" font-family="DM Sans" opacity=".7">N</text>
-          <line x1="310" y1="32" x2="310" y2="46" stroke="#fff" stroke-width="1" opacity=".5"/>
-          <!-- scale bar -->
-          <line x1="20" y1="240" x2="70" y2="240" stroke="#fff" stroke-width="1.5" opacity=".6"/>
-          <text x="45" y="252" text-anchor="middle" fill="#fff" font-size="7" font-family="DM Sans" opacity=".6">~5 km</text>
-          <!-- São Paulo coast label -->
-          <text x="170" y="248" text-anchor="middle" fill="#fff" font-size="7" font-family="DM Sans" opacity=".5">← São Sebastião (~35 km)</text>
+      <!-- Interactive SVG Map -->
+      <div style="position: relative; background: linear-gradient(135deg, #0d2a45 0%, #153b5c 100%); border-radius: 10px; height: 320px; overflow: hidden; box-shadow: var(--sh); border: 1px solid var(--border); margin-bottom: 14px;">
+        <svg viewBox="0 0 400 300" style="width: 100%; height: 100%; display: block;">
+          <!-- Sea Grid Lines -->
+          <line x1="0" y1="75" x2="400" y2="75" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
+          <line x1="0" y1="150" x2="400" y2="150" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
+          <line x1="0" y1="225" x2="400" y2="225" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
+          <line x1="100" y1="0" x2="100" y2="300" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
+          <line x1="200" y1="0" x2="200" y2="300" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
+          <line x1="300" y1="0" x2="300" y2="300" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
+
+          <!-- Compass -->
+          <g transform="translate(45, 55)" opacity="0.35">
+            <circle cx="0" cy="0" r="18" fill="none" stroke="#fff" stroke-width="0.8"/>
+            <path d="M0 -25 L3 -6 L20 0 L3 6 L0 25 L-3 6 L-20 0 L-3 -6 Z" fill="#fff"/>
+            <text x="-3" y="-28" fill="#fff" font-size="7" font-weight="bold">N</text>
+          </g>
+
+          <!-- Islands -->
+          <!-- 1. Ilha de Palmas -->
+          <path d="M 85,135 Q 92,122 108,127 T 120,145 T 100,150 Z" class="map-island-path" onclick="selectIsland('Palmas')" onmouseover="hoverIsland('Palmas')"/>
+          <!-- 2. Ilha de Cabras -->
+          <circle cx="150" cy="118" r="6" class="map-island-path" onclick="selectIsland('Cabras')" onmouseover="hoverIsland('Cabras')"/>
+          <!-- 3. Alcatrazes Principal -->
+          <path d="M 210,180 Q 232,138 265,115 Q 282,105 285,120 T 268,160 T 235,195 T 212,202 Z" class="map-island-path" onclick="selectIsland('Alcatrazes')" onmouseover="hoverIsland('Alcatrazes')"/>
+          <!-- 4. Ilha do Paredão -->
+          <path d="M 320,105 Q 325,100 330,105 T 325,115 Z" class="map-island-path" onclick="selectIsland('Paredão')" onmouseover="hoverIsland('Paredão')"/>
+          <!-- 5. Laje do Sudoeste -->
+          <circle cx="298" cy="85" r="4.5" class="map-island-path" onclick="selectIsland('Sapata')" onmouseover="hoverIsland('Sapata')"/>
+
+          <!-- Labels -->
+          <text x="240" y="150" fill="#fff" font-size="9" font-weight="bold" pointer-events="none">Alcatrazes</text>
+          <text x="75" y="165" fill="#fff" font-size="8" pointer-events="none">Palmas</text>
+          <text x="142" y="132" fill="#fff" font-size="8" pointer-events="none">Cabras</text>
+          <text x="310" y="125" fill="#fff" font-size="8" pointer-events="none">Paredão</text>
         </svg>
+
+        <!-- Information Overlay Panel -->
+        <div id="island-info-panel" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13, 42, 69, 0.9); border-top: 1px solid rgba(255,255,255,0.15); padding: 8px 12px; height: 90px; backdrop-filter: blur(3px); display: flex; flex-direction: column; justify-content: center;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span id="island-info-title" style="font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: bold; color: #77d9ac;">🏝 Mapa de Alcatrazes</span>
+            <span id="island-info-coords" style="font-size: 0.6rem; color: var(--text3); font-family: monospace;">Passe o mouse nas ilhas</span>
+          </div>
+          <p id="island-info-desc" style="font-size: 0.7rem; color: #fff; opacity: 0.85; margin-top: 3px; line-height: 1.3;">
+            Explore de perto o território do arquipélago. Passe o mouse ou clique sobre qualquer área delimitada acima para visualizar informações de proteção ecológica.
+          </p>
+        </div>
       </div>
-      <div style="margin-top:14px">
-        <div class="sobre-h2" style="margin-bottom:8px">Conceitos Principais</div>
-        <div class="concept-list">
-          <div class="concept-item"><div class="concept-term">Espécie Endêmica</div><div class="concept-def">Espécie encontrada exclusivamente em uma determinada área geográfica restrita, não ocorrendo naturalmente em nenhum outro lugar do mundo.</div></div>
-          <div class="concept-item"><div class="concept-term">Exótica / Invasora</div><div class="concept-def"><strong>Não nativa:</strong> introduzida fora de sua área de ocorrência natural. <strong>Invasora:</strong> exótica que se reproduz e se dispersa, causando impactos ecológicos.</div></div>
-          <div class="concept-item"><div class="concept-term">Categorias de Ameaça (IUCN)</div><div class="concept-def"><strong>CR</strong> Criticamente em Perigo · <strong>EN</strong> Em Perigo · <strong>VU</strong> Vulnerável · <strong>NT</strong> Quase Ameaçada · <strong>LC</strong> Pouco Preocupante · <strong>DD</strong> Dados Insuficientes · <strong>EX</strong> Extinta</div></div>
-          <div class="concept-item"><div class="concept-term">Menor Nível Taxonômico</div><div class="concept-def">O nível taxonômico mais específico para o qual o organismo foi identificado — pode ser espécie, subespécie ou variedade.</div></div>
-          <div class="concept-item"><div class="concept-term">MMA e SP</div><div class="concept-def">Listas de espécies ameaçadas publicadas pelo Ministério do Meio Ambiente (MMA) e pelo Estado de São Paulo (SP), com categorias análogas às da IUCN.</div></div>
+
+      <div class="concept-list">
+        <div class="concept-item">
+          <div class="concept-term">Espécie Endêmica</div>
+          <div class="concept-def">Espécie que ocorre exclusivamente dentro de uma área geográfica restrita e em nenhum outro lugar do planeta.</div>
+        </div>
+        <div class="concept-item">
+          <div class="concept-term">Unidade de Conservação</div>
+          <div class="concept-def">Área protegida por lei com limites definidos e sob regime especial de administração, visando objetivos ecológicos permanentes.</div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- ========================================== -->
+<!-- JAVASCRIPT CONTROLLERS -->
+<!-- ========================================== -->
 <script>
-// ═══════════════════════════════════════════════════════════════
-// CONFIG — edite apenas estas 2 linhas se precisar trocar o Sheet
-// ═══════════════════════════════════════════════════════════════
-const SHEET_ID   = '105nFkb90I3Il6Qjx4qId5WA1IZWxAqYS-RldKAIgSyg';
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGF8MtO3kXOXnXV2YH7vcDe4Rmmj2zJyJocc0BKSL8aMGWHZej_p7sCgx0OOD75n0TCQ/exec';
-// ═══════════════════════════════════════════════════════════════
+// IMPORTANTE: Insira abaixo a URL gerada pelo deploy da Web App do seu Google Apps Script!
+const API_URL = ""; 
 
-const SVGS = {"Invertebrados marinhos": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#1a4a6e\"/><ellipse cx=\"100\" cy=\"80\" rx=\"50\" ry=\"38\" fill=\"#e86b2a\" opacity=\"0.9\"/><path d=\"M100 42 Q72 22 52 36 Q72 50 100 42Z\" fill=\"#e86b2a\"/><path d=\"M100 42 Q128 22 148 36 Q128 50 100 42Z\" fill=\"#e86b2a\"/><path d=\"M50 80 Q28 62 18 80 Q28 96 50 80Z\" fill=\"#e86b2a\"/><path d=\"M50 80 Q28 92 20 108 Q38 104 50 80Z\" fill=\"#d05a1f\"/><path d=\"M150 80 Q172 62 182 80 Q172 96 150 80Z\" fill=\"#e86b2a\"/><path d=\"M150 80 Q172 92 180 108 Q162 104 150 80Z\" fill=\"#d05a1f\"/><circle cx=\"78\" cy=\"72\" r=\"7\" fill=\"#fff\" opacity=\"0.9\"/><circle cx=\"80\" cy=\"72\" r=\"3.5\" fill=\"#1a1a1a\"/></svg>", "Flora terrestre": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#1a3a1a\"/><rect x=\"0\" y=\"105\" width=\"200\" height=\"35\" fill=\"#2d5a1b\"/><line x1=\"100\" y1=\"118\" x2=\"100\" y2=\"28\" stroke=\"#5a3a1a\" stroke-width=\"7\"/><line x1=\"100\" y1=\"85\" x2=\"62\" y2=\"55\" stroke=\"#5a3a1a\" stroke-width=\"4\"/><line x1=\"100\" y1=\"68\" x2=\"132\" y2=\"42\" stroke=\"#5a3a1a\" stroke-width=\"4\"/><ellipse cx=\"100\" cy=\"20\" rx=\"38\" ry=\"26\" fill=\"#2e7d32\"/><ellipse cx=\"60\" cy=\"46\" rx=\"28\" ry=\"20\" fill=\"#388e3c\"/><ellipse cx=\"134\" cy=\"34\" rx=\"28\" ry=\"20\" fill=\"#43a047\"/><ellipse cx=\"38\" cy=\"72\" rx=\"24\" ry=\"17\" fill=\"#2e7d32\"/><ellipse cx=\"162\" cy=\"60\" rx=\"24\" ry=\"17\" fill=\"#388e3c\"/></svg>", "Peixes": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#0d3b5e\"/><path d=\"M18 70 Q75 38 150 70 Q75 102 18 70Z\" fill=\"#1565c0\" opacity=\"0.95\"/><path d=\"M150 70 L178 44 L184 70 L178 96Z\" fill=\"#1565c0\"/><path d=\"M70 50 Q92 40 114 50\" stroke=\"#42a5f5\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.6\"/><path d=\"M64 62 Q92 52 120 62\" stroke=\"#42a5f5\" stroke-width=\"2\" fill=\"none\" opacity=\"0.5\"/><path d=\"M68 78 Q92 68 116 78\" stroke=\"#42a5f5\" stroke-width=\"2\" fill=\"none\" opacity=\"0.5\"/><circle cx=\"60\" cy=\"64\" r=\"10\" fill=\"#fff\" opacity=\"0.9\"/><circle cx=\"62\" cy=\"64\" r=\"5\" fill=\"#0d1b2a\"/></svg>", "Aves": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#0a1628\"/><path d=\"M0 140 Q50 75 100 98 Q150 75 200 140Z\" fill=\"#1a3a2a\" opacity=\"0.7\"/><ellipse cx=\"92\" cy=\"72\" rx=\"42\" ry=\"26\" fill=\"#f5f5f5\"/><ellipse cx=\"70\" cy=\"62\" rx=\"24\" ry=\"16\" fill=\"#f5f5f5\"/><circle cx=\"60\" cy=\"58\" r=\"9\" fill=\"#1a1a1a\"/><circle cx=\"58\" cy=\"56\" r=\"3\" fill=\"#fff\"/><path d=\"M48 66 L33 70 L48 72Z\" fill=\"#f4a62a\"/><path d=\"M134 72 Q168 46 192 28 Q178 58 154 72 Q144 78 134 72Z\" fill=\"#e8e8e8\"/><path d=\"M70 88 L66 112 L76 112 L78 88Z\" fill=\"#f4a62a\" opacity=\"0.8\"/></svg>", "Invertebrados terrestres": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#1a2a0a\"/><rect x=\"0\" y=\"112\" width=\"200\" height=\"28\" fill=\"#2d4a10\"/><ellipse cx=\"100\" cy=\"90\" rx=\"30\" ry=\"18\" fill=\"#c0392b\"/><ellipse cx=\"100\" cy=\"68\" rx=\"18\" ry=\"14\" fill=\"#e74c3c\"/><ellipse cx=\"100\" cy=\"52\" rx=\"12\" ry=\"10\" fill=\"#c0392b\"/><circle cx=\"95\" cy=\"46\" r=\"3.5\" fill=\"#1a1a1a\"/><circle cx=\"105\" cy=\"46\" r=\"3.5\" fill=\"#1a1a1a\"/><line x1=\"74\" y1=\"78\" x2=\"44\" y2=\"64\" stroke=\"#c0392b\" stroke-width=\"2.5\"/><line x1=\"74\" y1=\"90\" x2=\"42\" y2=\"88\" stroke=\"#c0392b\" stroke-width=\"2.5\"/><line x1=\"74\" y1=\"100\" x2=\"46\" y2=\"112\" stroke=\"#c0392b\" stroke-width=\"2.5\"/><line x1=\"126\" y1=\"78\" x2=\"156\" y2=\"64\" stroke=\"#c0392b\" stroke-width=\"2.5\"/><line x1=\"126\" y1=\"90\" x2=\"158\" y2=\"88\" stroke=\"#c0392b\" stroke-width=\"2.5\"/><line x1=\"126\" y1=\"100\" x2=\"154\" y2=\"112\" stroke=\"#c0392b\" stroke-width=\"2.5\"/></svg>", "Algas": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#0a2a3a\"/><path d=\"M55 140 Q48 108 58 82 Q66 58 52 32\" stroke=\"#27ae60\" stroke-width=\"8\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"46\" cy=\"28\" rx=\"18\" ry=\"11\" fill=\"#2ecc71\" opacity=\"0.9\" transform=\"rotate(-20 46 28)\"/><ellipse cx=\"68\" cy=\"48\" rx=\"15\" ry=\"10\" fill=\"#27ae60\" opacity=\"0.85\" transform=\"rotate(18 68 48)\"/><path d=\"M118 140 Q110 112 124 86 Q132 62 116 38\" stroke=\"#16a085\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"112\" cy=\"34\" rx=\"16\" ry=\"10\" fill=\"#1abc9c\" opacity=\"0.9\" transform=\"rotate(-15 112 34)\"/><path d=\"M170 140 Q162 118 172 96 Q178 74 166 52\" stroke=\"#2980b9\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"164\" cy=\"48\" rx=\"14\" ry=\"9\" fill=\"#3498db\" opacity=\"0.8\" transform=\"rotate(-22 164 48)\"/></svg>", "Baleias e golfinhos": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#0d2b4e\"/><path d=\"M8 74 Q58 46 126 68 Q162 78 184 60 L188 74 Q168 90 126 80 Q58 62 8 92Z\" fill=\"#5d8aa8\" opacity=\"0.9\"/><path d=\"M184 60 L198 40 L200 62 L196 80 L184 60Z\" fill=\"#5d8aa8\"/><path d=\"M126 80 Q138 100 122 114 Q110 100 126 80Z\" fill=\"#4a7a95\" opacity=\"0.8\"/><circle cx=\"34\" cy=\"68\" r=\"10\" fill=\"#fff\" opacity=\"0.9\"/><circle cx=\"36\" cy=\"68\" r=\"4\" fill=\"#0d1b2a\"/><path d=\"M56 54 Q70 40 88 52 Q74 64 56 54Z\" fill=\"#4a7a95\" opacity=\"0.7\"/></svg>", "Anfíbios e Répteis": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#1a2e0a\"/><rect x=\"0\" y=\"102\" width=\"200\" height=\"38\" fill=\"#2d4a10\"/><path d=\"M45 102 Q52 72 68 62 Q100 50 132 62 Q148 72 155 102Z\" fill=\"#7cb342\"/><ellipse cx=\"100\" cy=\"62\" rx=\"40\" ry=\"24\" fill=\"#8bc34a\"/><ellipse cx=\"72\" cy=\"55\" rx=\"20\" ry=\"14\" fill=\"#9ccc65\"/><ellipse cx=\"128\" cy=\"55\" rx=\"20\" ry=\"14\" fill=\"#9ccc65\"/><circle cx=\"66\" cy=\"50\" r=\"8\" fill=\"#1a1a1a\"/><circle cx=\"64\" cy=\"48\" r=\"3\" fill=\"#f9a825\"/><circle cx=\"126\" cy=\"50\" r=\"8\" fill=\"#1a1a1a\"/><circle cx=\"124\" cy=\"48\" r=\"3\" fill=\"#f9a825\"/><path d=\"M45 102 L22 106 L26 116 L45 108Z\" fill=\"#7cb342\"/><path d=\"M155 102 L178 106 L174 116 L155 108Z\" fill=\"#7cb342\"/></svg>", "Fungos macroscópicos": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#1a0a2e\"/><rect x=\"0\" y=\"112\" width=\"200\" height=\"28\" fill=\"#2a1a0a\"/><ellipse cx=\"100\" cy=\"62\" rx=\"72\" ry=\"40\" fill=\"#8e24aa\" opacity=\"0.95\"/><rect x=\"90\" y=\"68\" width=\"20\" height=\"52\" rx=\"7\" fill=\"#f3e5f5\" opacity=\"0.92\"/><ellipse cx=\"100\" cy=\"120\" rx=\"18\" ry=\"6\" fill=\"#e1bee7\" opacity=\"0.5\"/><line x1=\"70\" y1=\"76\" x2=\"70\" y2=\"90\" stroke=\"#ba68c8\" stroke-width=\"2\" opacity=\"0.6\"/><line x1=\"80\" y1=\"82\" x2=\"80\" y2=\"98\" stroke=\"#ba68c8\" stroke-width=\"2\" opacity=\"0.6\"/><line x1=\"120\" y1=\"82\" x2=\"120\" y2=\"98\" stroke=\"#ba68c8\" stroke-width=\"2\" opacity=\"0.6\"/><line x1=\"130\" y1=\"76\" x2=\"130\" y2=\"90\" stroke=\"#ba68c8\" stroke-width=\"2\" opacity=\"0.6\"/><circle cx=\"100\" cy=\"48\" r=\"7\" fill=\"#f3e5f5\" opacity=\"0.4\"/></svg>", "Répteis marinhos": "<svg viewBox=\"0 0 200 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"140\" fill=\"#0d3b5e\"/><ellipse cx=\"105\" cy=\"76\" rx=\"62\" ry=\"42\" fill=\"#2e7d32\" opacity=\"0.95\"/><ellipse cx=\"148\" cy=\"62\" rx=\"24\" ry=\"16\" fill=\"#388e3c\" opacity=\"0.9\"/><circle cx=\"158\" cy=\"57\" r=\"7\" fill=\"#1a1a1a\"/><circle cx=\"156\" cy=\"55\" r=\"2.5\" fill=\"#fff\"/><path d=\"M166 64 L180 58 L174 70Z\" fill=\"#2e7d32\" opacity=\"0.8\"/><path d=\"M43 66 L12 50 L16 68 L10 82 L43 76Z\" fill=\"#2e7d32\" opacity=\"0.85\"/><path d=\"M78 38 L70 12 L90 24 L100 12 L108 30Z\" fill=\"#2e7d32\" opacity=\"0.8\"/><path d=\"M118 114 L110 136 L126 128 L136 140 L134 114Z\" fill=\"#2e7d32\" opacity=\"0.8\"/></svg>"};
-
-// ─── LOADING UI ──────────────────────────────────────────────
-let ALL = [], _loaded = false;
-
-function showLoading(msg){
-  let el=document.getElementById('_ld');
-  if(!el){el=document.createElement('div');el.id='_ld';
-    el.style.cssText='position:fixed;inset:0;background:rgba(238,241,246,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;font-family:DM Sans,sans-serif;gap:16px';
-    el.innerHTML='<div style="width:46px;height:46px;border:3px solid #d5dde8;border-top-color:#2e7d5e;border-radius:50%;animation:_sp .7s linear infinite"></div><div id="_ldm" style="font-size:.86rem;color:#475569;font-weight:500">Carregando…</div><style>@keyframes _sp{to{transform:rotate(360deg)}}</style>';
-    document.body.appendChild(el);}
-  else{document.getElementById('_ldm').textContent=msg||'Carregando…';el.style.display='flex';}
-}
-function hideLoading(){const el=document.getElementById('_ld');if(el)el.style.display='none';}
-function showToast(msg,err){
-  const el=document.createElement('div');
-  el.style.cssText=`position:fixed;bottom:20px;right:20px;background:${err?'#b91c1c':'#2e7d5e'};color:#fff;font-family:DM Sans,sans-serif;font-size:.8rem;padding:11px 18px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:9999;max-width:360px;line-height:1.5;animation:fi .2s ease`;
-  el.textContent=msg; document.body.appendChild(el);
-  setTimeout(()=>el.remove(),5000);
-}
-
-// ─── NORMALIZE: mapeia colunas do Sheets → campos internos ───
-function trim(v){return v===null||v===undefined?'':String(v).trim();}
-function toBin(v){
-  if(v===1||v==='1'||v===true||v==='TRUE'||v==='true'||v==='Sim'||v==='sim')return 1;
-  return 0;
-}
-
-function normalizeRow(r){
-  return{
-    id:               r['id']                          || '',
-    grande_grupo:     trim(r['grande_grupo']           || ''),
-    grupo:            trim(r['grande_grupo_II']        || ''),  // Aves, Peixes, Flora terrestre…
-    grupo_especifico: trim(r['grupo_especifico_popular']|| r['grupo_popular'] || ''),
-    nome_popular:     trim(r['nome_popular']           || ''),
-    filo:             trim(r['filo/divisao']           || ''),
-    classe:           trim(r['classe']                 || ''),
-    ordem:            trim(r['ordem']                  || ''),
-    familia:          trim(r['familia']                || ''),
-    especie:          trim(r['MenorNivelTax_Formatado']|| ''),
-    endemica:         toBin(r['endemica']),
-    alcatrazes:       toBin(r['Alcatrazes']),
-    palmas:           toBin(r['Palmas']),
-    cabras:           toBin(r['Cabras']),
-    iucn:             trim(r['IUCN']                   || ''),
-    mma:              trim(r['MMA']                    || ''),
-    sp:               trim(r['SP']                     || ''),
-    exotica:          trim(r['exoticas_invasoras']      || r['exoticas'] || ''),
-    interesse_comercial: trim(r['interesse_comercial'] || ''),
-  };
-}
-
-function normalizeColab(r){
-  return{
-    nome:         trim(r['Nome']              || ''),
-    grupo:        trim(r['Grupo']             || ''),
-    especialidade:trim(r['Especialidades']    || ''),
-    vinculo:      trim(r['Vínculo']           || ''),
-    email:        trim(r['email']             || ''),
-    equipe:       trim(r['equipe']            || ''),
-    lattes:       trim(r['Lattes / ORCID / Site'] || ''),
-    contribuir:   trim(r['Como deseja contribuir'] || ''),
-    id:           trim(r['ID_colaborador']    || ''),
-  };
-}
-
-// ─── FETCH DATA ───────────────────────────────────────────────
-async function loadData(force=false){
-  if(_loaded&&!force)return;
-  showLoading('Conectando ao Google Sheets…');
-  try{
-    const res=await fetch(SCRIPT_URL+'?action=getData&t='+Date.now());
-    if(!res.ok)throw new Error('HTTP '+res.status);
-    const json=await res.json();
-    if(json.error)throw new Error(json.error);
-    if(!Array.isArray(json.data)||!json.data.length)throw new Error('Dados não encontrados');
-    ALL=json.data.map(normalizeRow);
-    _loaded=true;
-    hideLoading();
-    // update timestamp badge
-    let ts=document.getElementById('_ts');
-    if(!ts){ts=document.createElement('div');ts.id='_ts';ts.style.cssText='position:fixed;bottom:5px;left:10px;font-size:.58rem;color:#94a3b8;font-family:DM Sans,sans-serif;z-index:100;pointer-events:none';document.body.appendChild(ts);}
-    ts.textContent='Atualizado: '+new Date(json.lastUpdated||Date.now()).toLocaleString('pt-BR');
-    applyAll();
-    if(document.getElementById('page-lista').classList.contains('active')){buildListaSidebar();applyLista();}
-  }catch(e){
-    hideLoading();
-    showToast('Erro ao carregar dados: '+e.message,true);
-    ALL=[];applyAll();
-  }
-}
-
-async function loadColabData(){
-  try{
-    const res=await fetch(SCRIPT_URL+'?action=getColabs&t='+Date.now());
-    if(!res.ok)throw new Error('HTTP '+res.status);
-    const json=await res.json();
-    if(json.error||!Array.isArray(json.data))return[];
-    return json.data.map(normalizeColab);
-  }catch(e){console.warn('loadColabData:',e);return[];}
-}
-
-// POST form data to sheet
-async function postToSheet(action,data){
-  try{
-    const res=await fetch(SCRIPT_URL,{method:'POST',
-      headers:{'Content-Type':'text/plain'},
-      body:JSON.stringify({action,...data,timestamp:new Date().toISOString()})});
-    const j=await res.json();
-    return j.success!==false;
-  }catch(e){console.error('postToSheet:',e);return false;}
-}
-
-// Auto-refresh every 5 min
-setInterval(()=>loadData(true),5*60*1000);
-
-// ─── NAV ──────────────────────────────────────────────────────
-function goPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  const map={overview:0,lista:1,sobre:2};
-  if(map[id]!==undefined)document.querySelectorAll('.nav-tab')[map[id]].classList.add('active');
-  if(id==='lista'){buildListaSidebar();applyLista();setTimeout(()=>{const s=document.getElementById('sentinel');if(s)obs.observe(s);},100);}
-  if(id==='contribuir')setTimeout(()=>buildColabPage(),60);
-  if(id==='overview')applyAll();
-}
-
-document.addEventListener('click',e=>{if(!e.target.closest('.ms-wrap'))closeAllDrops();});
-
-// ─── MULTI-SELECT DROPDOWNS ───────────────────────────────────
-const SEL={grupo:new Set(),sub:new Set(),thr:new Set(),esp:new Set()};
-let activeThrLists=new Set(['sp']),activeThrListsL=new Set(['sp']),activeTMsub=null;
-let ovFiltered=[],listFiltered=[];
-let charts={};
-const CHUNK=60;let ltRendered=0,sortCol='',sortDir=1;
-
-function toggleDrop(id){
-  const wrap=document.getElementById(id),drop=wrap.querySelector('.ms-drop'),btn=wrap.querySelector('.ms-btn');
-  const open=drop.classList.contains('show');closeAllDrops();
-  if(!open){drop.classList.add('show');btn.classList.add('open');}
-}
-function closeAllDrops(){
-  document.querySelectorAll('.ms-drop').forEach(d=>d.classList.remove('show'));
-  document.querySelectorAll('.ms-btn').forEach(b=>b.classList.remove('open'));
-}
-function toggleOpt(el,key,val){
-  el.classList.toggle('sel');
-  if(el.classList.contains('sel'))SEL[key].add(val);else SEL[key].delete(val);
-  el.querySelector('.ck').textContent=el.classList.contains('sel')?'✓':'';
-  el.closest('.ms-wrap').querySelector('.ms-btn').classList.toggle('has-sel',SEL[key].size>0);
-  applyAll();
-}
-function clearDrop(wrapId,key){
-  SEL[key].clear();
-  document.querySelectorAll('#'+wrapId+' .ms-opt').forEach(o=>{o.classList.remove('sel');o.querySelector('.ck').textContent='';});
-  document.getElementById(wrapId).querySelector('.ms-btn').classList.remove('has-sel');
-  applyAll();
-}
-function refreshSubDrop(){
-  const grupos=SEL.grupo.size?[...SEL.grupo]:null;
-  const subs=[...new Set(ALL.filter(r=>!grupos||grupos.includes(r.grande_grupo)).map(r=>r.grupo))].filter(Boolean).sort();
-  const c=document.getElementById('sub-opts');
-  if(!c)return;
-  c.innerHTML=subs.map(s=>{const sel=SEL.sub.has(s);return`<div class="ms-opt${sel?' sel':''}" onclick="toggleOpt(this,'sub','${s.replace(/'/g,"\\'")}')"><div class="ck">${sel?'✓':''}</div>${s}</div>`;}).join('')+`<div class="ms-clr" onclick="clearDrop('ms-sub','sub')">↺ Limpar</div>`;
-  document.querySelector('#ms-sub .ms-btn').classList.toggle('has-sel',SEL.sub.size>0);
-}
-function toggleThr(el){const t=el.dataset.thr;el.classList.toggle('on');activeThrLists[el.classList.contains('on')?'add':'delete'](t);applyAll();}
-function toggleThrL(el){const t=el.dataset.thr;el.classList.toggle('on');activeThrListsL[el.classList.contains('on')?'add':'delete'](t);applyLista();}
-
-// ─── FILTER LOGIC ─────────────────────────────────────────────
-const THR_ORDER=['CR','EN','VU','NT','LC','DD'];
-function getThreatVal(r,lists){
-  let best='';
-  for(const l of lists){const v=r[l];if(v&&(!best||THR_ORDER.indexOf(v)<THR_ORDER.indexOf(best)))best=v;}
-  return best;
-}
-
-function filterData(){
-  const search=(document.getElementById('f-search')?.value||'').toLowerCase();
-  return ALL.filter(r=>{
-    if(SEL.grupo.size&&!SEL.grupo.has(r.grande_grupo))return false;
-    if(SEL.sub.size&&!SEL.sub.has(r.grupo))return false;
-    if(activeTMsub&&r.grupo!==activeTMsub)return false;
-    if(SEL.thr.size){const tv=getThreatVal(r,[...activeThrLists]);if(!SEL.thr.has(tv))return false;}
-    if(SEL.esp.size){
-      if(SEL.esp.has('endemica')&&!r.endemica)return false;
-      if(SEL.esp.has('exotica')&&!r.exotica)return false;
-      if(SEL.esp.has('ameacada')){const a=['CR','EN','VU'];if(!a.includes(r.iucn)&&!a.includes(r.mma)&&!a.includes(r.sp))return false;}
-    }
-    if(search){const h=(r.especie+' '+r.nome_popular+' '+r.familia+' '+r.grupo+' '+r.grupo_especifico).toLowerCase();if(!h.includes(search))return false;}
-    return true;
-  });
-}
-
-function applyAll(){
-  refreshSubDrop();
-  ovFiltered=filterData();
-  updateTopBar();
-  requestAnimationFrame(buildTreemap);
-  updateStats();
-}
-function resetAll(){
-  ['grupo','sub','thr','esp'].forEach(k=>SEL[k].clear());
-  document.querySelectorAll('.ms-opt').forEach(o=>{o.classList.remove('sel');o.querySelector('.ck').textContent='';});
-  document.querySelectorAll('.ms-btn').forEach(b=>b.classList.remove('has-sel'));
-  document.querySelectorAll('#page-overview .thr-pill').forEach(p=>p.classList.toggle('on',p.dataset.thr==='sp'));
-  activeThrLists=new Set(['sp']);activeTMsub=null;
-  document.getElementById('f-search').value='';
-  applyAll();
-}
-window.addEventListener('resize',()=>{if(document.getElementById('page-overview').classList.contains('active'))requestAnimationFrame(buildTreemap);});
-
-// ─── TOP BAR ──────────────────────────────────────────────────
-function updateTopBar(){
-  const f=ovFiltered;
-  document.getElementById('kpi-tot').textContent=f.length.toLocaleString('pt-BR');
-  document.getElementById('kpi-sub').textContent=`de ${ALL.length.toLocaleString('pt-BR')} espécies`;
-  document.getElementById('kpi-end').textContent=f.filter(r=>r.endemica).length;
-  document.getElementById('kpi-exo').textContent=f.filter(r=>r.exotica).length;
-  const grupos=[{n:'Fauna',c:'var(--fauna)'},{n:'Flora',c:'var(--flora)'},{n:'Fungos',c:'var(--fungos)'}];
-  const ftot=f.length||1;
-  document.getElementById('ov-grupos').innerHTML=grupos.map(g=>{
-    const n=f.filter(r=>r.grande_grupo===g.n).length;
-    const pct=Math.round(n/ftot*100);
-    return`<div class="gr${SEL.grupo.has(g.n)?' gon':''}" onclick="clickGrupo('${g.n}')">
-      <div class="gr-dot" style="background:${g.c}"></div>
-      <span class="gr-name">${g.n}</span>
-      <span class="gr-num">${n.toLocaleString('pt-BR')}</span>
-      <div style="width:100%;margin-top:2px">
-        <div style="height:3px;border-radius:2px;background:var(--bg3);overflow:hidden">
-          <div style="height:100%;width:${pct}%;background:${g.c};transition:width .4s"></div>
-        </div>
-        <span style="font-size:.55rem;color:var(--text3)">${pct}%</span>
-      </div>
-    </div>`;
-  }).join('');
-}
-function clickGrupo(g){
-  if(SEL.grupo.has(g))SEL.grupo.delete(g);else SEL.grupo.add(g);
-  document.querySelectorAll('#ms-grupo .ms-opt').forEach(o=>{const sel=SEL.grupo.has(o.textContent.trim());o.classList.toggle('sel',sel);o.querySelector('.ck').textContent=sel?'✓':'';});
-  document.querySelector('#ms-grupo .ms-btn').classList.toggle('has-sel',SEL.grupo.size>0);
-  applyAll();
-}
-
-// ─── TREEMAP (squarify — SVG via foreignObject avoided, use CSS bg) ───
-const GG_OF={};
-// GG_OF is populated after ALL is loaded
-
-function buildTreemap(){
-  if(!ALL.length)return;
-  // rebuild GG_OF
-  ALL.forEach(r=>{if(r.grupo&&r.grande_grupo)GG_OF[r.grupo]=r.grande_grupo;});
-
-  const cnts={};
-  ovFiltered.forEach(r=>{if(r.grupo)cnts[r.grupo]=(cnts[r.grupo]||0)+1;});
-  const entries=Object.entries(cnts).sort((a,b)=>b[1]-a[1]);
-  if(!entries.length){document.getElementById('tm-grid').innerHTML='';return;}
-  const total=entries.reduce((s,[,v])=>s+v,0)||1;
-
-  const STRIPE={Fauna:'#c97a15',Flora:'#2e7d5e',Fungos:'#6d28d9'};
-  const BGCOL={Fauna:'rgba(201,122,21,.85)',Flora:'rgba(46,125,94,.85)',Fungos:'rgba(109,40,217,.85)'};
-  const grid=document.getElementById('tm-grid');
-  const W=grid.clientWidth||800, H=370;
-  grid.style.height=H+'px';
-
-  const items=entries.map(([name,cnt])=>({name,cnt,value:cnt/total}));
-  const rects=squarify(items,{x:0,y:0,w:W,h:H});
-  const pad=3;
-
-  // Build cells — use background-color + SVG via <img> data URI is unreliable
-  // Instead: embed SVG directly as innerHTML (this IS the fix for treemap not showing)
-  grid.innerHTML=rects.map(({item,x,y,w,h})=>{
-    const {name,cnt}=item;
-    const gg=GG_OF[name]||'';
-    const sc=STRIPE[gg]||'#888';
-    const bg=BGCOL[gg]||'rgba(100,100,100,.8)';
-    const sel=activeTMsub===name?' sel-cell':'';
-    const svgStr=SVGS[name]||'';
-    const rx=Math.min(7,Math.min(w,h)*0.06);
-    const nSize=Math.min(22,Math.max(9,Math.min(w,h)*0.2));
-    const lSize=Math.min(12,Math.max(7,Math.min(w,h)*0.1));
-    const cx=x+pad, cy=y+pad, cw=w-pad*2, ch=h-pad*2;
-    if(cw<10||ch<10)return '';
-    return `<div class="tm-cell${sel}" style="left:${cx}px;top:${cy}px;width:${cw}px;height:${ch}px;border-radius:${rx}px;background:${bg}"
-      onclick="clickTM('${name.replace(/'/g,"\\'")}')" title="${name}: ${cnt}">
-      ${svgStr?`<div class="tm-svg-wrap">${svgStr}</div>`:''}
-      <div class="tm-stripe" style="background:${sc}"></div>
-      <div class="tm-ovl">
-        ${ch>44?`<div class="tm-n" style="font-size:${nSize}px">${cnt.toLocaleString('pt-BR')}</div>`:''}
-        ${ch>32&&cw>60?`<div class="tm-l" style="font-size:${lSize}px">${name}</div>`:''}
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function clickTM(name){activeTMsub=activeTMsub===name?null:name;applyAll();}
-
-// Squarify
-function squarify(items,rect){const out=[];_sq(items,rect.x,rect.y,rect.w,rect.h,out);return out;}
-function _sq(items,x,y,w,h,out){
-  if(!items.length)return;
-  if(items.length===1){out.push({item:items[0],x,y,w,h});return;}
-  const total=items.reduce((s,i)=>s+i.value,0);
-  let best=-1,bestW=Infinity,rowSum=0;
-  const sh=Math.min(w,h);
-  for(let i=0;i<items.length;i++){
-    rowSum+=items[i].value;
-    const rowLen=(w>=h)?w*(rowSum/total):h*(rowSum/total);
-    let worst=0;let rs=0;
-    for(let j=0;j<=i;j++){rs+=items[j].value;const side=sh*(items[j].value/rowSum);const r=Math.max(rowLen/side,side/rowLen)||Infinity;if(r>worst)worst=r;}
-    if(worst<bestW){bestW=worst;best=i;}else if(worst>bestW*1.05)break;
-  }
-  const row=items.slice(0,best+1),rest=items.slice(best+1);
-  const rowVal=row.reduce((s,i)=>s+i.value,0);
-  if(w>=h){
-    const rw=w*(rowVal/total);let cy=y;
-    row.forEach(it=>{const ch=h*(it.value/rowVal);out.push({item:it,x,y:cy,w:rw,h:ch});cy+=ch;});
-    if(rest.length){const rv=rest.reduce((s,i)=>s+i.value,0);_sq(rest.map(i=>({...i,value:i.value})),x+rw,y,w-rw,h,out);}
-  }else{
-    const rh=h*(rowVal/total);let cx=x;
-    row.forEach(it=>{const cw=w*(it.value/rowVal);out.push({item:it,x:cx,y,w:cw,h:rh});cx+=cw;});
-    if(rest.length)_sq(rest.map(i=>({...i,value:i.value})),x,y+rh,w,h-rh,out);
-  }
-}
-
-// ─── STATS ────────────────────────────────────────────────────
-const THR_COLORS={CR:'var(--cr)',EN:'var(--en)',VU:'var(--vu)',NT:'var(--nt)',LC:'var(--lc)',DD:'var(--dd)'};
-const IUCN_BG={CR:'#b91c1c',EN:'#c2410c',VU:'#b45309',NT:'#4d7c0f',LC:'#15803d',DD:'#475569'};
-const IUCN_DESC={CR:'Criticamente em Perigo',EN:'Em Perigo',VU:'Vulnerável',NT:'Quase Ameaçada',LC:'Pouco Preocupante',DD:'Dados Insuficientes'};
-
-function updateStats(){
-  const f=ovFiltered;
-  const thrL=[...activeThrLists];
-  document.getElementById('iucn-bar-title').textContent='Ameaça: '+(thrL.length?thrL.join('+'):'—');
-  const cnts={};THR_ORDER.forEach(k=>cnts[k]=0);
-  f.forEach(r=>{const v=getThreatVal(r,thrL.length?thrL:['iucn','mma','sp']);if(cnts[v]!==undefined)cnts[v]++;});
-  const maxV=Math.max(...Object.values(cnts),1);
-  document.getElementById('iucn-bars').innerHTML=THR_ORDER.map(k=>`<div class="thr-row"><span class="tr-lbl">${k}</span><div class="tr-bg"><div class="tr-bar" style="width:${Math.round(cnts[k]/maxV*100)}%;background:${THR_COLORS[k]}"></div></div><span class="tr-v">${cnts[k]}</span></div>`).join('');
-  document.getElementById('am-pills').innerHTML=['iucn','mma','sp'].map(l=>{const n=f.filter(r=>['CR','EN','VU'].includes(r[l])).length;return`<div class="am-p"><span class="av" style="color:var(--cr)">${n}</span><span class="al">${l.toUpperCase()}</span></div>`;}).join('');
-  document.getElementById('iucn-ruler').innerHTML=THR_ORDER.map(k=>`<div class="iucn-seg" style="background:${IUCN_BG[k]}">${k}</div>`).join('');
-  document.getElementById('iucn-legend').innerHTML=THR_ORDER.map(k=>`<div class="iucn-li"><div class="iucn-dot" style="background:${IUCN_BG[k]}"></div>${IUCN_DESC[k]}</div>`).join('');
-  const nativa=f.filter(r=>!r.exotica).length,invasora=f.filter(r=>r.exotica==='Exótica Invasora').length,naoNat=f.filter(r=>r.exotica&&r.exotica!=='Exótica Invasora').length;
-  if(charts['exo'])charts['exo'].destroy();
-  charts['exo']=new Chart(document.getElementById('ch-exo'),{type:'doughnut',
-    data:{labels:['Nativas','Invasoras','Não Nativas'],datasets:[{data:[nativa,invasora,naoNat],
-      backgroundColor:['rgba(46,125,94,.75)','rgba(185,28,28,.75)','rgba(201,122,21,.75)'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},
-    options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
-      plugins:{legend:{position:'right',labels:{color:'#475569',font:{family:'DM Sans',size:10},boxWidth:9,padding:5}}}}});
-}
-
-// ─── LISTA PAGE ───────────────────────────────────────────────
-const ALL_COLS=[
-  {k:'grande_grupo',l:'Grande Grupo',def:true},
-  {k:'grupo',l:'Subgrupo',def:true},
-  {k:'grupo_especifico',l:'Grupo Específico',def:false},
-  {k:'nome_popular',l:'Nome Popular',def:true},
-  {k:'especie',l:'Espécie',def:true},
-  {k:'filo',l:'Filo / Divisão',def:false},
-  {k:'classe',l:'Classe',def:false},
-  {k:'ordem',l:'Ordem',def:false},
-  {k:'familia',l:'Família',def:true},
-  {k:'ilhas',l:'Ilhas',def:true},
-  {k:'iucn',l:'IUCN',def:true},
-  {k:'mma',l:'MMA',def:true},
-  {k:'sp',l:'SP',def:true},
-  {k:'exotica',l:'Exótica',def:true},
-  {k:'endemica',l:'Endêmica',def:true},
+// Dados padrão locais (Atuam como fallback e estrutura imediata de visualização)
+const LOCAL_SPECIES = [
+  { "grande_grupo": "Fauna", "subgrupo": "Répteis", "grupo_especifico_popular": "Serpentes", "nome_popular": "Jararaca-de-Alcatrazes", "familia": "Viperidae", "genero": "Bothrops", "endemica": "Sim", "Alcatrazes": "Sim", "Palmas": "Não", "Cabras": "Não", "IUCN": "CR", "MMA": "CR", "SP": "CR", "exoticas": "Não", "epiteto": "alcatraz" },
+  { "grande_grupo": "Fauna", "subgrupo": "Anfíbios", "grupo_especifico_popular": "Pererecas", "nome_popular": "Perereca-de-Alcatrazes", "familia": "Hylidae", "genero": "Scinax", "endemica": "Sim", "Alcatrazes": "Sim", "Palmas": "Não", "Cabras": "Não", "IUCN": "CR", "MMA": "CR", "SP": "CR", "exoticas": "Não", "epiteto": "alcatraz" },
+  { "grande_grupo": "Fauna", "subgrupo": "Aves", "grupo_especifico_popular": "Aves Marinhas", "nome_popular": "Atobá-pardo", "familia": "Sulidae", "genero": "Sula", "endemica": "Não", "Alcatrazes": "Sim", "Palmas": "Sim", "Cabras": "Não", "IUCN": "LC", "MMA": "LC", "SP": "LC", "exoticas": "Não", "epiteto": "leucogaster" },
+  { "grande_grupo": "Flora", "subgrupo": "Angiospermas", "grupo_especifico_popular": "Ervas", "nome_popular": "Antúrio-de-Alcatrazes", "familia": "Araceae", "genero": "Anthurium", "endemica": "Sim", "Alcatrazes": "Sim", "Palmas": "Não", "Cabras": "Não", "IUCN": "EN", "MMA": "EN", "SP": "EN", "exoticas": "Não", "epiteto": "alcatrazense" },
+  { "grande_grupo": "Flora", "subgrupo": "Angiospermas", "grupo_especifico_popular": "Arbustos", "nome_popular": "Begônia-de-Alcatrazes", "familia": "Begoniaceae", "genero": "Begonia", "endemica": "Sim", "Alcatrazes": "Sim", "Palmas": "Não", "Cabras": "Não", "IUCN": "VU", "MMA": "VU", "SP": "VU", "exoticas": "Não", "epiteto": "venosa" },
+  { "grande_grupo": "Flora", "subgrupo": "Angiospermas", "grupo_especifico_popular": "Ervas", "nome_popular": "Rainha-do-abismo", "familia": "Gesneriaceae", "genero": "Sinningia", "endemica": "Sim", "Alcatrazes": "Sim", "Palmas": "Não", "Cabras": "Não", "IUCN": "VU", "MMA": "VU", "SP": "VU", "exoticas": "Não", "epiteto": "insularis" },
+  { "grande_grupo": "Fauna", "subgrupo": "Mamíferos", "grupo_especifico_popular": "Cetáceos", "nome_popular": "Baleia-de-Bryde", "familia": "Balaenopteridae", "genero": "Balaenoptera", "endemica": "Não", "Alcatrazes": "Sim", "Palmas": "Não", "Cabras": "Não", "IUCN": "DD", "MMA": "LC", "SP": "VU", "exoticas": "Não", "epiteto": "brydei" },
+  { "grande_grupo": "Fauna", "subgrupo": "Peixes", "grupo_especifico_popular": "Peixes Recifais", "nome_popular": "Garoupa-verdadeira", "familia": "Epinephelidae", "genero": "Epinephelus", "endemica": "Não", "Alcatrazes": "Sim", "Palmas": "Sim", "Cabras": "Sim", "IUCN": "EN", "MMA": "VU", "SP": "VU", "exoticas": "Não", "epiteto": "marginatus" },
+  { "grande_grupo": "Fungos", "subgrupo": "Macrofungos", "grupo_especifico_popular": "Cogumelos", "nome_popular": "Cogumelo-silvestre", "familia": "Agaricaceae", "genero": "Agaricus", "endemica": "Não", "Alcatrazes": "Sim", "Palmas": "Sim", "Cabras": "Não", "IUCN": "LC", "MMA": "LC", "SP": "LC", "exoticas": "Não", "epiteto": "sp." }
 ];
-let visibleCols=new Set(ALL_COLS.filter(c=>c.def).map(c=>c.k));
-let selectedSpecies=new Set();
 
-function buildListaSidebar(){
-  document.getElementById('lf-grupo').innerHTML=['Fauna','Flora','Fungos'].map(g=>`<label class="lf-ck"><input type="checkbox" value="${g}" onchange="applyLista()"/><span>${g}</span><small>${ALL.filter(r=>r.grande_grupo===g).length}</small></label>`).join('');
-  const subs=[...new Set(ALL.map(r=>r.grupo))].filter(Boolean).sort();
-  document.getElementById('lf-subgrupo').innerHTML=subs.map(s=>`<label class="lf-ck"><input type="checkbox" value="${s}" onchange="applyLista()"/><span>${s}</span><small>${ALL.filter(r=>r.grupo===s).length}</small></label>`).join('');
-  const gesps=[...new Set(ALL.map(r=>r.grupo_especifico))].filter(Boolean).sort();
-  document.getElementById('lf-gesp').innerHTML=gesps.map(g=>`<label class="lf-ck"><input type="checkbox" value="${g}" onchange="applyLista()"/><span>${g}</span></label>`).join('');
-  document.getElementById('lf-thr').innerHTML=THR_ORDER.map(k=>`<label class="lf-ck"><input type="checkbox" value="${k}" onchange="applyLista()"/><span>${k}</span></label>`).join('');
-  buildSpList('');
-  buildColToggle();
-}
-function buildColToggle(){
-  document.getElementById('col-tog').innerHTML=ALL_COLS.map(c=>`<div class="col-chip${visibleCols.has(c.k)?' on':''}" onclick="toggleCol('${c.k}',this)">${c.l}</div>`).join('');
-}
-function toggleCol(k,el){el.classList.toggle('on');if(visibleCols.has(k))visibleCols.delete(k);else visibleCols.add(k);buildListaHeader();ltRendered=0;document.getElementById('lt-body').innerHTML='';renderMoreRows();}
-function buildSpList(q){
-  const sp=[...new Set(ALL.map(r=>r.especie))].filter(s=>s&&(!q||s.toLowerCase().includes(q.toLowerCase()))).sort().slice(0,200);
-  document.getElementById('sp-list').innerHTML=sp.map(s=>`<div class="sp-item${selectedSpecies.has(s)?' sel':''}" onclick="toggleSp(this,'${s.replace(/'/g,"\\'")}')"><input type="checkbox" ${selectedSpecies.has(s)?'checked':''}/><span>${s}</span></div>`).join('');
-}
-function filterSpList(){buildSpList(document.getElementById('sp-search-q').value);}
-function toggleSp(el,sp){el.classList.toggle('sel');el.querySelector('input').checked=el.classList.contains('sel');if(selectedSpecies.has(sp))selectedSpecies.delete(sp);else selectedSpecies.add(sp);applyLista();}
+const LOCAL_COLABS = [
+  { "Nome": "Dr. Ricardo Sawaya", "Vínculo": "UNIFESP", "Especialidades": "Herpetologia", "Grupo": "Anfíbios e Répteis" },
+  { "Nome": "Dra. Kelen Leite", "Vínculo": "ICMBio Alcatrazes", "Especialidades": "Conservação Marinha", "Grupo": "Gestão e Manejo" },
+  { "Nome": "Gabriel Sabino", "Vínculo": "UNICAMP", "Especialidades": "Botânica", "Grupo": "Flora Insular" },
+  { "Nome": "Prof. Fábio Pinheiro", "Vínculo": "UNICAMP", "Especialidades": "Botânica", "Grupo": "Evolução e Genética" },
+  { "Nome": "Dr. Marcelo Kitahara", "Vínculo": "USP", "Especialidades": "Ecologia Marinha", "Grupo": "Invertebrados" },
+  { "Nome": "Dra. Roberta Santos", "Vínculo": "USP", "Especialidades": "Ictiologia", "Grupo": "Peixes Recifais" }
+];
 
-function applyLista(){
-  const search=(document.getElementById('lf-search')?.value||'').toLowerCase();
-  const famQ=(document.getElementById('lf-familia')?.value||'').toLowerCase();
-  const genQ=(document.getElementById('lf-genero')?.value||'').toLowerCase();
-  const nomQ=(document.getElementById('lf-nompop')?.value||'').toLowerCase();
-  const grupoChk=[...document.querySelectorAll('#lf-grupo input:checked')].map(i=>i.value);
-  const subChk=[...document.querySelectorAll('#lf-subgrupo input:checked')].map(i=>i.value);
-  const gEspChk=[...document.querySelectorAll('#lf-gesp input:checked')].map(i=>i.value);
-  const thrChk=[...document.querySelectorAll('#lf-thr input:checked')].map(i=>i.value);
-  const ilhaChk=[...document.querySelectorAll('#lf-ilhas input:checked')].map(i=>i.value);
-  const endChk=document.querySelector('#ck-end input')?.checked;
-  const exoChk=document.querySelector('#ck-exo input')?.checked;
-  const amChk=document.querySelector('#ck-am input')?.checked;
-  listFiltered=ALL.filter(r=>{
-    if(selectedSpecies.size&&!selectedSpecies.has(r.especie))return false;
-    if(grupoChk.length&&!grupoChk.includes(r.grande_grupo))return false;
-    if(subChk.length&&!subChk.includes(r.grupo))return false;
-    if(gEspChk.length&&!gEspChk.includes(r.grupo_especifico))return false;
-    if(thrChk.length){const tv=getThreatVal(r,[...activeThrListsL]);if(!thrChk.includes(tv))return false;}
-    if(famQ&&!r.familia.toLowerCase().includes(famQ))return false;
-    if(genQ&&!(r.especie||'').toLowerCase().split(' ')[0].includes(genQ))return false;
-    if(nomQ&&!r.nome_popular.toLowerCase().includes(nomQ))return false;
-    for(const ilha of ilhaChk){if(!r[ilha])return false;}
-    if(endChk&&!r.endemica)return false;
-    if(exoChk&&!r.exotica)return false;
-    if(amChk){const a=['CR','EN','VU'];if(!a.includes(r.iucn)&&!a.includes(r.mma)&&!a.includes(r.sp))return false;}
-    if(search){const h=(r.especie+' '+r.nome_popular+' '+r.familia+' '+r.grupo+' '+r.grupo_especifico).toLowerCase();if(!h.includes(search))return false;}
+// Estado Geral da Aplicação
+let species = [...LOCAL_SPECIES];
+let collaborators = [...LOCAL_COLABS];
+let currentTab = "overview";
+let activeThreatList = "sp"; // 'sp', 'mma', 'iucn'
+
+// Filtros Visão Geral
+let ovFilters = { grupo: [], subgrupo: [], thr: [], esp: [], search: "" };
+// Filtros Avançados Lista
+let lFilters = { search: "", spSelected: [], grupos: [], subgrupos: [], gesp: [], familia: "", genero: "", nompop: "", thr: [], ilhas: [], endemica: false, exotica: false, ameacada: false };
+
+let columnsConfig = [
+  { id: 'nome_popular', label: 'Nome Popular', active: true },
+  { id: 'cientifico', label: 'Nome Científico', active: true },
+  { id: 'familia', label: 'Família', active: true },
+  { id: 'grande_grupo', label: 'Grupo', active: true },
+  { id: 'subgrupo', label: 'Subgrupo', active: true },
+  { id: 'ameaca', label: 'Ameaça (SP)', active: true },
+  { id: 'ilhas', label: 'Ilhas', active: true }
+];
+
+let sortColumn = "nome_popular";
+let sortDirection = "asc";
+let listRenderCount = 10;
+let chartExo = null;
+let chartSpec = null;
+
+// Mapa Interativo Dados
+const ISLAND_DATA = {
+  'Alcatrazes': {
+    title: 'Ilha Principal (Alcatrazes)',
+    coords: '24°06\'S, 45°41\'W',
+    desc: 'Maior ilha do arquipélago (135 ha). Santuário de nidificação de fragatas e atobás, abrigo da endêmica Jararaca-de-Alcatrazes (Bothrops alcatraz).'
+  },
+  'Palmas': {
+    title: 'Ilha de Palmas',
+    coords: '24°06\'S, 45°42\'W',
+    desc: 'Segunda maior ilha, rica em vegetação arbustiva densa e herpetofauna nativa adaptada à salinidade marinha extrema.'
+  },
+  'Cabras': {
+    title: 'Ilha de Cabras',
+    coords: '24°06\'S, 45°41\'W',
+    desc: 'Ilhota rochosa cercada de ricos recifes de coral e abundante fauna de peixes recifais protegida por lei integral.'
+  },
+  'Paredão': {
+    title: 'Ilha do Paredão',
+    coords: '24°04\'S, 45°41\'W',
+    desc: 'Extremo norte, paredão rochoso vertical que serve como repouso e alimentação para grandes aves marinhas pelágicas.'
+  },
+  'Sapata': {
+    title: 'Laje da Sapata',
+    coords: '24°03\'S, 45°40\'W',
+    desc: 'Ponto de mergulho científico de alta biodiversidade bentônica, recifes profundos e peixes de passagem.'
+  }
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadData();
+  setupEvents();
+  initOverview();
+  initLista();
+  initGraph();
+});
+
+function setupEvents() {
+  document.addEventListener("click", (e) => {
+    // Fecha dropdowns de múltiplos seletores se clicar fora
+    if (!e.target.closest(".ms-wrap")) {
+      document.querySelectorAll(".ms-drop").forEach(drop => drop.classList.remove("show"));
+      document.querySelectorAll(".ms-btn").forEach(btn => btn.classList.remove("open"));
+    }
+  });
+}
+
+// ── CONEXÃO COM O GOOGLE SHEETS / APPS SCRIPT ───────────────
+async function loadData() {
+  if (!API_URL) {
+    console.log("URL de integração vazia. Usando base local mockada para demonstração.");
+    processLoadedData();
+    return;
+  }
+  
+  try {
+    const res = await fetch(API_URL + "?action=getData");
+    const json = await res.json();
+    if (json && json.data) {
+      species = json.data;
+      console.log("Espécies carregadas com sucesso da planilha:", species.length);
+    }
+  } catch(err) {
+    console.error("Falha ao ler dados de espécies da planilha:", err);
+  }
+
+  try {
+    const res = await fetch(API_URL + "?action=getColabs");
+    const json = await res.json();
+    if (json && json.data) {
+      collaborators = json.data;
+      console.log("Colaboradores carregados com sucesso da planilha:", collaborators.length);
+    }
+  } catch(err) {
+    console.error("Falha ao ler dados de colaboradores da planilha:", err);
+  }
+
+  processLoadedData();
+}
+
+function processLoadedData() {
+  // Normalização de chaves e dados para evitar incompatibilidade por conta de acentos ou maiúsculas no Sheets
+  species = species.map(s => {
+    return {
+      ...s,
+      grande_grupo: s.grande_grupo || s['Grande Grupo'] || 'Fauna',
+      subgrupo: s.subgrupo || s.Subgrupo || '',
+      grupo_especifico_popular: s.grupo_especifico_popular || s['Grupo Específico'] || '',
+      nome_popular: s.nome_popular || s['Nome Popular'] || '',
+      familia: s.familia || s['Família'] || '',
+      genero: s.genero || s['Gênero'] || '',
+      epiteto: s.epiteto || s['Epíteto'] || '',
+      endemica: s.endemica || s['Endêmica'] || 'Não',
+      Alcatrazes: s.Alcatrazes || s.alcatrazes || 'Não',
+      Palmas: s.Palmas || s.palmas || 'Não',
+      Cabras: s.Cabras || s.cabras || 'Não',
+      IUCN: s.IUCN || 'DD',
+      MMA: s.MMA || 'DD',
+      SP: s.SP || 'DD',
+      exoticas: s.exoticas || s.exoticas_invasoras || 'Não'
+    };
+  });
+
+  collaborators = collaborators.map(c => {
+    return {
+      Nome: (c.Nome || c.nome || c['Nome Completo'] || '').trim(),
+      Vínculo: (c.Vínculo || c.Vinculo || c['Instituição'] || c.Instituicao || '').trim(),
+      Especialidades: (c.Especialidades || c.Especialidade || c.especialidade || '').trim(),
+      Grupo: (c.Grupo || c.grupo || '').trim()
+    };
+  });
+
+  updateKPIs();
+  buildGroupWidgets();
+  buildSubgroupDropdown();
+  buildListaFilters();
+  applyAll();
+  applyLista();
+  initGraph();
+  renderEspecialidadesChart();
+}
+
+// ── VISÃO GERAL (OVERVIEW) CONTROLLER ────────────────────────
+function updateKPIs() {
+  document.getElementById("kpi-tot").innerText = species.length;
+  document.getElementById("kpi-end").innerText = species.filter(s => s.endemica === "Sim").length;
+  document.getElementById("kpi-exo").innerText = species.filter(s => s.exoticas === "Sim" || s.exoticas === "Sim (Invasora)").length;
+}
+
+function buildGroupWidgets() {
+  const gDiv = document.getElementById("ov-grupos");
+  if(!gDiv) return;
+  const counts = { Fauna: 0, Flora: 0, Fungos: 0 };
+  species.forEach(s => {
+    if(counts[s.grande_grupo] !== undefined) counts[s.grande_grupo]++;
+  });
+  
+  gDiv.innerHTML = `
+    <div class="gr ${ovFilters.grupo.includes('Fauna')?'gon':''}" onclick="toggleGroupFilter('Fauna')">
+      <div class="gr-dot" style="background:var(--fauna)"></div>
+      <div class="gr-name">Fauna</div>
+      <div class="gr-num">${counts.Fauna}</div>
+    </div>
+    <div class="gr ${ovFilters.grupo.includes('Flora')?'gon':''}" onclick="toggleGroupFilter('Flora')">
+      <div class="gr-dot" style="background:var(--flora)"></div>
+      <div class="gr-name">Flora</div>
+      <div class="gr-num">${counts.Flora}</div>
+    </div>
+    <div class="gr ${ovFilters.grupo.includes('Fungos')?'gon':''}" onclick="toggleGroupFilter('Fungos')">
+      <div class="gr-dot" style="background:var(--fungos)"></div>
+      <div class="gr-name">Fungos</div>
+      <div class="gr-num">${counts.Fungos}</div>
+    </div>
+  `;
+}
+
+function toggleGroupFilter(gName) {
+  const idx = ovFilters.grupo.indexOf(gName);
+  if(idx > -1) ovFilters.grupo.splice(idx,1);
+  else ovFilters.grupo.push(gName);
+  
+  const btn = document.querySelector(`#ms-grupo .ms-opt[onclick*="${gName}"]`);
+  if(btn) btn.classList.toggle("sel");
+  
+  updateMsBtnState('ms-grupo', ovFilters.grupo);
+  buildSubgroupDropdown();
+  applyAll();
+}
+
+function buildSubgroupDropdown() {
+  const optsDiv = document.getElementById("sub-opts");
+  if(!optsDiv) return;
+  
+  const relevantSpecs = ovFilters.grupo.length ? species.filter(s => ovFilters.grupo.includes(s.grande_grupo)) : species;
+  const subgSet = [...new Set(relevantSpecs.map(s => s.subgrupo).filter(Boolean))].sort();
+  
+  let html = "";
+  subgSet.forEach(sg => {
+    const isSel = ovFilters.subgrupo.includes(sg);
+    html += `
+      <div class="ms-opt ${isSel?'sel':''}" onclick="toggleOpt(this,'subgrupo','${sg}')">
+        <div class="ck"></div>${sg}
+      </div>
+    `;
+  });
+  html += `<div class="ms-clr" onclick="clearDrop('ms-sub','subgrupo')">↺ Limpar</div>`;
+  optsDiv.innerHTML = html;
+}
+
+function toggleDrop(id) {
+  const drop = document.querySelector(`#${id} .ms-drop`);
+  const btn = document.querySelector(`#${id} .ms-btn`);
+  const isOpen = drop.classList.contains("show");
+  
+  document.querySelectorAll(".ms-drop").forEach(d => d.classList.remove("show"));
+  document.querySelectorAll(".ms-btn").forEach(b => b.classList.remove("open"));
+  
+  if(!isOpen) {
+    drop.classList.add("show");
+    btn.classList.add("open");
+  }
+}
+
+function toggleOpt(el, key, val) {
+  el.classList.toggle("sel");
+  const arr = ovFilters[key];
+  const idx = arr.indexOf(val);
+  if(idx > -1) arr.splice(idx, 1);
+  else arr.push(val);
+  
+  const wrapId = el.closest(".ms-wrap").id;
+  updateMsBtnState(wrapId, arr);
+  
+  if(key === 'grupo') buildSubgroupDropdown();
+  applyAll();
+}
+
+function clearDrop(wrapId, key) {
+  ovFilters[key] = [];
+  document.querySelectorAll(`#${wrapId} .ms-opt`).forEach(el => el.classList.remove("sel"));
+  updateMsBtnState(wrapId, []);
+  if(key === 'grupo') buildSubgroupDropdown();
+  applyAll();
+}
+
+function updateMsBtnState(id, arr) {
+  const btn = document.querySelector(`#${id} .ms-btn`);
+  if(arr.length) btn.classList.add("has-sel");
+  else btn.classList.remove("has-sel");
+}
+
+function toggleThr(pill) {
+  document.querySelectorAll(".thr-pill").forEach(p => p.classList.remove("on"));
+  pill.classList.add("on");
+  activeThreatList = pill.getAttribute("data-thr");
+  applyAll();
+}
+
+function resetAll() {
+  ovFilters = { grupo: [], subgrupo: [], thr: [], esp: [], search: "" };
+  document.getElementById("f-search").value = "";
+  document.querySelectorAll(".ms-opt").forEach(el => el.classList.remove("sel"));
+  document.querySelectorAll(".ms-btn").forEach(el => el.classList.remove("has-sel"));
+  buildSubgroupDropdown();
+  applyAll();
+}
+
+// ── FILTRAGEM INTEGRAL E RENDER DO TREEMAP ──────────────────
+function applyAll() {
+  buildGroupWidgets();
+  
+  const term = document.getElementById("f-search").value.toLowerCase().trim();
+  
+  const filtered = species.filter(s => {
+    if(ovFilters.grupo.length && !ovFilters.grupo.includes(s.grande_grupo)) return false;
+    if(ovFilters.subgrupo.length && !ovFilters.subgrupo.includes(s.subgrupo)) return false;
+    if(ovFilters.thr.length) {
+      const v = s[activeThreatList.toUpperCase()] || 'DD';
+      if(!ovFilters.thr.includes(v)) return false;
+    }
+    if(ovFilters.esp.length) {
+      if(ovFilters.esp.includes('endemica') && s.endemica !== "Sim") return false;
+      if(ovFilters.esp.includes('exotica') && s.exoticas !== "Sim" && s.exoticas !== "Sim (Invasora)") return false;
+      if(ovFilters.esp.includes('ameacada')) {
+        const isAmeacada = ["CR","EN","VU"].includes(s.SP) || ["CR","EN","VU"].includes(s.MMA) || ["CR","EN","VU"].includes(s.IUCN);
+        if(!isAmeacada) return false;
+      }
+    }
+    if(term) {
+      const matchPop = s.nome_popular.toLowerCase().includes(term);
+      const matchCie = `${s.genero} ${s.epiteto}`.toLowerCase().includes(term);
+      if(!matchPop && !matchCie) return false;
+    }
     return true;
   });
-  if(sortCol){listFiltered.sort((a,b)=>String(a[sortCol]||'').localeCompare(String(b[sortCol]||''),'pt')*sortDir);}
-  document.getElementById('lt-count').textContent=`${listFiltered.length.toLocaleString('pt-BR')} registros`;
-  ltRendered=0;document.getElementById('lt-body').innerHTML='';
-  buildListaHeader();renderMoreRows();
+
+  renderTreemap(filtered);
+  renderThreatDistribution(filtered);
+  renderConservationRuler(filtered);
+  renderExoChart(filtered);
 }
-function resetLista(){
-  ['lf-search','lf-familia','lf-genero','lf-nompop','sp-search-q'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  selectedSpecies.clear();buildSpList('');
-  document.querySelectorAll('#lf-grupo input,#lf-subgrupo input,#lf-gesp input,#lf-thr input,#lf-ilhas input,#ck-end input,#ck-exo input,#ck-am input').forEach(i=>i.checked=false);
+
+function renderTreemap(data) {
+  const grid = document.getElementById("tm-grid");
+  if(!grid) return;
+  grid.innerHTML = "";
+  
+  const width = grid.clientWidth;
+  const height = grid.clientHeight;
+  
+  // Agrupa e conta por subgrupo
+  const counts = {};
+  data.forEach(s => {
+    if(s.subgrupo) counts[s.subgrupo] = (counts[s.subgrupo] || 0) + 1;
+  });
+  
+  const sorted = Object.keys(counts).map(k => ({ name: k, value: counts[k] })).sort((a,b) => b.value - a.value);
+  const total = sorted.reduce((acc,curr) => acc + curr.value, 0);
+  if(!total) {
+    grid.innerHTML = `<div style="text-align:center;padding:100px 0;color:var(--text3);font-size:.8rem">Nenhum registro para exibir com os filtros aplicados.</div>`;
+    return;
+  }
+
+  // Algoritmo Squarified simplificado para geração de áreas responsivas
+  let x = 0, y = 0, w = width, h = height;
+  sorted.forEach((item, idx) => {
+    const ratio = item.value / total;
+    const itemArea = ratio * width * height;
+    
+    let cellW = 0, cellH = 0;
+    const vertical = w > h;
+    
+    if(vertical) {
+      cellW = itemArea / h;
+      cellH = h;
+    } else {
+      cellW = w;
+      cellH = itemArea / w;
+    }
+    
+    const div = document.createElement("div");
+    div.className = "tm-cell";
+    div.style.left = `${x}px`;
+    div.style.top = `${y}px`;
+    div.style.width = `${cellW}px`;
+    div.style.height = `${cellH}px`;
+    
+    const colors = ["#2e7d5e", "#1e533e", "#1b5e45", "#c97a15", "#8f560e", "#6d28d9", "#3b82f6", "#2563eb", "#db2777"];
+    const col = colors[idx % colors.length];
+    
+    div.innerHTML = `
+      <div class="tm-stripe" style="background:${col}"></div>
+      <div class="tm-ovl">
+        <div class="tm-n">${item.value}</div>
+        <div class="tm-l">${item.name}</div>
+      </div>
+    `;
+    
+    div.onclick = () => {
+      ovFilters.subgrupo = [item.name];
+      updateMsBtnState('ms-sub', [item.name]);
+      applyAll();
+    };
+    
+    grid.appendChild(div);
+    
+    if(vertical) {
+      x += cellW;
+      w -= cellW;
+    } else {
+      y += cellH;
+      h -= cellH;
+    }
+  });
+}
+
+function renderThreatDistribution(data) {
+  const barsDiv = document.getElementById("iucn-bars");
+  if(!barsDiv) return;
+  barsDiv.innerHTML = "";
+  
+  const levels = ["CR", "EN", "VU", "NT", "LC", "DD"];
+  const counts = { CR: 0, EN: 0, VU: 0, NT: 0, LC: 0, DD: 0 };
+  
+  data.forEach(s => {
+    const l = s[activeThreatList.toUpperCase()] || "DD";
+    if(counts[l] !== undefined) counts[l]++;
+  });
+
+  const titleEl = document.getElementById("iucn-bar-title");
+  if(titleEl) titleEl.innerText = `Ameaça - Distribuição (${activeThreatList.toUpperCase()})`;
+
+  levels.forEach(lvl => {
+    const val = counts[lvl];
+    const pct = data.length ? (val / data.length) * 100 : 0;
+    const col = `var(--${lvl.toLowerCase()})`;
+    
+    barsDiv.innerHTML += `
+      <div class="thr-row">
+        <div class="tr-lbl" style="color:${col}">${lvl}</div>
+        <div class="tr-bg"><div class="tr-bar" style="width:${pct}%;background:${col}"></div></div>
+        <div class="tr-v">${val}</div>
+      </div>
+    `;
+  });
+}
+
+function renderConservationRuler(data) {
+  const amDiv = document.getElementById("am-pills");
+  const ruler = document.getElementById("iucn-ruler");
+  const legend = document.getElementById("iucn-legend");
+  if(!amDiv || !ruler) return;
+  
+  const countSP = data.filter(s => ["CR","EN","VU"].includes(s.SP)).length;
+  const countMMA = data.filter(s => ["CR","EN","VU"].includes(s.MMA)).length;
+  const countIUCN = data.filter(s => ["CR","EN","VU"].includes(s.IUCN)).length;
+  
+  amDiv.innerHTML = `
+    <div class="am-p"><div class="av" style="color:var(--cr)">${countSP}</div><div class="al">SP</div></div>
+    <div class="am-p"><div class="av" style="color:var(--en)">${countMMA}</div><div class="al">MMA</div></div>
+    <div class="am-p"><div class="av" style="color:var(--vu)">${countIUCN}</div><div class="al">IUCN</div></div>
+  `;
+
+  // Desenha ruler proporcional
+  const spCounts = { CR: 0, EN: 0, VU: 0, NT: 0, LC: 0, DD: 0 };
+  data.forEach(s => {
+    const v = s.SP || 'DD';
+    if(spCounts[v] !== undefined) spCounts[v]++;
+  });
+  
+  ruler.innerHTML = "";
+  legend.innerHTML = "";
+  const levels = ["CR", "EN", "VU", "NT", "LC", "DD"];
+  
+  levels.forEach(lvl => {
+    const val = spCounts[lvl];
+    const pct = data.length ? (val / data.length) * 100 : 0;
+    const col = `var(--${lvl.toLowerCase()})`;
+    
+    if(pct > 0) {
+      ruler.innerHTML += `<div class="iucn-seg" style="width:${pct}%;background:${col}" title="${lvl}: ${val} espécies">${lvl}</div>`;
+    }
+    legend.innerHTML += `
+      <div class="iucn-li"><div class="iucn-dot" style="background:${col}"></div>${lvl} (${val})</div>
+    `;
+  });
+}
+
+function renderExoChart(data) {
+  const ctxExo = document.getElementById("ch-exo");
+  if(!ctxExo) return;
+  
+  const exo = data.filter(s => s.exoticas === "Sim" || s.exoticas === "Sim (Invasora)").length;
+  const nat = data.length - exo;
+  
+  if(chartExo) chartExo.destroy();
+  
+  chartExo = new Chart(ctxExo, {
+    type: "doughnut",
+    data: {
+      labels: ["Nativas", "Exóticas"],
+      datasets: [{
+        data: [nat, exo],
+        backgroundColor: ["#2e7d5e", "#cbd5e1"],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } }
+      }
+    }
+  });
+}
+
+// ── LISTA DE ESPÉCIES (TABELA AVANÇADA) ────────────────────────
+function initLista() {
+  buildListaFilters();
   applyLista();
 }
-function buildListaHeader(){
-  const cols=ALL_COLS.filter(c=>visibleCols.has(c.k));
-  document.getElementById('lista-thead-row').innerHTML=cols.map(c=>`<th onclick="sortBy('${c.k}')" class="${sortCol===c.k?(sortDir===1?'sort-asc':'sort-desc'):''}">${c.l}</th>`).join('');
+
+function buildListaFilters() {
+  const gDiv = document.getElementById("lf-grupo");
+  const sgDiv = document.getElementById("lf-subgrupo");
+  const gespDiv = document.getElementById("lf-gesp");
+  const thrDiv = document.getElementById("lf-thr");
+  const colDiv = document.getElementById("col-tog");
+  if(!gDiv) return;
+
+  // Grupos
+  const grupos = [...new Set(species.map(s => s.grande_grupo).filter(Boolean))].sort();
+  gDiv.innerHTML = grupos.map(g => `
+    <label class="lf-ck"><input type="checkbox" value="${g}" onchange="applyLista()"/> <span>${g}</span></label>
+  `).join("");
+
+  // Subgrupos
+  const subg = [...new Set(species.map(s => s.subgrupo).filter(Boolean))].sort();
+  sgDiv.innerHTML = subg.map(sg => `
+    <label class="lf-ck"><input type="checkbox" value="${sg}" onchange="applyLista()"/> <span>${sg}</span></label>
+  `).join("");
+
+  // Grupo Específico
+  const gesp = [...new Set(species.map(s => s.grupo_especifico_popular).filter(Boolean))].sort();
+  gespDiv.innerHTML = gesp.map(ge => `
+    <label class="lf-ck"><input type="checkbox" value="${ge}" onchange="applyLista()"/> <span>${ge}</span></label>
+  `).join("");
+
+  // Níveis de ameaça
+  const levels = ["CR", "EN", "VU", "NT", "LC", "DD"];
+  thrDiv.innerHTML = levels.map(lvl => `
+    <label class="lf-ck"><input type="checkbox" value="${lvl}" onchange="applyLista()"/> <span>${lvl}</span></label>
+  `).join("");
+
+  // Colunas Visíveis
+  colDiv.innerHTML = columnsConfig.map(col => `
+    <div class="col-chip ${col.active?'on':''}" onclick="toggleCol('${col.id}', this)">${col.label}</div>
+  `).join("");
+
+  filterSpList();
 }
-function sortBy(k){if(sortCol===k)sortDir*=-1;else{sortCol=k;sortDir=1;}applyLista();}
 
-function badgeThr(v){if(!v||v==='nan'||v==='None')return'—';const cl=v.toLowerCase();return`<span class="badge b-${cl}">${v}</span>`;}
-function badgeExo(v){if(!v||v==='nan')return'—';return v.includes('Invasora')?`<span class="badge b-inv">Invasora</span>`:`<span class="badge b-nn">Não Nativa</span>`;}
-function idots(r){let d='';if(r.alcatrazes)d+=`<span class="i-dot i-alc" title="Alcatrazes"></span>`;if(r.palmas)d+=`<span class="i-dot i-pal" title="Palmas"></span>`;if(r.cabras)d+=`<span class="i-dot i-cab" title="Cabras"></span>`;return d||'—';}
-function cellVal(r,k){
-  if(k==='ilhas')return idots(r);
-  if(k==='iucn'||k==='mma'||k==='sp')return badgeThr(r[k]);
-  if(k==='exotica')return badgeExo(r[k]);
-  if(k==='endemica')return r.endemica?'<span class="badge b-sim">Sim</span>':'—';
-  if(k==='especie')return`<em>${r[k]||'—'}</em>`;
-  if(k==='grande_grupo'){const cc=r.grande_grupo==='Fauna'?'rgba(201,122,21,.1)':r.grande_grupo==='Flora'?'rgba(46,125,94,.1)':'rgba(109,40,217,.1)';const fc=r.grande_grupo==='Fauna'?'var(--fauna)':r.grande_grupo==='Flora'?'var(--flora)':'var(--fungos)';return`<span class="badge" style="background:${cc};color:${fc}">${r[k]||'—'}</span>`;}
-  return r[k]||'—';
-}
-function renderMoreRows(){
-  const cols=ALL_COLS.filter(c=>visibleCols.has(c.k));
-  const slice=listFiltered.slice(ltRendered,ltRendered+CHUNK);
-  const tbody=document.getElementById('lt-body');
-  slice.forEach(r=>{const tr=document.createElement('tr');tr.innerHTML=cols.map(c=>`<td>${cellVal(r,c.k)}</td>`).join('');tbody.appendChild(tr);});
-  ltRendered+=slice.length;
-}
-const obs=new IntersectionObserver(es=>{if(es[0].isIntersecting&&ltRendered<listFiltered.length)renderMoreRows();},{rootMargin:'200px'});
-
-function downloadCSV(){
-  const cols=ALL_COLS.filter(c=>visibleCols.has(c.k));
-  const header=cols.map(c=>c.l).join(',');
-  const rows=listFiltered.map(r=>cols.map(c=>{let v=r[c.k];if(c.k==='alcatrazes'||c.k==='palmas'||c.k==='cabras'||c.k==='endemica')v=v?'Sim':'';v=String(v||'');return v.includes(',')||v.includes('"')?`"${v.replace(/"/g,'""')}"`:v;}).join(','));
-  const csv='\uFEFF'+[header,...rows].join('\n');
-  const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='especies_alcatrazes.csv';a.click();
+function filterSpList() {
+  const q = document.getElementById("sp-search-q").value.toLowerCase().trim();
+  const listDiv = document.getElementById("sp-list");
+  if(!listDiv) return;
+  
+  const uniques = [...new Set(species.map(s => `${s.genero} ${s.epiteto}`).filter(Boolean))].sort();
+  const filtered = uniques.filter(u => u.toLowerCase().includes(q));
+  
+  listDiv.innerHTML = filtered.map(u => {
+    const isSel = lFilters.spSelected.includes(u);
+    return `
+      <div class="sp-item ${isSel?'sel':''}" onclick="toggleSpItem('${u}')">
+        <input type="checkbox" ${isSel?'checked':''}/> <span>${u}</span>
+      </div>
+    `;
+  }).join("");
 }
 
-// ─── COLABORADORES — rede baseada no Sheets ───────────────────
-let netAnim=null, colabData=[];
+function toggleSpItem(name) {
+  const idx = lFilters.spSelected.indexOf(name);
+  if(idx > -1) lFilters.spSelected.splice(idx,1);
+  else lFilters.spSelected.push(name);
+  filterSpList();
+  applyLista();
+}
 
-async function buildColabPage(){
-  // Load from Sheets
-  showLoading('Carregando colaboradores…');
-  colabData=await loadColabData();
-  hideLoading();
-
-  // Fallback if sheet empty
-  if(!colabData.length){
-    colabData=[
-      {nome:'ICMBio Alcatrazes',grupo:'Gestão',especialidade:'Gestão Ambiental',vinculo:'ICMBio',equipe:'sim'},
-    ];
+function toggleCol(colId, chip) {
+  const col = columnsConfig.find(c => c.id === colId);
+  if(col) {
+    col.active = !col.active;
+    chip.classList.toggle("on");
+    renderListaTableHeaders();
+    renderListaTableRows();
   }
-
-  // Build network
-  const canvas=document.getElementById('net-canvas');
-  if(!canvas)return;
-  const dpr=window.devicePixelRatio||1;
-  const W=canvas.parentElement.clientWidth-32;
-  const H=380;
-  canvas.style.width=W+'px';canvas.style.height=H+'px';
-  canvas.width=W*dpr;canvas.height=H*dpr;
-  const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
-
-  // Group by institution (vinculo) and count
-  const instMap={};
-  colabData.forEach(c=>{
-    const inst=c.vinculo||c.equipe||'Independente';
-    if(!instMap[inst])instMap[inst]={name:inst,count:0,specs:new Set()};
-    instMap[inst].count++;
-    if(c.especialidade)c.especialidade.split(/[,;]/).forEach(s=>instMap[inst].specs.add(s.trim()));
-  });
-
-  const insts=Object.values(instMap).sort((a,b)=>b.count-a.count);
-  const maxCount=Math.max(...insts.map(i=>i.count),1);
-  const cx=W/2,cy=H/2,R=Math.min(W,H)*0.35;
-  const COLORS=['#2e7d5e','#1565c0','#c62828','#6a1b9a','#e65100','#00838f','#4a148c','#2e7d32','#ad1457','#558b2f','#00695c','#bf360c'];
-
-  const nodes=insts.map((inst,i)=>{
-    const angle=(i/insts.length)*Math.PI*2-Math.PI/2;
-    const r=14+Math.round((inst.count/maxCount)*24);
-    return{...inst,cx:cx+Math.cos(angle)*R,cy:cy+Math.sin(angle)*R,r,color:COLORS[i%COLORS.length]};
-  });
-
-  let t=0;
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    // lines to center
-    nodes.forEach(n=>{
-      ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(n.cx,n.cy);
-      ctx.strokeStyle='rgba(46,125,94,.15)';ctx.lineWidth=1.5;ctx.stroke();
-    });
-    // outer nodes
-    nodes.forEach(n=>{
-      ctx.beginPath();ctx.arc(n.cx,n.cy,n.r,0,Math.PI*2);
-      ctx.fillStyle=n.color+'cc';ctx.fill();
-      ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
-      const lines=n.name.split(' ').reduce((acc,w)=>{
-        const last=acc[acc.length-1]||'';
-        if((last+' '+w).length<14&&last)acc[acc.length-1]=last+' '+w;
-        else acc.push(w);return acc;},[]);
-      ctx.fillStyle='#fff';ctx.textAlign='center';
-      const fs=Math.max(7,n.r*0.38);ctx.font=`600 ${fs}px DM Sans`;
-      lines.forEach((l,li)=>ctx.fillText(l,n.cx,n.cy+(li-(lines.length-1)/2)*fs*1.2+fs*0.35));
-      // count badge
-      ctx.font=`bold ${Math.max(7,n.r*0.4)}px DM Sans`;
-      ctx.fillStyle='rgba(255,255,255,.85)';
-      ctx.fillText(n.count,n.cx,n.cy+n.r+12);
-    });
-    // center node
-    const pulse=3*Math.sin(t*0.04);
-    ctx.beginPath();ctx.arc(cx,cy,36+pulse,0,Math.PI*2);
-    ctx.fillStyle='rgba(46,125,94,.12)';ctx.fill();
-    ctx.beginPath();ctx.arc(cx,cy,36,0,Math.PI*2);
-    ctx.fillStyle='#2e7d5e';ctx.fill();
-    ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.stroke();
-    ctx.fillStyle='#fff';ctx.font='bold 8.5px DM Sans';ctx.textAlign='center';
-    ctx.fillText('ICMBio',cx,cy-5);ctx.fillText('Alcatrazes',cx,cy+6);
-    t++;netAnim=requestAnimationFrame(draw);
-  }
-  if(netAnim)cancelAnimationFrame(netAnim);
-  draw();
-
-  // Specialty bar chart
-  const specMap={};
-  colabData.forEach(c=>{
-    if(c.especialidade)c.especialidade.split(/[,;]/).forEach(s=>{
-      const k=s.trim();if(k)specMap[k]=(specMap[k]||0)+1;
-    });
-  });
-  const specEntries=Object.entries(specMap).sort((a,b)=>b[1]-a[1]).slice(0,12);
-  if(charts['spec'])charts['spec'].destroy();
-  charts['spec']=new Chart(document.getElementById('ch-spec'),{
-    type:'bar',
-    data:{labels:specEntries.map(e=>e[0]),datasets:[{label:'Colaboradores',data:specEntries.map(e=>e[1]),
-      backgroundColor:COLORS.slice(0,specEntries.length),borderRadius:4,borderSkipped:false}]},
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false}},
-      scales:{x:{ticks:{color:'#475569',font:{size:10}},grid:{color:'rgba(0,0,0,.06)'}},
-              y:{ticks:{color:'#1e293b',font:{size:10}},grid:{display:false}}}}
-  });
 }
 
-// ─── CONTRIB TAB SWITCHER ─────────────────────────────────────
-function showCtab(id,btn){
-  document.querySelectorAll('.ctab-panel').forEach(p=>p.classList.remove('active-panel'));
-  document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('active'));
-  const p=document.getElementById(id);if(p)p.classList.add('active-panel');
-  if(btn)btn.classList.add('active');
-  if(id==='ct-colab')buildColabPage();
+function toggleThrL(pill) {
+  document.querySelectorAll("#lf-thr .thr-pill").forEach(p => p.classList.remove("on"));
+  pill.classList.add("on");
+  applyLista();
 }
 
-// ─── FORM SUBMISSION ─────────────────────────────────────────
-function okForm(successId){
-  const panel=document.querySelector('.ctab-panel.active-panel');
-  if(!panel)return;
-
-  // Collect all form fields from the active panel
-  const data={};
-  panel.querySelectorAll('.fg').forEach(fg=>{
-    const lbl=fg.querySelector('.fl')?.textContent?.replace(/\*/g,'').trim();
-    const inp=fg.querySelector('input.fi,textarea.fi,select.fi');
-    if(lbl&&inp)data[lbl]=inp.value||'';
-    // radio buttons
-    const rb=fg.querySelector('.rb-g');
-    if(lbl&&rb){const on=rb.querySelector('.rb.on');if(on)data[lbl]=on.textContent.trim();}
-  });
-
-  // action map
-  const actionMap={
-    'ok-reg':'newRecord','ok-col':'newCollaborator',
-    'ok-com':'newComment','tx-ok':'newTaxoSuggestion'
-  };
-  const action=actionMap[successId]||'genericSubmit';
-
-  const btn=panel.querySelector('.f-sub');
-  if(btn){btn.disabled=true;btn.textContent='Enviando…';}
-
-  postToSheet(action,data).then(ok=>{
-    if(btn){btn.disabled=false;btn.textContent='Enviar';}
-    if(ok){
-      const el=document.getElementById(successId);
-      if(el){el.style.display='block';setTimeout(()=>el.style.display='none',5000);}
-      // clear fields
-      panel.querySelectorAll('input.fi,textarea.fi').forEach(i=>i.value='');
-      if(action==='newRecord')setTimeout(()=>loadData(true),1500);
-    }else{showToast('Erro ao enviar. Verifique sua conexão.',true);}
-  });
+function getSelectedCheckboxes(parentId) {
+  const boxes = document.getElementById(parentId).querySelectorAll("input[type=checkbox]:checked");
+  return Array.from(boxes).map(b => b.value);
 }
 
-// ─── FORM HELPERS ────────────────────────────────────────────
-function showFsect(id){hideFsects();const s=document.getElementById(id);if(s){s.classList.add('show');s.scrollIntoView({behavior:'smooth',block:'start'});}}
-function hideFsects(){document.querySelectorAll('.f-sect').forEach(f=>f.classList.remove('show'));}
-function selRb(el,gid){document.querySelectorAll('#'+gid+' .rb').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
+function applyLista() {
+  lFilters.search = document.getElementById("lf-search").value.toLowerCase().trim();
+  lFilters.grupos = getSelectedCheckboxes("lf-grupo");
+  lFilters.subgrupos = getSelectedCheckboxes("lf-subgrupo");
+  lFilters.gesp = getSelectedCheckboxes("lf-gesp");
+  lFilters.familia = document.getElementById("lf-familia").value.toLowerCase().trim();
+  lFilters.genero = document.getElementById("lf-genero").value.toLowerCase().trim();
+  lFilters.nompop = document.getElementById("lf-nompop").value.toLowerCase().trim();
+  lFilters.thr = getSelectedCheckboxes("lf-thr");
+  
+  // Ilhas
+  lFilters.ilhas = [];
+  document.getElementById("lf-ilhas").querySelectorAll("input:checked").forEach(b => {
+    lFilters.ilhas.push(b.value);
+  });
 
-// ─── INIT ────────────────────────────────────────────────────
-(function init(){
-  loadData();
-  setTimeout(()=>{
-    const s=document.getElementById('sentinel');
-    if(s)obs.observe(s);
-    // Add refresh button to nav
-    const nav=document.querySelector('nav');
-    if(nav){
-      const btn=document.createElement('button');
-      btn.title='Recarregar dados do Sheets';
-      btn.style.cssText='background:none;border:1px solid #d5dde8;color:#94a3b8;font-family:DM Sans,sans-serif;font-size:.68rem;padding:4px 9px;border-radius:5px;cursor:pointer;margin-right:6px;transition:all .15s';
-      btn.textContent='↺';
-      btn.onmouseenter=()=>{btn.style.borderColor='#2e7d5e';btn.style.color='#2e7d5e';};
-      btn.onmouseleave=()=>{btn.style.borderColor='#d5dde8';btn.style.color='#94a3b8';};
-      btn.onclick=()=>loadData(true);
-      const cta=nav.querySelector('.nav-cta');
-      if(cta)nav.insertBefore(btn,cta);
+  lFilters.endemica = document.getElementById("ck-end").querySelector("input").checked;
+  lFilters.exotica = document.getElementById("ck-exo").querySelector("input").checked;
+  lFilters.ameacada = document.getElementById("ck-am").querySelector("input").checked;
+
+  const activeThrPill = document.querySelector(".lista-filters .thr-pill.on");
+  const thrCol = activeThrPill ? activeThrPill.getAttribute("data-thr").toUpperCase() : "SP";
+
+  let filtered = species.filter(s => {
+    if(lFilters.search) {
+      const matchPop = s.nome_popular.toLowerCase().includes(lFilters.search);
+      const matchCie = `${s.genero} ${s.epiteto}`.toLowerCase().includes(lFilters.search);
+      if(!matchPop && !matchCie) return false;
     }
-  },300);
-})();
+    if(lFilters.spSelected.length && !lFilters.spSelected.includes(`${s.genero} ${s.epiteto}`)) return false;
+    if(lFilters.grupos.length && !lFilters.grupos.includes(s.grande_grupo)) return false;
+    if(lFilters.subgrupos.length && !lFilters.subgrupos.includes(s.subgrupo)) return false;
+    if(lFilters.gesp.length && !lFilters.gesp.includes(s.grupo_especifico_popular)) return false;
+    if(lFilters.familia && !s.familia.toLowerCase().includes(lFilters.familia)) return false;
+    if(lFilters.genero && !s.genero.toLowerCase().includes(lFilters.genero)) return false;
+    if(lFilters.nompop && !s.nome_popular.toLowerCase().includes(lFilters.nompop)) return false;
+    
+    if(lFilters.thr.length) {
+      const v = s[thrCol] || 'DD';
+      if(!lFilters.thr.includes(v)) return false;
+    }
 
-</script></body></html>
+    if(lFilters.ilhas.length) {
+      const matchIlha = lFilters.ilhas.some(i => s[i.charAt(0).toUpperCase() + i.slice(1)] === "Sim");
+      if(!matchIlha) return false;
+    }
+
+    if(lFilters.endemica && s.endemica !== "Sim") return false;
+    if(lFilters.exotica && s.exoticas !== "Sim" && s.exoticas !== "Sim (Invasora)") return false;
+    if(lFilters.ameacada) {
+      const isAmeacada = ["CR","EN","VU"].includes(s.SP) || ["CR","EN","VU"].includes(s.MMA) || ["CR","EN","VU"].includes(s.IUCN);
+      if(!isAmeacada) return false;
+    }
+
+    return true;
+  });
+
+  // Ordenação
+  filtered.sort((a,b) => {
+    let valA = a[sortColumn] || "";
+    let valB = b[sortColumn] || "";
+    
+    if(sortColumn === 'cientifico') {
+      valA = `${a.genero} ${a.epiteto}`;
+      valB = `${b.genero} ${b.epiteto}`;
+    } else if(sortColumn === 'ameaca') {
+      valA = a[thrCol] || "DD";
+      valB = b[thrCol] || "DD";
+    }
+
+    if(valA < valB) return sortDirection === 'asc' ? -1 : 1;
+    if(valA > valB) return sortDirection === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  document.getElementById("lt-count").innerText = `${filtered.length} de ${species.length} espécies`;
+  
+  renderListaTableHeaders();
+  renderListaTableRows(filtered);
+}
+
+function renderListaTableHeaders() {
+  const thrPill = document.querySelector(".lista-filters .thr-pill.on");
+  const thrCol = thrPill ? thrPill.getAttribute("data-thr").toUpperCase() : "SP";
+
+  const row = document.getElementById("lista-thead-row");
+  if(!row) return;
+  row.innerHTML = "";
+
+  columnsConfig.forEach(col => {
+    if(!col.active) return;
+    const th = document.createElement("th");
+    th.innerText = col.id === 'ameaca' ? `Ameaça (${thrCol})` : col.label;
+    th.className = sortColumn === col.id ? `sort-${sortDirection}` : "";
+    th.onclick = () => {
+      if(sortColumn === col.id) {
+        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortColumn = col.id;
+        sortDirection = 'asc';
+      }
+      applyLista();
+    };
+    row.appendChild(th);
+  });
+}
+
+function renderListaTableRows(data = null) {
+  const tbody = document.getElementById("lt-body");
+  if(!tbody) return;
+  tbody.innerHTML = "";
+
+  if(!data) {
+    applyLista();
+    return;
+  }
+
+  const thrPill = document.querySelector(".lista-filters .thr-pill.on");
+  const thrCol = thrPill ? thrPill.getAttribute("data-thr").toUpperCase() : "SP";
+
+  data.forEach(s => {
+    const tr = document.createElement("tr");
+    
+    columnsConfig.forEach(col => {
+      if(!col.active) return;
+      const td = document.createElement("td");
+      
+      if(col.id === 'nome_popular') {
+        td.innerHTML = s.nome_popular || `<span style="color:var(--text3);font-style:italic">sem nome popular</span>`;
+      } else if(col.id === 'cientifico') {
+        td.innerHTML = `<em>${s.genero} ${s.epiteto}</em>`;
+      } else if(col.id === 'familia') {
+        td.innerText = s.familia;
+      } else if(col.id === 'grande_grupo') {
+        td.innerText = s.grande_grupo;
+      } else if(col.id === 'subgrupo') {
+        td.innerText = s.subgrupo;
+      } else if(col.id === 'ameaca') {
+        const val = s[thrCol] || "DD";
+        td.innerHTML = `<span class="badge b-${val.toLowerCase()}">${val}</span>`;
+      } else if(col.id === 'ilhas') {
+        let h = "";
+        if(s.Alcatrazes === "Sim") h += `<span class="i-dot i-alc" title="Alcatrazes"></span>`;
+        if(s.Palmas === "Sim") h += `<span class="i-dot i-pal" title="Palmas"></span>`;
+        if(s.Cabras === "Sim") h += `<span class="i-dot i-cab" title="Cabras"></span>`;
+        td.innerHTML = h || "-";
+      }
+      
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+function resetLista() {
+  document.getElementById("lf-search").value = "";
+  document.getElementById("sp-search-q").value = "";
+  lFilters = { search: "", spSelected: [], grupos: [], subgrupos: [], gesp: [], familia: "", genero: "", nompop: "", thr: [], ilhas: [], endemica: false, exotica: false, ameacada: false };
+  
+  document.querySelectorAll(".lista-filters input[type=checkbox]").forEach(b => b.checked = false);
+  filterSpList();
+  applyLista();
+}
+
+function downloadCSV() {
+  let csv = "Nome Popular,Nome Cientifico,Familia,Grande Grupo,Subgrupo,Ameaca SP,Ilhas\n";
+  species.forEach(s => {
+    const ilhas = [];
+    if(s.Alcatrazes === "Sim") ilhas.push("Alcatrazes");
+    if(s.Palmas === "Sim") ilhas.push("Palmas");
+    if(s.Cabras === "Sim") ilhas.push("Cabras");
+
+    csv += `"${s.nome_popular}","${s.genero} ${s.epiteto}","${s.familia}","${s.grande_grupo}","${s.subgrupo}","${s.SP}","${ilhas.join(';')}"\n`;
+  });
+  
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.setAttribute("download", "biodiversidade_alcatrazes.csv");
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// ── REDE DE COLABORADORES (HTML5 CANVAS SPRING-FORCE) ───────
+let graphNodes = [];
+let graphLinks = [];
+let canvas = null, ctx = null;
+let graphDraggedNode = null;
+
+function initGraph() {
+  canvas = document.getElementById("net-canvas");
+  if(!canvas) return;
+  ctx = canvas.getContext("2d");
+
+  canvas.width = canvas.parentElement.clientWidth;
+  
+  // EIXO CENTRAL FORMALIZADO: ICMBio Alcatrazes
+  const centerNode = { id: "icmbio", label: "ICMBio Alcatrazes", size: 18, color: "var(--green)", x: canvas.width / 2, y: canvas.height / 2, fixed: true };
+  graphNodes = [centerNode];
+  graphLinks = [];
+
+  const instituicoes = [...new Set(collaborators.map(c => c.Vínculo).filter(Boolean))];
+  const especialidades = [...new Set(collaborators.map(c => c.Especialidades).filter(Boolean))];
+
+  // Adiciona Instituições conectadas diretamente ao ICMBio Alcatrazes
+  instituicoes.forEach((inst, i) => {
+    const angle = (i / instituicoes.length) * Math.PI * 2;
+    const node = {
+      id: `inst-${inst}`,
+      label: inst,
+      size: 11,
+      color: "#2563eb",
+      x: centerNode.x + Math.cos(angle) * 110,
+      y: centerNode.y + Math.sin(angle) * 110
+    };
+    graphNodes.push(node);
+    graphLinks.push({ source: centerNode, target: node, dist: 120 });
+  });
+
+  // Adiciona Especialidades conectadas diretamente ao ICMBio Alcatrazes
+  especialidades.forEach((esp, i) => {
+    const angle = ((i + 0.5) / especialidades.length) * Math.PI * 2;
+    const node = {
+      id: `esp-${esp}`,
+      label: esp,
+      size: 9,
+      color: "var(--fauna)",
+      x: centerNode.x + Math.cos(angle) * 160,
+      y: centerNode.y + Math.sin(angle) * 160
+    };
+    graphNodes.push(node);
+    graphLinks.push({ source: centerNode, target: node, dist: 170 });
+  });
+
+  // Conecta Colaboradores individuais às suas Instituições e Especialidades correspondentes
+  collaborators.forEach((col, idx) => {
+    const node = {
+      id: `col-${idx}`,
+      label: col.Nome,
+      size: 7,
+      color: "var(--fungos)",
+      x: centerNode.x + (Math.random() - 0.5) * 200,
+      y: centerNode.y + (Math.random() - 0.5) * 200
+    };
+    graphNodes.push(node);
+
+    const instNode = graphNodes.find(n => n.id === `inst-${col.Vínculo}`);
+    if (instNode) graphLinks.push({ source: node, target: instNode, dist: 60 });
+
+    const espNode = graphNodes.find(n => n.id === `esp-${col.Especialidades}`);
+    if (espNode) graphLinks.push({ source: node, target: espNode, dist: 50 });
+  });
+
+  canvas.onmousedown = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    
+    graphDraggedNode = graphNodes.find(n => {
+      const dist = Math.hypot(n.x - mx, n.y - my);
+      return dist < n.size + 4;
+    });
+  };
+
+  canvas.onmousemove = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+
+    if(graphDraggedNode) {
+      graphDraggedNode.x = mx;
+      graphDraggedNode.y = my;
+    }
+  };
+
+  window.onmouseup = () => { graphDraggedNode = null; };
+
+  requestAnimationFrame(updateGraphPhysics);
+}
+
+function updateGraphPhysics() {
+  if(!canvas) return;
+
+  for(let i=0; i<graphNodes.length; i++) {
+    let n1 = graphNodes[i];
+    for(let j=i+1; j<graphNodes.length; j++) {
+      let n2 = graphNodes[j];
+      let dx = n2.x - n1.x;
+      let dy = n2.y - n1.y;
+      let dist = Math.hypot(dx, dy) || 1;
+      
+      if(dist < 180) {
+        let f = (180 - dist) * 0.005;
+        if(!n1.fixed) { n1.x -= dx/dist * f; n1.y -= dy/dist * f; }
+        if(!n2.fixed) { n2.x += dx/dist * f; n2.y += dy/dist * f; }
+      }
+    }
+  }
+
+  graphLinks.forEach(l => {
+    let dx = l.target.x - l.source.x;
+    let dy = l.target.y - l.source.y;
+    let dist = Math.hypot(dx, dy) || 1;
+    let diff = dist - l.dist;
+    let f = diff * 0.015;
+
+    if(!l.source.fixed) { l.source.x += dx/dist * f; l.source.y += dy/dist * f; }
+    if(!l.target.fixed) { l.target.x -= dx/dist * f; l.target.y -= dy/dist * f; }
+  });
+
+  graphNodes.forEach(n => {
+    n.x = Math.max(n.size, Math.min(canvas.width - n.size, n.x));
+    n.y = Math.max(n.size, Math.min(canvas.height - n.size, n.y));
+  });
+
+  drawGraph();
+  requestAnimationFrame(updateGraphPhysics);
+}
+
+function drawGraph() {
+  ctx.clearRect(0,0, canvas.width, canvas.height);
+
+  ctx.strokeStyle = "#cbd5e1";
+  ctx.lineWidth = 1;
+  graphLinks.forEach(l => {
+    ctx.beginPath();
+    ctx.moveTo(l.source.x, l.source.y);
+    ctx.lineTo(l.target.x, l.target.y);
+    ctx.stroke();
+  });
+
+  graphNodes.forEach(n => {
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.size, 0, Math.PI * 2);
+    ctx.fillStyle = n.color;
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#fff";
+    ctx.stroke();
+
+    ctx.fillStyle = "var(--text)";
+    ctx.font = n.id === 'icmbio' ? "600 10px DM Sans" : "500 8px DM Sans";
+    ctx.textAlign = "center";
+    ctx.fillText(n.label, n.x, n.y - n.size - 4);
+  });
+}
+
+function renderEspecialidadesChart() {
+  const canvasCh = document.getElementById("ch-spec");
+  if(!canvasCh) return;
+
+  const specCounts = {};
+  collaborators.forEach(c => {
+    if(c.Especialidades) specCounts[c.Especialidades] = (specCounts[c.Especialidades] || 0) + 1;
+  });
+
+  if (chartSpec) chartSpec.destroy();
+
+  chartSpec = new Chart(canvasCh, {
+    type: "pie",
+    data: {
+      labels: Object.keys(specCounts),
+      datasets: [{
+        data: Object.values(specCounts),
+        backgroundColor: ["#10b981", "#3b82f6", "#f59e0b", "#ec4899", "#8b5cf6"],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } }
+      }
+    }
+  });
+}
+
+// ── SUBMISSÃO DOS FORMULÁRIOS COM NORMALIZAÇÃO UNICODE ───────
+async function submitForm(e, actionType) {
+  e.preventDefault();
+  
+  let payload = { action: actionType, timestamp: new Date().toISOString() };
+  let successMsgId = "";
+
+  if (actionType === 'newRecord') {
+    const regGrupo = document.getElementById('reg-grupo').value;
+    const regSubg = document.getElementById('reg-subg').value;
+    const regCientifico = document.getElementById('reg-cientifico').value;
+    const regPopular = document.getElementById('reg-popular').value;
+    const regFamilia = document.getElementById('reg-familia').value;
+    const regOrdem = document.getElementById('reg-ordem').value;
+    const regIlhas = getSelectedIlhas('reg-ilhas');
+    const regRef = document.getElementById('reg-ref').value;
+    const regData = document.getElementById('reg-data').value;
+    const regObs = document.getElementById('reg-obs').value;
+    const regNome = document.getElementById('reg-nome').value;
+    const regEmail = document.getElementById('reg-email').value;
+
+    payload = {
+      ...payload,
+      'Grande Grupo': regGrupo,
+      'Subgrupo': regSubg,
+      'Nome Científico': regCientifico,
+      'Nome Popular': regPopular,
+      'Família': regFamilia,
+      'Ordem': regOrdem,
+      'Ilhas': regIlhas,
+      'Referência / DOI': regRef,
+      'Data do Registro': regData,
+      'Observações': regObs,
+      'Nome do Contribuidor': regNome,
+      'E-mail': regEmail
+    };
+    successMsgId = "msg-novo";
+
+    // Adiciona mock local provisório para visualização imediata
+    species.unshift({
+      "grande_grupo": regGrupo,
+      "subgrupo": regSubg,
+      "nome_popular": regPopular,
+      "familia": regFamilia,
+      "genero": regCientifico.split(' ')[0] || "",
+      "epiteto": regCientifico.split(' ')[1] || "",
+      "Alcatrazes": regIlhas.includes('Alcatrazes') ? 'Sim' : 'Não',
+      "Palmas": regIlhas.includes('Palmas') ? 'Sim' : 'Não',
+      "Cabras": regIlhas.includes('Cabras') ? 'Sim' : 'Não',
+      "SP": "DD"
+    });
+
+  } else if (actionType === 'newCollaborator') {
+    const colNome = document.getElementById('col-nome').value;
+    const colEmail = document.getElementById('col-email').value;
+    const colInst = document.getElementById('col-inst').value;
+    const colEspec = document.getElementById('col-espec').value;
+    const colGrupo = document.getElementById('col-grupo-int').value;
+    const colSite = document.getElementById('col-site').value;
+    const colDesc = document.getElementById('col-contribuir-desc').value;
+
+    payload = {
+      ...payload,
+      'Nome Completo': colNome,
+      'E-mail': colEmail,
+      'Instituição': colInst,
+      'Especialidade': colEspec,
+      'Grupos de Interesse': colGrupo,
+      'Lattes / ORCID / Site': colSite,
+      'Como deseja contribuir?': colDesc
+    };
+    successMsgId = "msg-col";
+
+    // Adiciona mock local provisório para visualização imediata
+    collaborators.push({
+      "Nome": colNome,
+      "Vínculo": colInst,
+      "Especialidades": colEspec,
+      "Grupo": colGrupo
+    });
+    initGraph();
+    renderEspecialidadesChart();
+
+  } else if (actionType === 'newComment') {
+    const comTipo = document.getElementById('com-tipo').value;
+    const comMsg = document.getElementById('com-msg').value;
+    const comNome = document.getElementById('com-nome').value;
+    const comEmail = document.getElementById('com-email').value;
+
+    payload = {
+      ...payload,
+      'Tipo': comTipo,
+      'Mensagem': comMsg,
+      'Nome': comNome,
+      'E-mail': comEmail
+    };
+    successMsgId = "msg-com";
+
+  } else if (actionType === 'newTaxoSuggestion') {
+    const taxTipo = document.getElementById('tax-tipo').value;
+    const taxTaxon = document.getElementById('tax-taxon').value;
+    const taxAtual = document.getElementById('tax-atual').value;
+    const taxSug = document.getElementById('tax-sugerido').value;
+    const taxJust = document.getElementById('tax-just').value;
+    const taxNome = document.getElementById('tax-nome').value;
+    const taxEmail = document.getElementById('tax-email').value;
+
+    payload = {
+      ...payload,
+      'Tipo de Contribuição': taxTipo,
+      'Táxon Afetado': taxTaxon,
+      'Como está registrado': taxAtual,
+      'Como deveria estar': taxSug,
+      'Justificativa / Referência': taxJust,
+      'Nome': taxNome,
+      'E-mail': taxEmail
+    };
+    successMsgId = "msg-taxo";
+  }
+
+  // Normalização NFC das propriedades do JSON antes do envio, prevenindo falha de compatibilidade de strings/acentos no Sheets
+  const normalizedPayload = {};
+  for (const [key, val] of Object.entries(payload)) {
+    const normKey = typeof key === 'string' ? key.normalize('NFC') : key;
+    const normVal = typeof val === 'string' ? val.normalize('NFC') : val;
+    normalizedPayload[normKey] = normVal;
+  }
+
+  if (API_URL) {
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(normalizedPayload)
+      });
+      const data = await res.json();
+      if(data && data.success) {
+        console.log("Submissão realizada com sucesso na planilha remota!");
+      }
+    } catch(err) {
+      console.error("Erro na comunicação com a API do Apps Script:", err);
+    }
+  }
+
+  e.target.reset();
+  document.querySelectorAll(".rb").forEach(b => {
+    if(b.getAttribute("data-val") === "Alcatrazes") b.classList.add("on");
+    else b.classList.remove("on");
+  });
+
+  const successEl = document.getElementById(successMsgId);
+  if(successEl) {
+    successEl.style.display = "block";
+    setTimeout(() => successEl.style.display = "none", 8000);
+  }
+
+  updateKPIs();
+  applyAll();
+  applyLista();
+}
+
+function getSelectedIlhas(parentId) {
+  const selected = [];
+  document.getElementById(parentId).querySelectorAll(".rb.on").forEach(b => {
+    selected.push(b.getAttribute("data-val"));
+  });
+  return selected.join(", ");
+}
+
+function toggleRb(el) {
+  el.classList.toggle("on");
+}
+
+function hoverIsland(name) {
+  const info = ISLAND_DATA[name];
+  if(!info) return;
+  document.getElementById('island-info-title').innerText = info.title;
+  document.getElementById('island-info-coords').innerText = info.coords;
+  document.getElementById('island-info-desc').innerText = info.desc;
+
+  // highlight map path
+  document.querySelectorAll('.map-island-path').forEach(p => p.classList.remove('map-active'));
+}
+
+function selectIsland(name) {
+  hoverIsland(name);
+  const paths = document.querySelectorAll('.map-island-path');
+  paths.forEach(p => {
+    p.classList.remove('map-active');
+  });
+}
+
+function goPage(pageId) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".nav-tab").forEach(t => t.classList.remove("active"));
+  
+  const activePage = document.getElementById(`page-${pageId}`);
+  if(activePage) activePage.classList.add("active");
+
+  const tabBtn = Array.from(document.querySelectorAll(".nav-tab")).find(t => t.getAttribute("onclick").includes(pageId));
+  if(tabBtn) tabBtn.classList.add("active");
+
+  currentTab = pageId;
+
+  // Forçar redimensionamento correto do treemap ao acessar Visão Geral
+  if(pageId === 'overview') {
+    setTimeout(() => { applyAll(); }, 50);
+  }
+}
+
+function showCtab(panelId, btn) {
+  document.querySelectorAll(".ctab-panel").forEach(p => p.classList.remove("active-panel"));
+  document.querySelectorAll(".ctab").forEach(b => b.classList.remove("active"));
+
+  const targetPanel = document.getElementById(panelId);
+  if(targetPanel) targetPanel.classList.add("active-panel");
+  btn.classList.add("active");
+
+  if(panelId === 'ct-colab') {
+    setTimeout(initGraph, 100);
+  }
+}
+</script>
+</body>
+</html>
