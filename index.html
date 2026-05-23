@@ -21,7 +21,7 @@ body {
   font-family: 'DM Sans', sans-serif;
   color: var(--text);
   min-height: 100vh;
-  background: var(--bg) url('alcatrazes-bg.jpg') center/cover no-repeat fixed;
+  background: var(--bg) url('img/alcatrazes-bg.jpg') center/cover no-repeat fixed;
 }
 nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;background:rgba(255,255,255,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(213,221,232,0.45);position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
 .nav-logo{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--green);line-height:1.1}
@@ -205,7 +205,7 @@ textarea.fi{resize:vertical;min-height:72px}
 .rb{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.72rem;padding:4px 11px;border-radius:5px;cursor:pointer;transition:all .12s}
 .rb:hover,.rb.on{background:rgba(46,125,94,.1);border-color:var(--green);color:var(--green)}
 /* SOBRE */
-.sobre-layout{display:grid;grid-template-columns:1fr 360px;gap:18px}
+.sobre-layout{display:grid;grid-template-columns:360px 1fr;gap:18px}
 .sobre-section{margin-bottom:22px}
 .sobre-h1{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:6px}
 .sobre-h2{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:8px;color:var(--green)}
@@ -216,16 +216,20 @@ textarea.fi{resize:vertical;min-height:72px}
 .concept-term{font-size:.78rem;font-weight:600;color:var(--green);margin-bottom:3px}
 .concept-def{font-size:.74rem;color:var(--text2);line-height:1.55}
 /* MAP with image + dots */
-.map-container{position:relative;border-radius:10px;overflow:hidden;box-shadow:var(--sh);border:1px solid var(--border);margin-bottom:14px}
+.map-zoom-wrap{overflow:hidden;border-radius:10px;cursor:zoom-in}
+.map-zoom-wrap.zoomed{cursor:zoom-out}
+.map-zoom-wrap.zoomed .map-container{transform:scale(2.2);transform-origin:var(--ox,50%) var(--oy,50%)}
+.map-container{position:relative;border:1px solid var(--border);margin-bottom:14px;transition:transform .35s ease}
 .map-container img{width:100%;display:block}
 .island-dot-wrap{position:absolute;transform:translate(-50%,-50%);cursor:pointer;z-index:10}
-.island-dot-wrap .idot{width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 3px rgba(77,217,172,.4),0 2px 8px rgba(0,0,0,.4);transition:transform .2s,box-shadow .2s;animation:dot-pulse 2.5s infinite}
-.island-dot-wrap:hover .idot,.island-dot-wrap.active-dot .idot{transform:scale(1.4);box-shadow:0 0 0 5px rgba(77,217,172,.5),0 4px 12px rgba(0,0,0,.5)}
-@keyframes dot-pulse{0%,100%{box-shadow:0 0 0 3px rgba(77,217,172,.4),0 2px 8px rgba(0,0,0,.4)}50%{box-shadow:0 0 0 6px rgba(77,217,172,.15),0 2px 8px rgba(0,0,0,.4)}}
+.island-dot-wrap .idot{width:8px;height:8px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 0 2px rgba(77,217,172,.4),0 2px 8px rgba(0,0,0,.4);transition:transform .2s,box-shadow .2s;animation:dot-pulse 2.5s infinite}
+.island-dot-wrap:hover .idot,.island-dot-wrap.active-dot .idot{transform:scale(1.5);box-shadow:0 0 0 4px rgba(77,217,172,.5),0 4px 12px rgba(0,0,0,.5)}
+@keyframes dot-pulse{0%,100%{box-shadow:0 0 0 2px rgba(77,217,172,.4),0 2px 8px rgba(0,0,0,.4)}50%{box-shadow:0 0 0 5px rgba(77,217,172,.15),0 2px 8px rgba(0,0,0,.4)}}
 .island-tooltip{position:absolute;background:rgba(13,42,69,.95);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:10px 14px;color:#fff;font-size:.75rem;line-height:1.5;max-width:200px;pointer-events:none;display:none;z-index:20;backdrop-filter:blur(4px);box-shadow:0 4px 20px rgba(0,0,0,.4)}
 .island-tooltip.show{display:block;animation:fi .15s ease}
 .island-tooltip strong{font-size:.8rem;color:#77d9ac;display:block;margin-bottom:3px}
 .island-tooltip small{font-size:.63rem;color:rgba(255,255,255,.55);display:block;margin-bottom:4px;font-family:monospace}
+.map-zoom-hint{font-size:.6rem;color:var(--text3);text-align:center;margin-top:-10px;margin-bottom:10px;letter-spacing:.04em}
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--bg3)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
@@ -233,6 +237,8 @@ textarea.fi{resize:vertical;min-height:72px}
 .map-island-path:hover,.map-island-path.map-active{fill:#4caf50;opacity:1}
 /* Sobre text column cards */
 .sobre-text-col .sobre-section{background:rgba(255,255,255,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(213,221,232,0.5);border-radius:12px;padding:18px 20px;box-shadow:var(--sh);}
+/* Sidebar conceitos */
+.sobre-sidebar .sobre-section{background:rgba(255,255,255,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(213,221,232,0.5);border-radius:12px;padding:16px 18px;box-shadow:var(--sh);}
 @media(max-width:900px){
   .ov-top,.lista-layout,.sobre-layout,.colab-page-grid{grid-template-columns:1fr}
   .ov-main,.ov-grupos{border-right:none;border-bottom:1px solid var(--border)}
@@ -407,8 +413,6 @@ textarea.fi{resize:vertical;min-height:72px}
     <button class="ctab" onclick="showCtab('ct-taxo',this)">🔬 Sugestão Taxonômica</button>
     <button class="ctab" onclick="showCtab('ct-com',this)">💬 Comentário</button>
   </div>
-
-  <!-- TAB: Novo Registro -->
   <div id="ct-novo" class="ctab-panel active-panel">
     <div class="pg-sub" style="margin-bottom:16px">Observou uma espécie que não está listada? Todos os registros são validados antes da incorporação.</div>
     <div class="f-card" style="max-width:640px;margin:0 auto">
@@ -423,8 +427,6 @@ textarea.fi{resize:vertical;min-height:72px}
       <div class="ok-msg" id="ok-reg">✅ Registro enviado! Nossa equipe validará os dados.</div>
     </div>
   </div>
-
-  <!-- TAB: Cadastrar Colaborador -->
   <div id="ct-col" class="ctab-panel">
     <div class="pg-sub" style="margin-bottom:16px">Pesquisador, especialista ou entusiasta? Faça parte da rede do projeto.</div>
     <div class="f-card" style="max-width:640px;margin:0 auto">
@@ -437,8 +439,6 @@ textarea.fi{resize:vertical;min-height:72px}
       <div class="ok-msg" id="ok-col">✅ Cadastro enviado!</div>
     </div>
   </div>
-
-  <!-- TAB: Sugestão Taxonômica -->
   <div id="ct-taxo" class="ctab-panel">
     <div class="pg-sub" style="margin-bottom:16px">Identificou um erro taxonômico, nome desatualizado ou inconsistência? Reporte abaixo.</div>
     <div class="f-card" style="max-width:640px;margin:0 auto">
@@ -451,8 +451,6 @@ textarea.fi{resize:vertical;min-height:72px}
       <div class="ok-msg" id="tx-ok">✅ Sugestão registrada!</div>
     </div>
   </div>
-
-  <!-- TAB: Comentário -->
   <div id="ct-com" class="ctab-panel">
     <div class="pg-sub" style="margin-bottom:16px">Dúvidas, sugestões gerais ou feedback sobre os dados.</div>
     <div class="f-card" style="max-width:640px;margin:0 auto">
@@ -468,14 +466,32 @@ textarea.fi{resize:vertical;min-height:72px}
 <!-- SOBRE -->
 <div id="page-sobre" class="page">
   <div class="sobre-layout">
-    <div class="sobre-text-col">
-      <div class="sobre-section">
-        <div class="sobre-h1">Arquipélago de Alcatrazes e Estação Ecológica Tupinambás</div>
-        <div class="sobre-h2">A Lista de Espécies</div>
-        <div class="sobre-p">A lista de espécies consolidada aqui reúne registros de ocorrência de organismos em duas unidades de conservação: o Refúgio de Vida Silvestre do Arquipélago de Alcatrazes e a Estação Ecológica Tupinambás (Setor I e II).</div>
-        <div class="sobre-p">Essas áreas correspondem ao Arquipélago de Alcatrazes, suas ilhas, ilhotas, lajes e parcéis (REVIS Alcatrazes e Setor I da ESEC Tupinambás — São Sebastião) bem como as Ilhas de Cabras e Palmas (Setor II da ESEC Tupinambás — Ubatuba). Os dados apresentados aqui correspondem a informações compiladas a partir de décadas de pesquisa científica, levantamentos de campo e informações históricas de coleções científicas.</div>
-        <div class="sobre-p">Os registros englobam Flora terrestre, Fauna (aves, répteis, peixes, invertebrados marinhos e terrestres, cetáceos), Fungos e Algas. Cada espécie é classificada quanto à sua categoria de ameaça segundo as listas da <strong>IUCN</strong>, <strong>MMA</strong> e <strong>Estado de São Paulo</strong>, e também quanto ao seu status de endemismo e origem (nativa ou exótica).</div>
+
+    <!-- SIDEBAR ESQUERDA: mapa + conceitos -->
+    <div class="sobre-sidebar">
+      <div class="sobre-h2" style="margin-bottom:10px">Mapa do Arquipélago</div>
+      <div class="map-zoom-wrap" id="map-zoom-wrap" onclick="toggleZoom(event)">
+        <div class="map-container" id="map-container">
+          <img src="img/mapaESECREVIS.png" alt="Mapa ESEC REVIS Alcatrazes" id="map-img" style="width:100%;display:block" onload="positionMapDots()"/>
+          <div class="island-dot-wrap" id="dot-alc" style="top:72%;left:28%;display:none" onclick="selectIsland('Alcatrazes',this);event.stopPropagation()" onmouseenter="hoverIsland('Alcatrazes')">
+            <div class="idot" style="background:#2c6fad"></div>
+          </div>
+          <div class="island-dot-wrap" id="dot-pal" style="top:16%;left:81%;display:none" onclick="selectIsland('Palmas',this);event.stopPropagation()" onmouseenter="hoverIsland('Palmas')">
+            <div class="idot" style="background:#2e7d5e"></div>
+          </div>
+          <div class="island-dot-wrap" id="dot-cab" style="top:22%;left:86%;display:none" onclick="selectIsland('Cabras',this);event.stopPropagation()" onmouseenter="hoverIsland('Cabras')">
+            <div class="idot" style="background:#c97a15"></div>
+          </div>
+          <div class="island-tooltip" id="island-tooltip"></div>
+        </div>
       </div>
+      <div class="map-zoom-hint">🔍 Clique na imagem para ampliar</div>
+      <div style="display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap">
+        <div class="il-item"><span class="i-dot i-alc"></span>Alcatrazes</div>
+        <div class="il-item"><span class="i-dot i-pal"></span>Palmas</div>
+        <div class="il-item"><span class="i-dot i-cab"></span>Cabras</div>
+      </div>
+
       <div class="sobre-section">
         <div class="sobre-h2">Conceitos Principais</div>
         <div class="concept-list">
@@ -487,28 +503,18 @@ textarea.fi{resize:vertical;min-height:72px}
         </div>
       </div>
     </div>
-    <!-- SIDEBAR: mapa com imagem + dots -->
-    <div>
-      <div class="sobre-h2" style="margin-bottom:10px">Mapa do Arquipélago</div>
-      <div class="map-container" id="map-container">
-        <img src="img/mapaESECREVIS.png" alt="Mapa ESEC REVIS Alcatrazes" id="map-img" style="width:100%;display:block" onload="positionMapDots()"/>
-        <div class="island-dot-wrap" id="dot-alc" style="top:72%;left:28%;display:none" onclick="selectIsland('Alcatrazes',this)" onmouseenter="hoverIsland('Alcatrazes')">
-          <div class="idot" style="background:#2c6fad"></div>
-        </div>
-        <div class="island-dot-wrap" id="dot-pal" style="top:16%;left:81%;display:none" onclick="selectIsland('Palmas',this)" onmouseenter="hoverIsland('Palmas')">
-          <div class="idot" style="background:#2e7d5e"></div>
-        </div>
-        <div class="island-dot-wrap" id="dot-cab" style="top:22%;left:86%;display:none" onclick="selectIsland('Cabras',this)" onmouseenter="hoverIsland('Cabras')">
-          <div class="idot" style="background:#c97a15"></div>
-        </div>
-        <div class="island-tooltip" id="island-tooltip"></div>
-      </div>
-      <div style="display:flex;gap:12px;margin-top:6px;flex-wrap:wrap">
-        <div class="il-item"><span class="i-dot i-alc"></span>Alcatrazes</div>
-        <div class="il-item"><span class="i-dot i-pal"></span>Palmas</div>
-        <div class="il-item"><span class="i-dot i-cab"></span>Cabras</div>
+
+    <!-- COLUNA PRINCIPAL: textos -->
+    <div class="sobre-text-col">
+      <div class="sobre-section">
+        <div class="sobre-h1">Arquipélago de Alcatrazes e Estação Ecológica Tupinambás</div>
+        <div class="sobre-h2">A Lista de Espécies</div>
+        <div class="sobre-p">A lista de espécies consolidada aqui reúne registros de ocorrência de organismos em duas unidades de conservação: o Refúgio de Vida Silvestre do Arquipélago de Alcatrazes e a Estação Ecológica Tupinambás (Setor I e II).</div>
+        <div class="sobre-p">Essas áreas correspondem ao Arquipélago de Alcatrazes, suas ilhas, ilhotas, lajes e parcéis (REVIS Alcatrazes e Setor I da ESEC Tupinambás — São Sebastião) bem como as Ilhas de Cabras e Palmas (Setor II da ESEC Tupinambás — Ubatuba). Os dados apresentados aqui correspondem a informações compiladas a partir de décadas de pesquisa científica, levantamentos de campo e informações históricas de coleções científicas.</div>
+        <div class="sobre-p">Os registros englobam Flora terrestre, Fauna (aves, répteis, peixes, invertebrados marinhos e terrestres, cetáceos), Fungos e Algas. Cada espécie é classificada quanto à sua categoria de ameaça segundo as listas da <strong>IUCN</strong>, <strong>MMA</strong> e <strong>Estado de São Paulo</strong>, e também quanto ao seu status de endemismo e origem (nativa ou exótica).</div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -979,7 +985,20 @@ function okForm(successId){
 }
 function selRb(el,gid){document.querySelectorAll('#'+gid+' .rb').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
 
-// ═══════════════ MAP ═══════════════
+// ═══════════════ MAP ZOOM ═══════════════
+function toggleZoom(e){
+  const wrap=document.getElementById('map-zoom-wrap');
+  const rect=wrap.getBoundingClientRect();
+  const ox=((e.clientX-rect.left)/rect.width*100).toFixed(1)+'%';
+  const oy=((e.clientY-rect.top)/rect.height*100).toFixed(1)+'%';
+  if(!wrap.classList.contains('zoomed')){
+    wrap.style.setProperty('--ox',ox);
+    wrap.style.setProperty('--oy',oy);
+  }
+  wrap.classList.toggle('zoomed');
+}
+
+// ═══════════════ MAP DOTS ═══════════════
 function positionMapDots(){
   ['dot-alc','dot-pal','dot-cab'].forEach(id=>{
     const el=document.getElementById(id);if(el)el.style.display='block';
