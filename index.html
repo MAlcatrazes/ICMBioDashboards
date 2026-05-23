@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Biodiversidade – Arquipélago de Alcatrazes</title>
+<title>Biodiversidade – REVIS Alcatrazes e ESEC Tupinambás</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -251,7 +251,7 @@ textarea.fi{resize:vertical;min-height:72px}
 </head>
 <body>
 <nav>
-  <div class="nav-logo">Biodiversidade Alcatrazes<small>Arquipélago de São Paulo · Brasil</small></div>
+  <div class="nav-logo">NGI Alcatrazes <small> Núcleo de Gestão Integrada ICMBio Alcatrazes</small></div>
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="goPage('overview')">Visão Geral</button>
     <button class="nav-tab" onclick="goPage('lista')">Lista de Espécies</button>
@@ -525,7 +525,7 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
 </div>
 
-<!-- ===== SOBRE ===== (conteúdo enriquecido pelo Gemini, mapa interativo preservado) -->
+<!-- ===== SOBRE ===== -->
 <div id="page-sobre" class="page">
   <div class="sobre-layout">
     <div class="sobre-text-col">
@@ -533,8 +533,11 @@ textarea.fi{resize:vertical;min-height:72px}
         <div class="sobre-h1">Arquipélago de Alcatrazes e Estação Ecológica Tupinambás</div>
         <div class="sobre-p">
           <div class="sobre-h2">A Lista de Espécies</div>
-        <div class="sobre-p">A lista de espécies consolidada aqui reúne registros de ocorrência de organismos em duas unidades de conservação: o Refúgio de Vida Silvestre do Arquipélago de Alcatrazes e a Estação Ecológica Tupinambás (Setor I e II). Essas áreas correspondem ao Arquipélago de Alcatrazes, suas ilhas, ilhotas, lajes e parcéis (REVIS Alcatrazes e Setor I da ESEC Tupinambás - São Sebastião) bem como as Ilhas de Cabras e Palmas (Setor II da ESEC Tupinambás - Ubatuba). Os dados apresentados aqui correspondem a informações compiladas a partir de décadas de pesquisa científica, levantamentos de campo e informações históricas de coleções científicas.</div>
-        <div class="sobre-p">Os registros englobam Flora terrestre, Fauna (aves, répteis, peixes, invertebrados marinhos e terrestres, cetáceos), Fungos e Algas. Cada espécie é classificada quanto à sua categoria de ameaça segundo as listas da <strong>IUCN</strong>, <strong>MMA</strong> e <strong>Estado de São Paulo</strong>, e também quanto ao seu status de endemismo e origem (nativa ou exótica).</div>
+        <div class="sobre-p">A lista de espécies consolidada aqui reúne registros de ocorrência de organismos em duas unidades de conservação: o Refúgio de Vida Silvestre do Arquipélago de Alcatrazes e a Estação Ecológica Tupinambás (Setor I e II). 
+        </div>
+         <div class="sobre-p"> Essas áreas correspondem ao Arquipélago de Alcatrazes, suas ilhas, ilhotas, lajes e parcéis (REVIS Alcatrazes e Setor I da ESEC Tupinambás - São Sebastião) bem como as Ilhas de Cabras e Palmas (Setor II da ESEC Tupinambás - Ubatuba). Os dados apresentados aqui correspondem a informações compiladas a partir de décadas de pesquisa científica, levantamentos de campo e informações históricas de coleções científicas.</div>
+        </div>
+          <div class="sobre-p">Os registros englobam Flora terrestre, Fauna (aves, répteis, peixes, invertebrados marinhos e terrestres, cetáceos), Fungos e Algas. Cada espécie é classificada quanto à sua categoria de ameaça segundo as listas da <strong>IUCN</strong>, <strong>MMA</strong> e <strong>Estado de São Paulo</strong>, e também quanto ao seu status de endemismo e origem (nativa ou exótica).</div>
         
     </div>
       <!-- Mapa interativo com ilhas clicáveis -->
@@ -666,7 +669,23 @@ function normalizeColab(r){
   };
 }
 
-// ─── FETCH DATA ───────────────────────────────────────────────
+  // ─── NORMALIZA COLABORADORES ─────────────────────────────
+
+function normalizeColab(c){
+  return{
+    nome: c['Nome'] || '',
+    grupo: c['Grupo'] || '',
+    especialidade: c['Especialidades'] || '',
+    vinculo: c['Vínculo'] || '',
+    email: c['email'] || '',
+    equipe: c['equipe'] || '',
+    links: c['Lattes / ORCID / Site'] || '',
+    contribuicao: c['Como deseja contribuir'] || '',
+    status: c['Status'] || ''
+  };
+}
+  
+  // ─── FETCH DATA ───────────────────────────────────────────────
 async function loadData(force=false){
   if(_loaded&&!force)return;
   showLoading('Conectando ao Google Sheets…');
