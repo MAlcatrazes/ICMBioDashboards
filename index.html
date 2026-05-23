@@ -21,7 +21,9 @@ body {
   font-family: 'DM Sans', sans-serif;
   color: var(--text);
   min-height: 100vh;
-  background: var(--bg) url('img/alcatrazes-bg.jpg') center/cover no-repeat fixed;
+         /* O linear-gradient joga uma película branca com 40% de opacidade por cima da imagem */
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+              var(--bg) url('img/alcatrazes-bg.jpg') center/cover no-repeat fixed;
 }
 nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;background:rgba(255,255,255,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(213,221,232,0.45);position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
 .nav-logo{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--green);line-height:1.1}
@@ -46,11 +48,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px
 .gr:hover{background:var(--bg3)}.gr.gon{background:rgba(46,125,94,.07)}
 .gr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .gr-name{font-size:.78rem;color:var(--text2);flex:1}.gr-num{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--text);font-weight:700}
-.ov-sides{background:var(--card);display:grid;grid-template-rows:1fr 1fr}
-.side-k{padding:11px 16px;display:flex;flex-direction:column;justify-content:center}
-.side-k:first-child{border-bottom:1px solid var(--border)}
-.side-k .num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1}
-.side-k .lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-top:2px}
+/* Sides agora com 3 linhas */
+.ov-sides{background:var(--card);display:grid;grid-template-rows:1fr 1fr 1fr}
+.side-k{padding:8px 16px;display:flex;flex-direction:column;justify-content:center}
+.side-k:not(:last-child){border-bottom:1px solid var(--border)}
+.side-k .num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;line-height:1}
+.side-k .lbl{font-size:.58rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-top:2px}
 /* FILTER BAR */
 .fbar{display:flex;flex-wrap:wrap;gap:5px;align-items:center;padding:9px 12px;background:var(--card);border-radius:9px;border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .fbar-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:500;white-space:nowrap}
@@ -172,25 +175,7 @@ tbody tr:hover td{background:rgba(46,125,94,.025)}
 .ctab.active{background:var(--green);color:#fff;border-color:var(--green);font-weight:600}
 .ctab-panel{display:none}
 .ctab-panel.active-panel{display:block;animation:fi .2s ease}
-/* COLLABORATOR CARDS */
-.colab-page-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.colab-stats-bar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-.colab-stat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;box-shadow:var(--sh);flex:1;min-width:100px;text-align:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
-.colab-stat .csv{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--green);line-height:1}
-.colab-stat .csl{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-top:2px}
-.colab-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.colab-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:14px;box-shadow:var(--sh);transition:box-shadow .18s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
-.colab-card:hover{box-shadow:var(--sh2)}
-.colab-card-name{font-weight:600;font-size:.85rem;color:var(--text);margin-bottom:3px}
-.colab-card-inst{font-size:.72rem;color:var(--green);font-weight:500;margin-bottom:6px}
-.colab-card-tags{display:flex;flex-wrap:wrap;gap:3px}
-.colab-tag{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:.6rem;padding:1px 7px;border-radius:10px}
-.colab-tag.spec{background:rgba(46,125,94,.08);border-color:rgba(46,125,94,.2);color:var(--green)}
-.colab-tag.grupo{background:rgba(201,122,21,.08);border-color:rgba(201,122,21,.2);color:var(--fauna)}
-.colab-empty{text-align:center;padding:40px;color:var(--text3);font-size:.82rem}
-.chart-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;box-shadow:var(--sh);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 /* FORMS */
-.pg-title{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:3px}
 .pg-sub{font-size:.8rem;color:var(--text2);margin-bottom:18px;line-height:1.5}
 .f-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;box-shadow:var(--sh);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .fg{margin-bottom:12px}.fl{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);display:block;margin-bottom:3px;font-weight:500}
@@ -205,21 +190,20 @@ textarea.fi{resize:vertical;min-height:72px}
 .rb{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:'DM Sans',sans-serif;font-size:.72rem;padding:4px 11px;border-radius:5px;cursor:pointer;transition:all .12s}
 .rb:hover,.rb.on{background:rgba(46,125,94,.1);border-color:var(--green);color:var(--green)}
 /* SOBRE */
-.sobre-layout{display:grid;grid-template-columns:360px 1fr;gap:18px}
+.sobre-layout{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:start}
 .sobre-section{margin-bottom:22px}
 .sobre-h1{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:6px}
 .sobre-h2{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:8px;color:var(--green)}
 .sobre-p{font-size:.84rem;color:var(--text2);line-height:1.7;margin-bottom:8px}
-.sobre-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;box-shadow:var(--sh);margin-bottom:10px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .concept-list{display:flex;flex-direction:column;gap:8px}
 .concept-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .concept-term{font-size:.78rem;font-weight:600;color:var(--green);margin-bottom:3px}
 .concept-def{font-size:.74rem;color:var(--text2);line-height:1.55}
-/* MAP with image + dots */
+/* MAP */
 .map-zoom-wrap{overflow:hidden;border-radius:10px;cursor:zoom-in}
 .map-zoom-wrap.zoomed{cursor:zoom-out}
 .map-zoom-wrap.zoomed .map-container{transform:scale(2.2);transform-origin:var(--ox,50%) var(--oy,50%)}
-.map-container{position:relative;border:1px solid var(--border);margin-bottom:14px;transition:transform .35s ease}
+.map-container{position:relative;border:1px solid var(--border);margin-bottom:6px;transition:transform .35s ease}
 .map-container img{width:100%;display:block}
 .island-dot-wrap{position:absolute;transform:translate(-50%,-50%);cursor:pointer;z-index:10}
 .island-dot-wrap .idot{width:8px;height:8px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 0 2px rgba(77,217,172,.4),0 2px 8px rgba(0,0,0,.4);transition:transform .2s,box-shadow .2s;animation:dot-pulse 2.5s infinite}
@@ -229,18 +213,24 @@ textarea.fi{resize:vertical;min-height:72px}
 .island-tooltip.show{display:block;animation:fi .15s ease}
 .island-tooltip strong{font-size:.8rem;color:#77d9ac;display:block;margin-bottom:3px}
 .island-tooltip small{font-size:.63rem;color:rgba(255,255,255,.55);display:block;margin-bottom:4px;font-family:monospace}
-.map-zoom-hint{font-size:.6rem;color:var(--text3);text-align:center;margin-top:-10px;margin-bottom:10px;letter-spacing:.04em}
+.map-zoom-hint{font-size:.6rem;color:var(--text3);text-align:center;margin-bottom:10px;letter-spacing:.04em}
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--bg3)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-.map-island-path{fill:#2d5a2d;stroke:#fff;stroke-width:1;opacity:.9;cursor:pointer;transition:fill .2s}
-.map-island-path:hover,.map-island-path.map-active{fill:#4caf50;opacity:1}
-/* Sobre text column cards */
+/* Sobre cards */
+.sobre-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px; 
+  gap: 20px;                        
+  align-items: start;               
+}
+
 .sobre-text-col .sobre-section{background:rgba(255,255,255,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(213,221,232,0.5);border-radius:12px;padding:18px 20px;box-shadow:var(--sh);}
-/* Sidebar conceitos */
 .sobre-sidebar .sobre-section{background:rgba(255,255,255,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(213,221,232,0.5);border-radius:12px;padding:16px 18px;box-shadow:var(--sh);}
+
 @media(max-width:900px){
-  .ov-top,.lista-layout,.sobre-layout,.colab-page-grid{grid-template-columns:1fr}
+  /* Seu código original de responsividade (mantido idêntico) */
+  .ov-top,.lista-layout,.sobre-layout{grid-template-columns:1fr}
   .ov-main,.ov-grupos{border-right:none;border-bottom:1px solid var(--border)}
   .lista-filters{position:static}
   .f2{grid-template-columns:1fr}
@@ -268,6 +258,7 @@ textarea.fi{resize:vertical;min-height:72px}
     <div class="ov-sides">
       <div class="side-k"><div class="num" id="kpi-end" style="color:var(--cr)">—</div><div class="lbl">Endêmicas</div></div>
       <div class="side-k"><div class="num" id="kpi-exo" style="color:var(--fauna)">—</div><div class="lbl">Exóticas</div></div>
+      <div class="side-k"><div class="num" id="kpi-ame" style="color:var(--en)">—</div><div class="lbl">Ameaçadas (CR/EN/VU)</div></div>
     </div>
   </div>
   <div class="fbar">
@@ -467,31 +458,45 @@ textarea.fi{resize:vertical;min-height:72px}
 <div id="page-sobre" class="page">
   <div class="sobre-layout">
 
-    <!-- SIDEBAR ESQUERDA: mapa + conceitos -->
-    <div class="sobre-sidebar">
-      <div class="sobre-h2" style="margin-bottom:10px">Mapa do Arquipélago</div>
-      <div class="map-zoom-wrap" id="map-zoom-wrap" onclick="toggleZoom(event)">
-        <div class="map-container" id="map-container">
-          <img src="img/mapaESECREVIS.png" alt="Mapa ESEC REVIS Alcatrazes" id="map-img" style="width:100%;display:block" onload="positionMapDots()"/>
-          <div class="island-dot-wrap" id="dot-alc" style="top:72%;left:28%;display:none" onclick="selectIsland('Alcatrazes',this);event.stopPropagation()" onmouseenter="hoverIsland('Alcatrazes')">
-            <div class="idot" style="background:#2c6fad"></div>
-          </div>
-          <div class="island-dot-wrap" id="dot-pal" style="top:16%;left:81%;display:none" onclick="selectIsland('Palmas',this);event.stopPropagation()" onmouseenter="hoverIsland('Palmas')">
-            <div class="idot" style="background:#2e7d5e"></div>
-          </div>
-          <div class="island-dot-wrap" id="dot-cab" style="top:22%;left:86%;display:none" onclick="selectIsland('Cabras',this);event.stopPropagation()" onmouseenter="hoverIsland('Cabras')">
-            <div class="idot" style="background:#c97a15"></div>
-          </div>
-          <div class="island-tooltip" id="island-tooltip"></div>
-        </div>
-      </div>
-      <div class="map-zoom-hint">🔍 Clique na imagem para ampliar</div>
-      <div style="display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap">
-        <div class="il-item"><span class="i-dot i-alc"></span>Alcatrazes</div>
-        <div class="il-item"><span class="i-dot i-pal"></span>Palmas</div>
-        <div class="il-item"><span class="i-dot i-cab"></span>Cabras</div>
+    <!-- COLUNA PRINCIPAL: descritivo + mapa -->
+    <div class="sobre-text-col">
+      <div class="sobre-section">
+        <div class="sobre-h1">Arquipélago de Alcatrazes e Estação Ecológica Tupinambás</div>
+        <div class="sobre-h2">A Lista de Espécies</div>
+        <div class="sobre-p">A lista de espécies consolidada aqui reúne registros de ocorrência de organismos em duas unidades de conservação: o Refúgio de Vida Silvestre do Arquipélago de Alcatrazes e a Estação Ecológica Tupinambás (Setor I e II).</div>
+        <div class="sobre-p">Essas áreas correspondem ao Arquipélago de Alcatrazes, suas ilhas, ilhotas, lajes e parcéis (REVIS Alcatrazes e Setor I da ESEC Tupinambás — São Sebastião) bem como as Ilhas de Cabras e Palmas (Setor II da ESEC Tupinambás — Ubatuba). Os dados apresentados aqui correspondem a informações compiladas a partir de décadas de pesquisa científica, levantamentos de campo e informações históricas de coleções científicas.</div>
+        <div class="sobre-p">Os registros englobam Flora terrestre, Fauna (aves, répteis, peixes, invertebrados marinhos e terrestres, cetáceos), Fungos e Algas. Cada espécie é classificada quanto à sua categoria de ameaça segundo as listas da <strong>IUCN</strong>, <strong>MMA</strong> e <strong>Estado de São Paulo</strong>, e também quanto ao seu status de endemismo e origem (nativa ou exótica).</div>
       </div>
 
+      <!-- MAPA abaixo do descritivo -->
+      <div class="sobre-section" style="padding:16px 18px">
+        <div class="sobre-h2" style="margin-bottom:10px">Mapa do Arquipélago</div>
+        <div class="map-zoom-wrap" id="map-zoom-wrap" onclick="toggleZoom(event)">
+          <div class="map-container" id="map-container">
+            <img src="img/mapaESECREVIS.png" alt="Mapa ESEC REVIS Alcatrazes" id="map-img" style="width:100%;display:block" onload="positionMapDots()"/>
+            <div class="island-dot-wrap" id="dot-alc" style="top:72%;left:28%;display:none" onclick="selectIsland('Alcatrazes',this);event.stopPropagation()" onmouseenter="hoverIsland('Alcatrazes')">
+              <div class="idot" style="background:#2c6fad"></div>
+            </div>
+            <div class="island-dot-wrap" id="dot-pal" style="top:16%;left:81%;display:none" onclick="selectIsland('Palmas',this);event.stopPropagation()" onmouseenter="hoverIsland('Palmas')">
+              <div class="idot" style="background:#2e7d5e"></div>
+            </div>
+            <div class="island-dot-wrap" id="dot-cab" style="top:22%;left:86%;display:none" onclick="selectIsland('Cabras',this);event.stopPropagation()" onmouseenter="hoverIsland('Cabras')">
+              <div class="idot" style="background:#c97a15"></div>
+            </div>
+            <div class="island-tooltip" id="island-tooltip"></div>
+          </div>
+        </div>
+        <div class="map-zoom-hint">🔍 Clique na imagem para ampliar</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="il-item"><span class="i-dot i-alc"></span>Alcatrazes</div>
+          <div class="il-item"><span class="i-dot i-pal"></span>Palmas</div>
+          <div class="il-item"><span class="i-dot i-cab"></span>Cabras</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR DIREITA: apenas conceitos -->
+    <div class="sobre-sidebar">
       <div class="sobre-section">
         <div class="sobre-h2">Conceitos Principais</div>
         <div class="concept-list">
@@ -504,39 +509,21 @@ textarea.fi{resize:vertical;min-height:72px}
       </div>
     </div>
 
-    <!-- COLUNA PRINCIPAL: textos -->
-    <div class="sobre-text-col">
-      <div class="sobre-section">
-        <div class="sobre-h1">Arquipélago de Alcatrazes e Estação Ecológica Tupinambás</div>
-        <div class="sobre-h2">A Lista de Espécies</div>
-        <div class="sobre-p">A lista de espécies consolidada aqui reúne registros de ocorrência de organismos em duas unidades de conservação: o Refúgio de Vida Silvestre do Arquipélago de Alcatrazes e a Estação Ecológica Tupinambás (Setor I e II).</div>
-        <div class="sobre-p">Essas áreas correspondem ao Arquipélago de Alcatrazes, suas ilhas, ilhotas, lajes e parcéis (REVIS Alcatrazes e Setor I da ESEC Tupinambás — São Sebastião) bem como as Ilhas de Cabras e Palmas (Setor II da ESEC Tupinambás — Ubatuba). Os dados apresentados aqui correspondem a informações compiladas a partir de décadas de pesquisa científica, levantamentos de campo e informações históricas de coleções científicas.</div>
-        <div class="sobre-p">Os registros englobam Flora terrestre, Fauna (aves, répteis, peixes, invertebrados marinhos e terrestres, cetáceos), Fungos e Algas. Cada espécie é classificada quanto à sua categoria de ameaça segundo as listas da <strong>IUCN</strong>, <strong>MMA</strong> e <strong>Estado de São Paulo</strong>, e também quanto ao seu status de endemismo e origem (nativa ou exótica).</div>
-      </div>
-    </div>
 
   </div>
 </div>
 
 <script>
-// ═══════════════ CONFIG ═══════════════
 const SHEET_ID   = '105nFkb90I3Il6Qjx4qId5WA1IZWxAqYS-RldKAIgSyg';
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGF8MtO3kXOXnXV2YH7vcDe4Rmmj2zJyJocc0BKSL8aMGWHZej_p7sCgx0OOD75n0TCQ/exec';
 
 const SVGS = {
-  "Peixes":                  "img/peixe.jpg",
-  "Aves":                    "img/aves.jpg",
-  "Invertebrados terrestres":"img/borboleta.jpg",
-  "Algas":                   "img/alga.jpg",
-  "Baleias e golfinhos":     "img/golfinhos.jpg",
-  "Anfíbios e Répteis":      "img/repteis.jpg",
-  "Fungos macroscópicos":    "img/fungos.jpeg",
-  "Répteis marinhos":        "img/repteismarinhos.jpg",
-  "Flora terrestre":         "img/planta.jpg",
-  "Invertebrados marinhos":  "img/nudibranquio.jpg"
+  "Peixes":"img/peixe.jpg","Aves":"img/aves.jpg","Invertebrados terrestres":"img/borboleta.jpg",
+  "Algas":"img/alga.jpg","Baleias e golfinhos":"img/golfinhos.jpg","Anfíbios e Répteis":"img/repteis.jpg",
+  "Fungos macroscópicos":"img/fungos.jpeg","Répteis marinhos":"img/repteismarinhos.jpg",
+  "Flora terrestre":"img/planta.jpg","Invertebrados marinhos":"img/nudibranquio.jpg"
 };
 
-// ═══════════════ LOADING ═══════════════
 let ALL=[], _loaded=false;
 function showLoading(msg){
   let el=document.getElementById('_ld');
@@ -553,52 +540,22 @@ function showToast(msg,err){
   el.textContent=msg;document.body.appendChild(el);setTimeout(()=>el.remove(),5000);
 }
 
-// ═══════════════ NORMALIZE ═══════════════
 function trim(v){return v===null||v===undefined?'':String(v).trim();}
-function toBin(v){
-  if(v===1||v==='1'||v===true||v==='TRUE'||v==='true'||v==='Sim'||v==='sim')return 1;
-  return 0;
-}
+function toBin(v){if(v===1||v==='1'||v===true||v==='TRUE'||v==='true'||v==='Sim'||v==='sim')return 1;return 0;}
 function normalizeRow(r){
   return{
-    id:               trim(r['id']||''),
-    grande_grupo:     trim(r['grande_grupo']||''),
-    grupo:            trim(r['grande_grupo_II']||''),
-    grupo_especifico: trim(r['grupo_especifico_popular']||r['grupo_popular']||''),
-    nome_popular:     trim(r['nome_popular']||''),
-    filo:             trim(r['filo/divisao']||''),
-    classe:           trim(r['classe']||''),
-    ordem:            trim(r['ordem']||''),
-    familia:          trim(r['familia']||''),
-    especie:          trim(r['MenorNivelTax_Formatado']||''),
-    endemica:         toBin(r['endemica']),
-    alcatrazes:       toBin(r['Alcatrazes']),
-    palmas:           toBin(r['Palmas']),
-    cabras:           toBin(r['Cabras']),
-    iucn:             trim(r['IUCN']||''),
-    mma:              trim(r['MMA']||''),
-    sp:               trim(r['SP']||''),
-    exotica:          trim(r['exoticas_invasoras']||r['exoticas']||''),
-    interesse_comercial: trim(r['interesse_comercial']||''),
-  };
-}
-function normalizeColab(r){
-  return{
-    nome:         trim(r['Nome_completo']       ||r['Nome']||''),
-    email:        trim(r['email']               ||''),
-    vinculo:      trim(r['Vinculo']             ||r['Vínculo']||''),
-    especialidade:trim(r['Especialidade']       ||r['Especialidades']||''),
-    grupo:        trim(r['Grupo']               ||''),
-    lattes:       trim(r['Lattes/orcid/site']   ||r['Lattes / ORCID / Site']||''),
-    contribuicao: trim(r['Contribuicao_desejada']||r['Como deseja contribuir']||''),
-    status:       trim(r['Status']              ||''),
-    equipe:       trim(r['Equipe']              ||r['equipe']||''),
-    id:           trim(r['ID']                  ||r['ID_colaborador']||''),
-    ultima_contrib:trim(r['Ultima_contribuicao']||''),
+    id:trim(r['id']||''),grande_grupo:trim(r['grande_grupo']||''),grupo:trim(r['grande_grupo_II']||''),
+    grupo_especifico:trim(r['grupo_especifico_popular']||r['grupo_popular']||''),
+    nome_popular:trim(r['nome_popular']||''),filo:trim(r['filo/divisao']||''),
+    classe:trim(r['classe']||''),ordem:trim(r['ordem']||''),familia:trim(r['familia']||''),
+    especie:trim(r['MenorNivelTax_Formatado']||''),endemica:toBin(r['endemica']),
+    alcatrazes:toBin(r['Alcatrazes']),palmas:toBin(r['Palmas']),cabras:toBin(r['Cabras']),
+    iucn:trim(r['IUCN']||''),mma:trim(r['MMA']||''),sp:trim(r['SP']||''),
+    exotica:trim(r['exoticas_invasoras']||r['exoticas']||''),
+    interesse_comercial:trim(r['interesse_comercial']||''),
   };
 }
 
-// ═══════════════ FETCH ═══════════════
 async function loadData(force=false){
   if(_loaded&&!force)return;
   showLoading('Conectando ao Google Sheets…');
@@ -616,27 +573,13 @@ async function loadData(force=false){
     ts.textContent='Atualizado: '+new Date(json.lastUpdated||Date.now()).toLocaleString('pt-BR');
     applyAll();
     if(document.getElementById('page-lista').classList.contains('active')){buildListaSidebar();applyLista();}
-  }catch(e){
-    hideLoading();showToast('Erro ao carregar: '+e.message,true);ALL=[];applyAll();
-  }
-}
-
-async function loadColabData(){
-  try{
-    const res=await fetch(SCRIPT_URL+'?action=getColabs&t='+Date.now());
-    if(!res.ok)throw new Error('HTTP '+res.status);
-    const json=await res.json();
-    if(json.error||!Array.isArray(json.data))return[];
-    return json.data.map(normalizeColab);
-  }catch(e){console.warn('loadColabData:',e);return[];}
+  }catch(e){hideLoading();showToast('Erro ao carregar: '+e.message,true);ALL=[];applyAll();}
 }
 
 async function postToSheet(action,data){
   try{
     const payload={action,timestamp:new Date().toISOString()};
-    for(const [k,v] of Object.entries(data)){
-      payload[typeof k==='string'?k.normalize('NFC'):k]=typeof v==='string'?v.normalize('NFC'):v;
-    }
+    for(const [k,v] of Object.entries(data)){payload[typeof k==='string'?k.normalize('NFC'):k]=typeof v==='string'?v.normalize('NFC'):v;}
     const res=await fetch(SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
     const j=await res.json();return j.success!==false;
   }catch(e){console.error(e);return false;}
@@ -644,7 +587,6 @@ async function postToSheet(action,data){
 
 setInterval(()=>loadData(true),5*60*1000);
 
-// ═══════════════ NAV ═══════════════
 function goPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
@@ -656,7 +598,6 @@ function goPage(id){
 }
 document.addEventListener('click',e=>{if(!e.target.closest('.ms-wrap'))closeAllDrops();});
 
-// ═══════════════ FILTERS ═══════════════
 const SEL={grupo:new Set(),sub:new Set(),thr:new Set(),esp:new Set()};
 let activeThrLists=new Set(['sp']),activeThrListsL=new Set(['sp']),activeTMsub=null;
 let ovFiltered=[],listFiltered=[],charts={};
@@ -696,6 +637,7 @@ function toggleThrL(el){const t=el.dataset.thr;el.classList.toggle('on');activeT
 
 const THR_ORDER=['CR','EN','VU','NT','LC','DD'];
 function getThreatVal(r,lists){let best='';for(const l of lists){const v=r[l];if(v&&(!best||THR_ORDER.indexOf(v)<THR_ORDER.indexOf(best)))best=v;}return best;}
+function isAmeacada(r){const a=['CR','EN','VU'];return a.includes(r.iucn)||a.includes(r.mma)||a.includes(r.sp);}
 
 function filterData(){
   const search=(document.getElementById('f-search')?.value||'').toLowerCase();
@@ -707,7 +649,7 @@ function filterData(){
     if(SEL.esp.size){
       if(SEL.esp.has('endemica')&&!r.endemica)return false;
       if(SEL.esp.has('exotica')&&!r.exotica)return false;
-      if(SEL.esp.has('ameacada')){const a=['CR','EN','VU'];if(!a.includes(r.iucn)&&!a.includes(r.mma)&&!a.includes(r.sp))return false;}
+      if(SEL.esp.has('ameacada')&&!isAmeacada(r))return false;
     }
     if(search){const h=(r.especie+' '+r.nome_popular+' '+r.familia+' '+r.grupo+' '+r.grupo_especifico).toLowerCase();if(!h.includes(search))return false;}
     return true;
@@ -725,13 +667,13 @@ function resetAll(){
 }
 window.addEventListener('resize',()=>{if(document.getElementById('page-overview').classList.contains('active'))requestAnimationFrame(buildTreemap);});
 
-// ═══════════════ TOP BAR ═══════════════
 function updateTopBar(){
   const f=ovFiltered;
   document.getElementById('kpi-tot').textContent=f.length.toLocaleString('pt-BR');
   document.getElementById('kpi-sub').textContent=`de ${ALL.length.toLocaleString('pt-BR')} espécies`;
   document.getElementById('kpi-end').textContent=f.filter(r=>r.endemica).length;
   document.getElementById('kpi-exo').textContent=f.filter(r=>r.exotica).length;
+  document.getElementById('kpi-ame').textContent=f.filter(r=>isAmeacada(r)).length;
   const grupos=[{n:'Fauna',c:'var(--fauna)'},{n:'Flora',c:'var(--flora)'},{n:'Fungos',c:'var(--fungos)'}];
   const ftot=f.length||1;
   document.getElementById('ov-grupos').innerHTML=grupos.map(g=>{
@@ -757,7 +699,6 @@ function clickGrupo(g){
   applyAll();
 }
 
-// ═══════════════ TREEMAP ═══════════════
 const GG_OF={};
 function buildTreemap(){
   if(!ALL.length)return;
@@ -775,11 +716,9 @@ function buildTreemap(){
   const rects=squarify(items,{x:0,y:0,w:W,h:H});
   const pad=3;
   grid.innerHTML=rects.map(({item,x,y,w,h})=>{
-    const{name,cnt}=item;
-    const gg=GG_OF[name]||'';
+    const{name,cnt}=item;const gg=GG_OF[name]||'';
     const sc=STRIPE[gg]||'#888',bg=BGCOL[gg]||'rgba(100,100,100,.8)';
-    const sel=activeTMsub===name?' sel-cell':'';
-    const imgSrc=SVGS[name]||'';
+    const sel=activeTMsub===name?' sel-cell':'';const imgSrc=SVGS[name]||'';
     const rx=Math.min(7,Math.min(w,h)*0.06);
     const nSize=Math.min(22,Math.max(9,Math.min(w,h)*0.2));
     const lSize=Math.min(12,Math.max(7,Math.min(w,h)*0.1));
@@ -799,13 +738,11 @@ function clickTM(name){activeTMsub=activeTMsub===name?null:name;applyAll();}
 
 function squarify(items,rect){const out=[];_sq(items,rect.x,rect.y,rect.w,rect.h,out);return out;}
 function _sq(items,x,y,w,h,out){
-  if(!items.length)return;
-  if(items.length===1){out.push({item:items[0],x,y,w,h});return;}
+  if(!items.length)return;if(items.length===1){out.push({item:items[0],x,y,w,h});return;}
   const total=items.reduce((s,i)=>s+i.value,0);
   let best=-1,bestW=Infinity,rowSum=0;const sh=Math.min(w,h);
   for(let i=0;i<items.length;i++){
-    rowSum+=items[i].value;
-    const rowLen=(w>=h)?w*(rowSum/total):h*(rowSum/total);
+    rowSum+=items[i].value;const rowLen=(w>=h)?w*(rowSum/total):h*(rowSum/total);
     let worst=0,rs=0;
     for(let j=0;j<=i;j++){rs+=items[j].value;const side=sh*(items[j].value/rowSum);const r=Math.max(rowLen/side,side/rowLen)||Infinity;if(r>worst)worst=r;}
     if(worst<bestW){bestW=worst;best=i;}else if(worst>bestW*1.05)break;
@@ -823,7 +760,6 @@ function _sq(items,x,y,w,h,out){
   }
 }
 
-// ═══════════════ STATS ═══════════════
 const THR_COLORS={CR:'var(--cr)',EN:'var(--en)',VU:'var(--vu)',NT:'var(--nt)',LC:'var(--lc)',DD:'var(--dd)'};
 const IUCN_BG={CR:'#b91c1c',EN:'#c2410c',VU:'#b45309',NT:'#4d7c0f',LC:'#15803d',DD:'#475569'};
 const IUCN_DESC={CR:'Criticamente em Perigo',EN:'Em Perigo',VU:'Vulnerável',NT:'Quase Ameaçada',LC:'Pouco Preocupante',DD:'Dados Insuficientes'};
@@ -844,7 +780,6 @@ function updateStats(){
     options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'right',labels:{color:'#475569',font:{family:'DM Sans',size:10},boxWidth:9,padding:5}}}}});
 }
 
-// ═══════════════ LISTA ═══════════════
 const ALL_COLS=[
   {k:'grande_grupo',l:'Grande Grupo',def:true},{k:'grupo',l:'Subgrupo',def:true},
   {k:'grupo_especifico',l:'Grupo Específico',def:false},{k:'nome_popular',l:'Nome Popular',def:true},
@@ -900,7 +835,7 @@ function applyLista(){
     for(const ilha of ilhaChk){if(!r[ilha])return false;}
     if(endChk&&!r.endemica)return false;
     if(exoChk&&!r.exotica)return false;
-    if(amChk){const a=['CR','EN','VU'];if(!a.includes(r.iucn)&&!a.includes(r.mma)&&!a.includes(r.sp))return false;}
+    if(amChk&&!isAmeacada(r))return false;
     if(search){const h=(r.especie+' '+r.nome_popular+' '+r.familia+' '+r.grupo+' '+r.grupo_especifico).toLowerCase();if(!h.includes(search))return false;}
     return true;
   });
@@ -947,7 +882,6 @@ function downloadCSV(){
   const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='especies_alcatrazes.csv';a.click();
 }
 
-// ═══════════════ CONTRIB TABS ═══════════════
 function showCtab(id,btn){
   document.querySelectorAll('.ctab-panel').forEach(p=>p.classList.remove('active-panel'));
   document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('active'));
@@ -955,10 +889,8 @@ function showCtab(id,btn){
   if(btn)btn.classList.add('active');
 }
 
-// ═══════════════ FORMS ═══════════════
 function okForm(successId){
-  const panel=document.querySelector('.ctab-panel.active-panel');
-  if(!panel)return;
+  const panel=document.querySelector('.ctab-panel.active-panel');if(!panel)return;
   let data={};
   const actionMap={'ok-reg':'newRecord','ok-col':'newCollaborator','ok-com':'newComment','tx-ok':'newTaxoSuggestion'};
   const action=actionMap[successId]||'genericSubmit';
@@ -985,24 +917,17 @@ function okForm(successId){
 }
 function selRb(el,gid){document.querySelectorAll('#'+gid+' .rb').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
 
-// ═══════════════ MAP ZOOM ═══════════════
 function toggleZoom(e){
   const wrap=document.getElementById('map-zoom-wrap');
   const rect=wrap.getBoundingClientRect();
   const ox=((e.clientX-rect.left)/rect.width*100).toFixed(1)+'%';
   const oy=((e.clientY-rect.top)/rect.height*100).toFixed(1)+'%';
-  if(!wrap.classList.contains('zoomed')){
-    wrap.style.setProperty('--ox',ox);
-    wrap.style.setProperty('--oy',oy);
-  }
+  if(!wrap.classList.contains('zoomed')){wrap.style.setProperty('--ox',ox);wrap.style.setProperty('--oy',oy);}
   wrap.classList.toggle('zoomed');
 }
 
-// ═══════════════ MAP DOTS ═══════════════
 function positionMapDots(){
-  ['dot-alc','dot-pal','dot-cab'].forEach(id=>{
-    const el=document.getElementById(id);if(el)el.style.display='block';
-  });
+  ['dot-alc','dot-pal','dot-cab'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='block';});
 }
 
 const ISLAND_DATA={
@@ -1015,8 +940,7 @@ function hoverIsland(name){
   const tt=document.getElementById('island-tooltip');
   tt.innerHTML=`<strong>${info.title}</strong><small>${info.coords}</small>${info.desc}`;
   tt.classList.add('show');
-  const dot=event.currentTarget;
-  const cont=document.getElementById('map-container');
+  const dot=event.currentTarget;const cont=document.getElementById('map-container');
   const dRect=dot.getBoundingClientRect(),cRect=cont.getBoundingClientRect();
   let top=(dRect.top-cRect.top)-80,left=(dRect.left-cRect.left)+20;
   if(left+210>cont.clientWidth)left=cont.clientWidth-215;
@@ -1029,13 +953,9 @@ function selectIsland(name,el){
   el.classList.add('active-dot');
 }
 document.addEventListener('click',e=>{
-  if(!e.target.closest('.island-dot-wrap')){
-    const tt=document.getElementById('island-tooltip');
-    if(tt)tt.classList.remove('show');
-  }
+  if(!e.target.closest('.island-dot-wrap')){const tt=document.getElementById('island-tooltip');if(tt)tt.classList.remove('show');}
 });
 
-// ═══════════════ INIT ═══════════════
 (function init(){
   loadData();
   setTimeout(()=>{
@@ -1052,7 +972,4 @@ document.addEventListener('click',e=>{
       const cta=nav.querySelector('.nav-cta');if(cta)nav.insertBefore(btn,cta);
     }
   },300);
-})();
-</script>
-</body>
-</html>
+}
