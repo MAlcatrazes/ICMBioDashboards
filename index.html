@@ -638,7 +638,7 @@ function toggleThrL(el){const t=el.dataset.thr;el.classList.toggle('on');activeT
 const THR_ORDER=['CR','EN','VU','NT','LC','DD'];
 function getThreatVal(r,lists){let best='';for(const l of lists){const v=r[l];if(v&&(!best||THR_ORDER.indexOf(v)<THR_ORDER.indexOf(best)))best=v;}return best;}
 function isAmeacada(r){const a=['CR','EN','VU'];return a.includes(r.iucn)||a.includes(r.mma)||a.includes(r.sp);}
-
+  
 function filterData(){
   const search=(document.getElementById('f-search')?.value||'').toLowerCase();
   return ALL.filter(r=>{
@@ -673,7 +673,8 @@ function updateTopBar(){
   document.getElementById('kpi-sub').textContent=`de ${ALL.length.toLocaleString('pt-BR')} espécies`;
   document.getElementById('kpi-end').textContent=f.filter(r=>r.endemica).length;
   document.getElementById('kpi-exo').textContent=f.filter(r=>r.exotica).length;
-  document.getElementById('kpi-ame').textContent=f.filter(r=>isAmeacada(r)).length;
+  const kpiAme=document.getElementById('kpi-ame');
+if(kpiAme) kpiAme.textContent=f.filter(r=>isAmeacada(r)).length;
   const grupos=[{n:'Fauna',c:'var(--fauna)'},{n:'Flora',c:'var(--flora)'},{n:'Fungos',c:'var(--fungos)'}];
   const ftot=f.length||1;
   document.getElementById('ov-grupos').innerHTML=grupos.map(g=>{
