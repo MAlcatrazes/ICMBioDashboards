@@ -301,6 +301,102 @@ textarea.fi{resize:vertical;min-height:72px}
 /* Estilo visual clicável para espécies e grupos */
 td:first-child, td i, .gr-name, .tm-l { cursor: pointer; }
 td i:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
+/* CARD COLABORE - INATURALIST */
+.colab-inat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  box-shadow: var(--sh);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.colab-inat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(46, 125, 94, 0.1);
+  color: var(--green);
+  font-size: .68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  width: fit-content;
+}
+.colab-inat-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+.colab-inat-card p {
+  font-size: .84rem;
+  line-height: 1.55;
+  color: var(--text2);
+}
+.colab-inat-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 4px 0;
+}
+.colab-step {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: .76rem;
+  color: var(--text2);
+}
+.colab-step strong {
+  display: block;
+  color: var(--green);
+  margin-bottom: 3px;
+  font-size: .78rem;
+}
+.colab-inat-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+.btn-inat-primary {
+  background: var(--green);
+  color: #fff;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 7px;
+  transition: all .18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-inat-primary:hover {
+  background: var(--green2);
+  transform: translateY(-1px);
+}
+.btn-inat-secondary {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 500;
+  padding: 9px 16px;
+  border-radius: 7px;
+  transition: all .18s;
+}
+.btn-inat-secondary:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
 </style>
 </head>
 <body>
@@ -467,6 +563,38 @@ td i:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
     <button class="ctab" onclick="showCtab('ct-col',this)">👤 Cadastrar</button>
     <button class="ctab" onclick="showCtab('ct-taxo',this)">🔬 Sugestão Taxonômica</button>
     <button class="ctab" onclick="showCtab('ct-com',this)">💬 Comentário</button>
+    <div class="colab-inat-card">
+  <span class="colab-inat-badge">🌿 Ciência Cidadã • iNaturalist</span>
+  <h3>Contribua com registros fotográficos no iNaturalist</h3>
+  <p>
+    Visitou o <strong>Refúgio de Vida Silvestre do Arquipélago de Alcatrazes</strong> ou a <strong>ESEC Tupinambás</strong>? 
+    Suas fotografias de fauna, flora ou fungos ajudam pesquisadores e a gestão da unidade a monitorar a biodiversidade local em tempo real.
+  </p>
+
+  <div class="colab-inat-steps">
+    <div class="colab-step">
+      <strong>1. Fotografe</strong>
+      Registre qualquer espécie observada durante a visitação ou expedição na área das unidades.
+    </div>
+    <div class="colab-step">
+      <strong>2. Envie ao iNaturalist</strong>
+      Publique a foto com a localização e a data pelo aplicativo ou site oficial do iNaturalist.
+    </div>
+    <div class="colab-step">
+      <strong>3. Integração Automática</strong>
+      Os registros georreferenciados entram no projeto e passam a aparecer aqui no painel!
+    </div>
+  </div>
+
+  <div class="colab-inat-actions">
+    <a href="https://www.inaturalist.org/projects/arquipelago-de-alcatrazes" target="_blank" rel="noopener" class="btn-inat-primary">
+      Acessar Projeto Arquipélago de Alcatrazes ↗
+    </a>
+    <a href="https://www.inaturalist.org/observations/new?project_id=arquipelago-de-alcatrazes" target="_blank" rel="noopener" class="btn-inat-secondary">
+      Enviar uma nova observação +
+    </a>
+  </div>
+</div>
   </div>
   <div id="ct-novo" class="ctab-panel active-panel">
     <div class="pg-sub" style="margin-bottom:16px">Observou uma espécie que não está listada? Todos os registros são validados antes da incorporação.</div>
