@@ -238,6 +238,69 @@ textarea.fi{resize:vertical;min-height:72px}
   nav{padding:0 12px}.page{padding:14px 12px}
   .ov-stats{grid-template-columns:1fr}
 }
+
+/* MODAL GALERIA INATURALIST */
+.inat-overlay {
+  position: fixed; inset: 0; background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  z-index: 9999; display: none; align-items: center; justify-content: center;
+  padding: 20px; animation: fi .2s ease;
+}
+.inat-overlay.open { display: flex; }
+.inat-modal {
+  background: rgba(255, 255, 255, 0.94); border: 1px solid var(--border);
+  border-radius: 14px; width: 100%; max-width: 820px; max-height: 88vh;
+  display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--sh2);
+}
+.inat-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-bottom: 1px solid var(--border); background: #fff;
+}
+.inat-title-wrap h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--green); font-style: italic;
+}
+.inat-title-wrap p {
+  font-size: .72rem; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; margin-top: 2px;
+}
+.inat-close {
+  background: var(--bg3); border: 1px solid var(--border); color: var(--text2);
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center; transition: all .15s;
+}
+.inat-close:hover { background: var(--cr); color: #fff; border-color: var(--cr); }
+.inat-body {
+  padding: 18px 20px; overflow-y: auto; flex: 1;
+}
+.inat-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 12px;
+}
+.inat-card {
+  background: #fff; border: 1px solid var(--border); border-radius: 9px;
+  overflow: hidden; box-shadow: var(--sh); transition: transform .15s;
+  display: flex; flex-direction: column; text-decoration: none; color: inherit;
+}
+.inat-card:hover { transform: translateY(-3px); box-shadow: var(--sh2); }
+.inat-card img {
+  width: 100%; height: 155px; object-fit: cover; display: block; background: var(--bg3);
+}
+.inat-meta { padding: 8px 10px; font-size: .7rem; color: var(--text2); }
+.inat-meta strong { display: block; color: var(--text); font-size: .74rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.inat-meta span { display: block; color: var(--text3); font-size: .64rem; margin-top: 2px; }
+.inat-status {
+  text-align: center; padding: 40px 20px; color: var(--text2); font-size: .88rem;
+}
+.inat-ftr {
+  padding: 12px 20px; border-top: 1px solid var(--border); background: #fff;
+  display: flex; justify-content: space-between; align-items: center; font-size: .72rem; color: var(--text3);
+}
+.inat-ext-btn {
+  background: var(--green); color: #fff; text-decoration: none; font-weight: 600;
+  padding: 7px 14px; border-radius: 7px; font-size: .75rem; transition: background .15s;
+}
+.inat-ext-btn:hover { background: var(--green2); }
+/* Estilo visual clicável para espécies e grupos */
+td:first-child, td i, .gr-name, .tm-l { cursor: pointer; }
+td i:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -975,6 +1038,152 @@ document.addEventListener('click',e=>{
     }
   },300);
 })();
+/* ==========================================================================
+   INTEGRAÇÃO GALERIA INATURALIST - PROJETO: arquipelago-de-alcatrazes
+   ========================================================================== */
+const INAT_PROJECT_SLUG = 'arquipelago-de-alcatrazes';
+
+// Mapeamento de grupos em português para o táxon científico reconhecido pelo iNaturalist
+const MAPA_GRUPOS_INAT = {
+  'fauna': 'Animalia',
+  'flora': 'Plantae',
+  'fungos': 'Fungi',
+  'aves': 'Aves',
+  'peixes': 'Actinopterygii',
+  'répteis': 'Reptilia',
+  'repteis': 'Reptilia',
+  'anfíbios': 'Amphibia',
+  'anfibios': 'Amphibia',
+  'mamíferos': 'Mammalia',
+  'mamiferos': 'Mammalia',
+  'invertebrados': 'Invertebrata',
+  'crustáceos': 'Crustacea',
+  'moluscos': 'Mollusca',
+  'cnidários': 'Cnidaria',
+  'equinodermos': 'Echinodermata',
+  'insetos': 'Insecta',
+  'aracnídeos': 'Arachnida'
+};
+
+function fecharModalInat() {
+  document.getElementById('inat-modal-overlay').classList.remove('open');
+}
+
+// Fecha o modal com a tecla ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') fecharModalInat();
+});
+
+async function abrirGaleriaInaturalist(termoOriginal) {
+  if (!termoOriginal) return;
+  const termoLimpo = termoOriginal.trim();
+  const termoLower = termoLimpo.toLowerCase();
+
+  // Converte grupo em português para táxon científico se existir no mapa, senão usa o próprio nome da espécie
+  const taxonBusca = MAPA_GRUPOS_INAT[termoLower] || termoLimpo;
+
+  const overlay = document.getElementById('inat-modal-overlay');
+  const titleEl = document.getElementById('inat-modal-title');
+  const bodyEl = document.getElementById('inat-modal-body');
+  const countEl = document.getElementById('inat-modal-count');
+  const linkEl = document.getElementById('inat-modal-link');
+
+  titleEl.textContent = termoLimpo;
+  bodyEl.innerHTML = `<div class="inat-status">⏳ Buscando imagens de <strong>${termoLimpo}</strong> no projeto Arquipélago de Alcatrazes...</div>`;
+  countEl.textContent = 'Consultando API do iNaturalist...';
+  linkEl.href = `https://www.inaturalist.org/observations?project_id=${INAT_PROJECT_SLUG}&taxon_name=${encodeURIComponent(taxonBusca)}&photos=true`;
+
+  overlay.classList.add('open');
+
+  try {
+    const apiUrl = `https://api.inaturalist.org/v1/observations?project_id=${INAT_PROJECT_SLUG}&taxon_name=${encodeURIComponent(taxonBusca)}&photos=true&per_page=16&order_by=votes`;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    if (!data.results || data.results.length === 0) {
+      bodyEl.innerHTML = `
+        <div class="inat-status">
+          Nenhuma foto encontrada para <strong>${termoLimpo}</strong> dentro do projeto <em>Arquipélago de Alcatrazes</em>.<br><br>
+          <small style="color:var(--text3)">Dica: A espécie pode constar no dashboard por literatura científica, mas ainda sem registro fotográfico no iNaturalist.</small>
+        </div>`;
+      countEl.textContent = '0 registros com foto no projeto';
+      return;
+    }
+
+    countEl.textContent = `Exibindo ${data.results.length} de ${data.total_results} observações com foto`;
+
+    const cardsHtml = data.results.map(obs => {
+      // Troca 'square' por 'medium' para carregar fotos nítidas e rápidas
+      const imgUrl = obs.photos[0].url.replace('square', 'medium');
+      const nomeCientifico = obs.taxon ? obs.taxon.name : termoLimpo;
+      const nomeComum = (obs.taxon && obs.taxon.preferred_common_name) ? obs.taxon.preferred_common_name : '';
+      const autor = obs.user ? (obs.user.name || obs.user.login) : 'Observador';
+      const dataObs = obs.observed_on || '';
+
+      return `
+        <a href="${obs.uri}" target="_blank" rel="noopener" class="inat-card" title="Ver observação completa no iNaturalist">
+          <img src="${imgUrl}" alt="${nomeCientifico}" loading="lazy"/>
+          <div class="inat-meta">
+            <strong><i>${nomeCientifico}</i></strong>
+            ${nomeComum ? `<span>${nomeComum}</span>` : ''}
+            <span>📷 ${autor} ${dataObs ? '• ' + dataObs : ''}</span>
+          </div>
+        </a>
+      `;
+    }).join('');
+
+    bodyEl.innerHTML = `<div class="inat-grid">${cardsHtml}</div>`;
+
+  } catch (err) {
+    console.error('Erro ao buscar no iNaturalist:', err);
+    bodyEl.innerHTML = `<div class="inat-status">⚠️ Não foi possível conectar ao iNaturalist no momento. Tente abrir pelo botão abaixo.</div>`;
+    countEl.textContent = 'Erro de conexão';
+  }
+}
+
+// Intercepta cliques em nomes de espécies (tabela) e grupos (cards e treemap)
+document.addEventListener('click', function(e) {
+  // 1. Clique em célula de espécie na tabela (texto em itálico ou primeira/segunda coluna com nome científico)
+  const italicEl = e.target.closest('td i, td em');
+  if (italicEl) {
+    e.stopPropagation();
+    abrirGaleriaInaturalist(italicEl.textContent);
+    return;
+  }
+
+  // 2. Clique nos grupos da barra superior (.gr-name)
+  const grupoTop = e.target.closest('.gr-name');
+  if (grupoTop) {
+    abrirGaleriaInaturalist(grupoTop.textContent);
+    return;
+  }
+
+  // 3. Clique no título do Treemap (.tm-l)
+  const treemapLabel = e.target.closest('.tm-l');
+  if (treemapLabel) {
+    abrirGaleriaInaturalist(treemapLabel.textContent);
+    return;
+  }
+});
 </script>
+<!-- MODAL INATURALIST -->
+<div id="inat-modal-overlay" class="inat-overlay" onclick="if(event.target===this) fecharModalInat()">
+  <div class="inat-modal">
+    <div class="inat-hdr">
+      <div class="inat-title-wrap">
+        <h3 id="inat-modal-title">Nome da Espécie</h3>
+        <p id="inat-modal-sub">Registros fotográficos • Projeto Arquipélago de Alcatrazes (iNaturalist)</p>
+      </div>
+      <button class="inat-close" onclick="fecharModalInat()" title="Fechar">✕</button>
+    </div>
+    <div class="inat-body" id="inat-modal-body"></div>
+    <div class="inat-ftr">
+      <span id="inat-modal-count">Buscando registros...</span>
+      <a id="inat-modal-link" href="#" target="_blank" rel="noopener" class="inat-ext-btn">
+        Abrir projeto no iNaturalist ↗
+      </a>
+    </div>
+  </div>
+</div>
 </body>
 </html>
