@@ -647,7 +647,7 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
       <div class="fg"><label class="fl">Ilhas com Registro *</label><div class="rb-g" id="reg-ilhas"><div class="rb on" onclick="this.classList.toggle('on')">🏝 Alcatrazes</div><div class="rb" onclick="this.classList.toggle('on')">🏝 Palmas</div><div class="rb" onclick="this.classList.toggle('on')">🏝 Cabras</div></div></div>
       <div class="f2"><div class="fg"><label class="fl">Referência / DOI</label><input class="fi" id="reg-ref" type="text"/></div><div class="fg"><label class="fl">Data do Registro</label><input class="fi" id="reg-data" type="date"/></div></div>
       <div class="fg">
-        <label class="fl">Anexar Foto do Registro (opcional, máx. 4 MB)</label>
+        <label class="fl">Anexar Foto do Registro (opcional — otimizada automaticamente)</label>
         <input class="fi" id="reg-foto" type="file" accept="image/*" style="padding:5px 8px;font-size:.74rem"/>
       </div>
       <div class="fg"><label class="fl">Observações</label><textarea class="fi" id="reg-obs"></textarea></div>
@@ -1136,11 +1136,33 @@ function showCtab(id,btn){
   if(btn)btn.classList.add('active');
 }
 
-function lerArquivoBase64(file) {
+function otimizarImagemBase64(file, maxLado = 1600, qualidade = 0.82) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
     reader.onerror = reject;
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onerror = reject;
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > maxLado || height > maxLado) {
+          if (width > height) {
+            height = Math.round((height * maxLado) / width);
+            width = maxLado;
+          } else {
+            width = Math.round((width * maxLado) / height);
+            height = maxLado;
+          }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', qualidade));
+      };
+      img.src = e.target.result;
+    };
     reader.readAsDataURL(file);
   });
 }
@@ -1160,16 +1182,16 @@ async function okForm(successId){
     let fotoBase64='', fotoNome='';
 
     if(fotoFile){
-      if(fotoFile.size > 4 * 1024 * 1024){
-        showToast('A foto deve ter no máximo 4 MB.', true);
+      if(fotoFile.size > 30 * 1024 * 1024){
+        showToast('A imagem excede o limite máximo de 30 MB.', true);
         return;
       }
-      if(btn){btn.disabled=true;btn.textContent='Processando foto…';}
+      if(btn){btn.disabled=true;btn.textContent='Otimizando foto…';}
       try{
-        fotoBase64 = await lerArquivoBase64(fotoFile);
-        fotoNome = fotoFile.name;
+        fotoBase64 = await otimizarImagemBase64(fotoFile);
+        fotoNome = fotoFile.name.replace(/\.[^.]+$/, '') + '.jpg';
       }catch(e){
-        showToast('Não foi possível ler a imagem anexada.', true);
+        showToast('Não foi possível processar a imagem anexada.', true);
         if(btn){btn.disabled=false;btn.textContent=origBtnText;}
         return;
       }
