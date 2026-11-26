@@ -299,8 +299,27 @@ textarea.fi{resize:vertical;min-height:72px}
 }
 .inat-ext-btn:hover { background: var(--green2); }
 /* Estilo visual clicável para espécies e grupos */
-td:first-child, td i, .gr-name, .tm-l { cursor: pointer; }
-td i:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
+#lt-body tr { cursor: pointer; transition: background-color .15s ease; }
+#lt-body tr:hover { background-color: rgba(46, 125, 94, .08) !important; }
+#lt-body tr td em::after {
+  content: " 📷";
+  font-style: normal;
+  font-size: .72rem;
+  opacity: .45;
+  margin-left: 3px;
+  transition: opacity .15s ease;
+}
+#lt-body tr:hover td em::after { opacity: 1; }
+td em, .gr-name, .tm-l { cursor: pointer; }
+td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
+.inat-table-hint {
+  font-size: .68rem;
+  color: var(--green);
+  background: rgba(46, 125, 94, .08);
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-weight: 500;
+}
 /* CARD COLABORE - INATURALIST */
 .colab-inat-card {
   background: var(--card);
@@ -1068,7 +1087,12 @@ function renderMoreRows(){
   const cols=ALL_COLS.filter(c=>visibleCols.has(c.k));
   const slice=listFiltered.slice(ltRendered,ltRendered+CHUNK);
   const tbody=document.getElementById('lt-body');
-  slice.forEach(r=>{const tr=document.createElement('tr');tr.innerHTML=cols.map(c=>`<td>${cellVal(r,c.k)}</td>`).join('');tbody.appendChild(tr);});
+  slice.forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.dataset.especie = r.especie || '';
+    tr.innerHTML=cols.map(c=>`<td>${cellVal(r,c.k)}</td>`).join('');
+    tbody.appendChild(tr);
+  });
   ltRendered+=slice.length;
 }
 const obs=new IntersectionObserver(es=>{if(es[0].isIntersecting&&ltRendered<listFiltered.length)renderMoreRows();},{rootMargin:'200px'});
@@ -1228,21 +1252,34 @@ async function abrirGaleriaInaturalist(termoOriginal) {
 
   overlay.classList.add('open');
 
-  try {
-    const apiUrl = `https://api.inaturalist.org/v1/observations?project_id=${INAT_PROJECT_SLUG}&taxon_name=${encodeURIComponent(taxonBusca)}&photos=true&per_page=16&order_by=votes`;
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+ try {
+    const isGrupo = Boolean(MAPA_GRUPOS_INAT[termoLower]);
+    // Limpa eventual autor/ano (ex: "Bothrops alcatraz Marques..." -> "Bothrops alcatraz")
+    const nomeTaxon = isGrupo ? taxonBusca : taxonBusca.trim().split(/\s+/).slice(0, 2).join(' ');
+
+    // 1. Tenta primeiro dentro do projeto Arquipélago de Alcatrazes
+    let apiUrl = `https://api.inaturalist.org/v1/observations?project_id=${INAT_PROJECT_SLUG}&taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true&per_page=16&order_by=votes`;
+    let response = await fetch(apiUrl);
+    let data = await response.json();
+
+    // 2. Fallback: espécies ameaçadas (como Bothrops alcatraz) têm coordenadas obscurecidas no iNaturalist
+    // e somem do filtro espacial do projeto — busca globalmente pelo táxon e atualiza o botão externo
+    if ((!data.results || data.results.length === 0) && !isGrupo) {
+      apiUrl = `https://api.inaturalist.org/v1/observations?taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true&per_page=16&order_by=votes`;
+      response = await fetch(apiUrl);
+      data = await response.json();
+      linkEl.href = `https://www.inaturalist.org/observations?taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true`;
+    }
 
     if (!data.results || data.results.length === 0) {
       bodyEl.innerHTML = `
         <div class="inat-status">
-          Nenhuma foto encontrada para <strong>${termoLimpo}</strong> dentro do projeto <em>Arquipélago de Alcatrazes</em>.<br><br>
+          Nenhuma foto encontrada para <strong>${termoLimpo}</strong> no iNaturalist.<br><br>
           <small style="color:var(--text3)">Dica: A espécie pode constar no dashboard por literatura científica, mas ainda sem registro fotográfico no iNaturalist.</small>
         </div>`;
-      countEl.textContent = '0 registros com foto no projeto';
+      countEl.textContent = '0 registros com foto';
       return;
     }
-
     countEl.textContent = `Exibindo ${data.results.length} de ${data.total_results} observações com foto`;
 
     const cardsHtml = data.results.map(obs => {
@@ -1274,13 +1311,29 @@ async function abrirGaleriaInaturalist(termoOriginal) {
   }
 }
 
-// Intercepta cliques em nomes de espécies (tabela) e grupos (cards e treemap)
+// Adiciona aviso visual no cabeçalho da tabela de espécies
+(function addInatTableHint() {
+  const headRow = document.querySelector('#page-lista .tbl-head-row');
+  if (headRow && !headRow.querySelector('.inat-table-hint')) {
+    const hint = document.createElement('span');
+    hint.className = 'inat-table-hint';
+    hint.textContent = '📷 Clique em qualquer linha para ver fotos';
+    const actions = headRow.querySelector('.tbl-actions');
+    actions ? headRow.insertBefore(hint, actions) : headRow.appendChild(hint);
+  }
+})();
+
+// Intercepta cliques em qualquer linha da tabela de espécies e grupos (cards e treemap)
 document.addEventListener('click', function(e) {
-  // 1. Clique em célula de espécie na tabela (texto em itálico ou primeira/segunda coluna com nome científico)
-  const italicEl = e.target.closest('td i, td em');
-  if (italicEl) {
-    e.stopPropagation();
-    abrirGaleriaInaturalist(italicEl.textContent);
+  // 1. Clique em qualquer ponto de uma linha na tabela de espécies (funciona mesmo ocultando colunas)
+  const tableRow = e.target.closest('#lt-body tr');
+  if (tableRow) {
+    if (e.target.closest('button, input, select, a[target="_blank"]')) return;
+    const especie = tableRow.dataset.especie || tableRow.querySelector('td em, td i')?.textContent;
+    if (especie) {
+      e.stopPropagation();
+      abrirGaleriaInaturalist(especie);
+    }
     return;
   }
 
