@@ -271,6 +271,23 @@ textarea.fi{resize:vertical;min-height:72px}
 .inat-body {
   padding: 18px 20px; overflow-y: auto; flex: 1;
 }
+.inat-sec-title {
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--green);
+  margin: 4px 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.inat-sec-title.ext {
+  color: var(--text2);
+  margin-top: 22px;
+}
 .inat-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 12px;
 }
@@ -579,33 +596,33 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
 <div id="page-contribuir" class="page">
   <div class="contrib-tabs">
     <button class="ctab active" onclick="showCtab('ct-novo',this)">🦎 Novo Registro</button>
-    <button class="ctab" onclick="showCtab('ct-inat',this)">📸 iNaturalist</button>
     <button class="ctab" onclick="showCtab('ct-col',this)">👤 Cadastrar</button>
     <button class="ctab" onclick="showCtab('ct-taxo',this)">🔬 Sugestão Taxonômica</button>
     <button class="ctab" onclick="showCtab('ct-com',this)">💬 Comentário</button>
   </div>
 
-  <div id="ct-inat" class="ctab-panel">
-    <div class="colab-inat-card" style="max-width:640px;margin:0 auto">
+  <div id="ct-novo" class="ctab-panel active-panel">
+    <!-- BLOCO 1: CIÊNCIA CIDADÃ / INATURALIST -->
+    <div class="colab-inat-card" style="max-width:640px;margin:0 auto 18px">
       <span class="colab-inat-badge">🌿 Ciência Cidadã • iNaturalist</span>
-      <h3>Contribua com registros fotográficos no iNaturalist</h3>
+      <h3>Registre suas observações pelo iNaturalist</h3>
       <p>
-        Visitou o <strong>Refúgio de Vida Silvestre do Arquipélago de Alcatrazes</strong> ou a <strong>ESEC Tupinambás</strong>? 
-        Suas fotografias de fauna, flora ou fungos ajudam pesquisadores e a gestão da unidade a monitorar a biodiversidade local em tempo real.
+        Visitou o <strong>Refúgio de Vida Silvestre do Arquipélago de Alcatrazes</strong> ou a <strong>ESEC Tupinambás</strong>?
+        Suas fotos enviadas ao projeto entram automaticamente na galeria do painel e ajudam no monitoramento da biodiversidade.
       </p>
 
       <div class="colab-inat-steps">
         <div class="colab-step">
           <strong>1. Fotografe</strong>
-          Registre qualquer espécie observada durante a visitação ou expedição na área das unidades.
+          Registre qualquer espécie observada durante a visitação ou expedição.
         </div>
         <div class="colab-step">
           <strong>2. Envie ao iNaturalist</strong>
-          Publique a foto com a localização e a data pelo aplicativo ou site oficial do iNaturalist.
+          Publique a foto com localização e data pelo app ou site oficial.
         </div>
         <div class="colab-step">
           <strong>3. Integração Automática</strong>
-          Os registros georreferenciados entram no projeto e passam a aparecer aqui no painel!
+          Os registros georreferenciados aparecem aqui na galeria de cada espécie.
         </div>
       </div>
 
@@ -614,26 +631,35 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
           Acessar Projeto Arquipélago de Alcatrazes ↗
         </a>
         <a href="https://www.inaturalist.org/observations/new?project_id=arquipelago-de-alcatrazes" target="_blank" rel="noopener" class="btn-inat-secondary">
-          Enviar uma nova observação +
+          Enviar observação no iNaturalist +
         </a>
       </div>
     </div>
-  </div>
 
-  <div id="ct-novo" class="ctab-panel active-panel">
-    <div class="pg-sub" style="margin-bottom:16px">Observou uma espécie que não está listada? Todos os registros são validados antes da incorporação.</div>
+    <!-- BLOCO 2: FORMULÁRIO DE NOVO REGISTRO DIRETO AO NGI -->
     <div class="f-card" style="max-width:640px;margin:0 auto">
+      <div style="margin-bottom:14px">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--green);margin-bottom:4px">Enviar Novo Registro ao NGI Alcatrazes</h3>
+        <p style="font-size:.78rem;color:var(--text2);line-height:1.5">
+          Observou uma espécie que ainda não está na lista ou prefere enviar diretamente à equipe? Preencha abaixo (com foto opcional) ou escreva para
+          <a href="mailto:ngi.alcatrazes@icmbio.gov.br" style="color:var(--green);font-weight:600;text-decoration:none">ngi.alcatrazes@icmbio.gov.br</a>.
+        </p>
+      </div>
+
       <div class="f2"><div class="fg"><label class="fl">Grande Grupo *</label><select class="fi" id="reg-grupo"><option>Fauna</option><option>Flora</option><option>Fungos</option></select></div><div class="fg"><label class="fl">Subgrupo</label><input class="fi" id="reg-subg" type="text"/></div></div>
       <div class="f2"><div class="fg"><label class="fl">Nome Científico *</label><input class="fi" id="reg-cientifico" type="text" placeholder="Genus species"/></div><div class="fg"><label class="fl">Nome Popular</label><input class="fi" id="reg-popular" type="text"/></div></div>
       <div class="f2"><div class="fg"><label class="fl">Família</label><input class="fi" id="reg-familia" type="text"/></div><div class="fg"><label class="fl">Ordem</label><input class="fi" id="reg-ordem" type="text"/></div></div>
       <div class="fg"><label class="fl">Ilhas com Registro *</label><div class="rb-g" id="reg-ilhas"><div class="rb on" onclick="this.classList.toggle('on')">🏝 Alcatrazes</div><div class="rb" onclick="this.classList.toggle('on')">🏝 Palmas</div><div class="rb" onclick="this.classList.toggle('on')">🏝 Cabras</div></div></div>
       <div class="f2"><div class="fg"><label class="fl">Referência / DOI</label><input class="fi" id="reg-ref" type="text"/></div><div class="fg"><label class="fl">Data do Registro</label><input class="fi" id="reg-data" type="date"/></div></div>
+      <div class="fg">
+        <label class="fl">Anexar Foto do Registro (opcional, máx. 4 MB)</label>
+        <input class="fi" id="reg-foto" type="file" accept="image/*" style="padding:5px 8px;font-size:.74rem"/>
+      </div>
       <div class="fg"><label class="fl">Observações</label><textarea class="fi" id="reg-obs"></textarea></div>
       <div class="f2"><div class="fg"><label class="fl">Seu Nome *</label><input class="fi" id="reg-nome" type="text"/></div><div class="fg"><label class="fl">E-mail *</label><input class="fi" id="reg-email" type="email"/></div></div>
-      <button class="f-sub" onclick="okForm('ok-reg')">Enviar Registro</button>
-      <div class="ok-msg" id="ok-reg">✅ Registro enviado! Nossa equipe validará os dados.</div>
+      <button class="f-sub" onclick="okForm('ok-reg')">Enviar Registro ao NGI</button>
+      <div class="ok-msg" id="ok-reg">✅ Registro enviado! A equipe do NGI Alcatrazes foi notificada e validará os dados.</div>
     </div>
-  </div>
   <div id="ct-col" class="ctab-panel">
     <div class="pg-sub" style="margin-bottom:16px">Pesquisador, especialista ou entusiasta? Faça parte da rede do projeto.</div>
     <div class="f-card" style="max-width:640px;margin:0 auto">
@@ -1111,14 +1137,61 @@ function showCtab(id,btn){
   if(btn)btn.classList.add('active');
 }
 
-function okForm(successId){
+function lerArquivoBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function okForm(successId){
   const panel=document.querySelector('.ctab-panel.active-panel');if(!panel)return;
   let data={};
   const actionMap={'ok-reg':'newRecord','ok-col':'newCollaborator','ok-com':'newComment','tx-ok':'newTaxoSuggestion'};
   const action=actionMap[successId]||'genericSubmit';
+  const btn=panel.querySelector('.f-sub');
+  const origBtnText=btn?btn.textContent:'Enviar';
+
   if(successId==='ok-reg'){
     const ilhas=[];document.querySelectorAll('#reg-ilhas .rb.on').forEach(b=>ilhas.push(b.textContent.replace('🏝 ','').trim()));
-    data={'Grande Grupo':document.getElementById('reg-grupo')?.value||'','Subgrupo':document.getElementById('reg-subg')?.value||'','Nome Científico':document.getElementById('reg-cientifico')?.value||'','Nome Popular':document.getElementById('reg-popular')?.value||'','Família':document.getElementById('reg-familia')?.value||'','Ordem':document.getElementById('reg-ordem')?.value||'','Ilhas com Registro':ilhas.join(', '),'Referência / DOI':document.getElementById('reg-ref')?.value||'','Data do Registro':document.getElementById('reg-data')?.value||'','Observações':document.getElementById('reg-obs')?.value||'','Nome do Contribuidor':document.getElementById('reg-nome')?.value||'','E-mail':document.getElementById('reg-email')?.value||''};
+    const fotoInput=document.getElementById('reg-foto');
+    const fotoFile=fotoInput?.files?.[0];
+    let fotoBase64='', fotoNome='';
+
+    if(fotoFile){
+      if(fotoFile.size > 4 * 1024 * 1024){
+        showToast('A foto deve ter no máximo 4 MB.', true);
+        return;
+      }
+      if(btn){btn.disabled=true;btn.textContent='Processando foto…';}
+      try{
+        fotoBase64 = await lerArquivoBase64(fotoFile);
+        fotoNome = fotoFile.name;
+      }catch(e){
+        showToast('Não foi possível ler a imagem anexada.', true);
+        if(btn){btn.disabled=false;btn.textContent=origBtnText;}
+        return;
+      }
+    }
+
+    data={
+      'Grande Grupo':document.getElementById('reg-grupo')?.value||'',
+      'Subgrupo':document.getElementById('reg-subg')?.value||'',
+      'Nome Científico':document.getElementById('reg-cientifico')?.value||'',
+      'Nome Popular':document.getElementById('reg-popular')?.value||'',
+      'Família':document.getElementById('reg-familia')?.value||'',
+      'Ordem':document.getElementById('reg-ordem')?.value||'',
+      'Ilhas com Registro':ilhas.join(', '),
+      'Referência / DOI':document.getElementById('reg-ref')?.value||'',
+      'Data do Registro':document.getElementById('reg-data')?.value||'',
+      'Observações':document.getElementById('reg-obs')?.value||'',
+      'Nome do Contribuidor':document.getElementById('reg-nome')?.value||'',
+      'E-mail':document.getElementById('reg-email')?.value||'',
+      'Foto_Nome':fotoNome,
+      'Foto_Base64':fotoBase64
+    };
   }else if(successId==='ok-col'){
     const gi=document.querySelector('#rb-gi .rb.on')?.textContent?.trim()||'';
     data={'Nome_completo':document.getElementById('col-nome')?.value||'','email':document.getElementById('col-email')?.value||'','Vinculo':document.getElementById('col-inst')?.value||'','Especialidade':document.getElementById('col-espec')?.value||'','Grupo':gi,'Lattes/orcid/site':document.getElementById('col-site')?.value||'','Contribuicao_desejada':document.getElementById('col-contribuir-desc')?.value||''};
@@ -1129,12 +1202,15 @@ function okForm(successId){
     const tp=document.querySelector('#rb-mt .rb.on')?.textContent?.trim()||'';
     data={'Tipo':tp,'Mensagem':document.getElementById('com-msg')?.value||'','Nome':document.getElementById('com-nome')?.value||'','E-mail':document.getElementById('com-email')?.value||''};
   }
-  const btn=panel.querySelector('.f-sub');
+
   if(btn){btn.disabled=true;btn.textContent='Enviando…';}
   postToSheet(action,data).then(ok=>{
-    if(btn){btn.disabled=false;btn.textContent='Enviar';}
-    if(ok){const el=document.getElementById(successId);if(el){el.style.display='block';setTimeout(()=>el.style.display='none',5000);}panel.querySelectorAll('input.fi,textarea.fi').forEach(i=>i.value='');}
-    else showToast('Erro ao enviar. Verifique sua conexão.',true);
+    if(btn){btn.disabled=false;btn.textContent=origBtnText;}
+    if(ok){
+      const el=document.getElementById(successId);
+      if(el){el.style.display='block';setTimeout(()=>el.style.display='none',5000);}
+      panel.querySelectorAll('input.fi,textarea.fi').forEach(i=>i.value='');
+    }else showToast('Erro ao enviar. Verifique sua conexão.',true);
   });
 }
 function selRb(el,gid){document.querySelectorAll('#'+gid+' .rb').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
@@ -1231,13 +1307,36 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') fecharModalInat();
 });
 
+function renderInatCards(lista, termoFallback) {
+  return lista.map(obs => {
+    const imgUrl = obs.photos[0].url.replace('square', 'medium');
+    const nomeCientifico = obs.taxon ? obs.taxon.name : termoFallback;
+    const nomeComum = (obs.taxon && obs.taxon.preferred_common_name) ? obs.taxon.preferred_common_name : '';
+    const autor = obs.user ? (obs.user.name || obs.user.login) : 'Observador';
+    const dataObs = obs.observed_on || '';
+    const local = obs.place_guess ? ` • ${obs.place_guess}` : '';
+
+    return `
+      <a href="${obs.uri}" target="_blank" rel="noopener" class="inat-card" title="Ver observação completa no iNaturalist">
+        <img src="${imgUrl}" alt="${nomeCientifico}" loading="lazy"/>
+        <div class="inat-meta">
+          <strong><i>${nomeCientifico}</i></strong>
+          ${nomeComum ? `<span>${nomeComum}</span>` : ''}
+          <span>📷 ${autor}${dataObs ? ' • ' + dataObs : ''}${local}</span>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
 async function abrirGaleriaInaturalist(termoOriginal) {
   if (!termoOriginal) return;
   const termoLimpo = termoOriginal.trim();
   const termoLower = termoLimpo.toLowerCase();
+  const isGrupo = Boolean(MAPA_GRUPOS_INAT[termoLower]);
 
-  // Converte grupo em português para táxon científico se existir no mapa, senão usa o próprio nome da espécie
   const taxonBusca = MAPA_GRUPOS_INAT[termoLower] || termoLimpo;
+  const nomeTaxon = isGrupo ? taxonBusca : taxonBusca.trim().split(/\s+/).slice(0, 2).join(' ');
 
   const overlay = document.getElementById('inat-modal-overlay');
   const titleEl = document.getElementById('inat-modal-title');
@@ -1246,32 +1345,28 @@ async function abrirGaleriaInaturalist(termoOriginal) {
   const linkEl = document.getElementById('inat-modal-link');
 
   titleEl.textContent = termoLimpo;
-  bodyEl.innerHTML = `<div class="inat-status">⏳ Buscando imagens de <strong>${termoLimpo}</strong> no projeto Arquipélago de Alcatrazes...</div>`;
+  bodyEl.innerHTML = `<div class="inat-status">⏳ Buscando imagens de <strong>${termoLimpo}</strong> no iNaturalist...</div>`;
   countEl.textContent = 'Consultando API do iNaturalist...';
-  linkEl.href = `https://www.inaturalist.org/observations?project_id=${INAT_PROJECT_SLUG}&taxon_name=${encodeURIComponent(taxonBusca)}&photos=true`;
+  linkEl.href = `https://www.inaturalist.org/observations?project_id=${INAT_PROJECT_SLUG}&taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true`;
 
   overlay.classList.add('open');
 
- try {
-    const isGrupo = Boolean(MAPA_GRUPOS_INAT[termoLower]);
-    // Limpa eventual autor/ano (ex: "Bothrops alcatraz Marques..." -> "Bothrops alcatraz")
-    const nomeTaxon = isGrupo ? taxonBusca : taxonBusca.trim().split(/\s+/).slice(0, 2).join(' ');
+  try {
+    const urlProjeto = `https://api.inaturalist.org/v1/observations?project_id=${INAT_PROJECT_SLUG}&taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true&per_page=12&order_by=votes`;
+    const urlGlobal = `https://api.inaturalist.org/v1/observations?taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true&per_page=12&order_by=votes`;
 
-    // 1. Tenta primeiro dentro do projeto Arquipélago de Alcatrazes
-    let apiUrl = `https://api.inaturalist.org/v1/observations?project_id=${INAT_PROJECT_SLUG}&taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true&per_page=16&order_by=votes`;
-    let response = await fetch(apiUrl);
-    let data = await response.json();
+    // Para grupos amplos (ex: Aves, Fauna), busca só no projeto; para espécies, busca nos dois em paralelo
+    const [resProj, resGlob] = await Promise.all([
+      fetch(urlProjeto).then(r => r.json()),
+      isGrupo ? Promise.resolve({ results: [] }) : fetch(urlGlobal).then(r => r.json())
+    ]);
 
-    // 2. Fallback: espécies ameaçadas (como Bothrops alcatraz) têm coordenadas obscurecidas no iNaturalist
-    // e somem do filtro espacial do projeto — busca globalmente pelo táxon e atualiza o botão externo
-    if ((!data.results || data.results.length === 0) && !isGrupo) {
-      apiUrl = `https://api.inaturalist.org/v1/observations?taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true&per_page=16&order_by=votes`;
-      response = await fetch(apiUrl);
-      data = await response.json();
-      linkEl.href = `https://www.inaturalist.org/observations?taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true`;
-    }
+    const obsProjeto = resProj.results || [];
+    const idsProjeto = new Set(obsProjeto.map(o => o.id));
+    // Filtra apenas observações que NÃO estão na lista do projeto para evitar repetição
+    const obsForaProjeto = (resGlob.results || []).filter(o => !idsProjeto.has(o.id));
 
-    if (!data.results || data.results.length === 0) {
+    if (obsProjeto.length === 0 && obsForaProjeto.length === 0) {
       bodyEl.innerHTML = `
         <div class="inat-status">
           Nenhuma foto encontrada para <strong>${termoLimpo}</strong> no iNaturalist.<br><br>
@@ -1280,29 +1375,41 @@ async function abrirGaleriaInaturalist(termoOriginal) {
       countEl.textContent = '0 registros com foto';
       return;
     }
-    countEl.textContent = `Exibindo ${data.results.length} de ${data.total_results} observações com foto`;
 
-    const cardsHtml = data.results.map(obs => {
-      // Troca 'square' por 'medium' para carregar fotos nítidas e rápidas
-      const imgUrl = obs.photos[0].url.replace('square', 'medium');
-      const nomeCientifico = obs.taxon ? obs.taxon.name : termoLimpo;
-      const nomeComum = (obs.taxon && obs.taxon.preferred_common_name) ? obs.taxon.preferred_common_name : '';
-      const autor = obs.user ? (obs.user.name || obs.user.login) : 'Observador';
-      const dataObs = obs.observed_on || '';
+    let htmlFinal = '';
 
-      return `
-        <a href="${obs.uri}" target="_blank" rel="noopener" class="inat-card" title="Ver observação completa no iNaturalist">
-          <img src="${imgUrl}" alt="${nomeCientifico}" loading="lazy"/>
-          <div class="inat-meta">
-            <strong><i>${nomeCientifico}</i></strong>
-            ${nomeComum ? `<span>${nomeComum}</span>` : ''}
-            <span>📷 ${autor} ${dataObs ? '• ' + dataObs : ''}</span>
-          </div>
-        </a>
-      `;
-    }).join('');
+    // SEÇÃO 1: DENTRO DO PROJETO ALCATRAZES
+    htmlFinal += `
+      <div class="inat-sec-title">
+        <span>📍 No Projeto Arquipélago de Alcatrazes</span>
+        <span style="font-weight:500;font-size:.66rem">${resProj.total_results || obsProjeto.length} registro(s)</span>
+      </div>`;
 
-    bodyEl.innerHTML = `<div class="inat-grid">${cardsHtml}</div>`;
+    if (obsProjeto.length > 0) {
+      htmlFinal += `<div class="inat-grid">${renderInatCards(obsProjeto, termoLimpo)}</div>`;
+    } else {
+      htmlFinal += `<p style="font-size:.76rem;color:var(--text3);margin-bottom:8px">Nenhum registro público vinculado diretamente ao projeto (espécies ameaçadas com coordenadas ocultas aparecem na seção abaixo).</p>`;
+    }
+
+    // SEÇÃO 2: FORA DO PROJETO (OU COORDENADAS OBSCURECIDAS)
+    if (!isGrupo && obsForaProjeto.length > 0) {
+      htmlFinal += `
+        <div class="inat-sec-title ext">
+          <span>🌎 Outros registros da espécie no iNaturalist (fora do projeto ou coordenadas ocultas)</span>
+          <span style="font-weight:500;font-size:.66rem">${obsForaProjeto.length} exibido(s)</span>
+        </div>
+        <div class="inat-grid">${renderInatCards(obsForaProjeto, termoLimpo)}</div>`;
+    }
+
+    bodyEl.innerHTML = htmlFinal;
+    countEl.textContent = `${obsProjeto.length} no projeto • ${obsForaProjeto.length} outros registros`;
+
+    if (obsProjeto.length === 0 && obsForaProjeto.length > 0) {
+      linkEl.href = `https://www.inaturalist.org/observations?taxon_name=${encodeURIComponent(nomeTaxon)}&photos=true`;
+      linkEl.textContent = 'Ver espécie no iNaturalist ↗';
+    } else {
+      linkEl.textContent = 'Abrir projeto no iNaturalist ↗';
+    }
 
   } catch (err) {
     console.error('Erro ao buscar no iNaturalist:', err);
