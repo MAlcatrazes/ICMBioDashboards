@@ -1524,7 +1524,7 @@ async function loadZoteroRefs(force=false){
     let total=Infinity;
 
     while(start<total){
-      const url=`${ZOTERO_BASE}/items?include=bib&style=${encodeURIComponent(style)}&limit=${limit}&start=${start}`;
+      const url=`${ZOTERO_BASE}/items?include=bib,data&style=${encodeURIComponent(style)}&limit=${limit}&start=${start}`;
       const res=await fetch(url);
       if(!res.ok)throw new Error('HTTP '+res.status);
       const totHeader=res.headers.get('Total-Results');
@@ -1536,13 +1536,23 @@ async function loadZoteroRefs(force=false){
       if(all.length>=500)break;
     }
 
-    // Filtra fora anexos (PDFs, imagens, links salvos) e notas
-    _zoteroItems=all.filter(it=>
-      it.data &&
-      it.data.itemType!=='attachment' &&
-      it.data.itemType!=='note' &&
-      it.bib
-    );
+    _zoteroItems=all
+      .filter(it=>it.data && it.data.itemType!=='attachment' && it.data.itemType!=='note')
+      .map(it=>{
+        const d=it.data||{};
+        const autorResumo=(it.meta&&it.meta.creatorSummary)||'';
+        const ano=(d.date||'').match(/\d{4}/)?.[0] || d.date || '';
+        const titulo=d.title||'Sem título';
+        const revista=d.publicationTitle||d.bookTitle||d.proceedingsTitle||'';
+        const fallbackBib=`<strong>${autorResumo||titulo}</strong>${ano?` (${ano})`:''}. ${autorResumo?`${titulo}. `:''}${revista?`<em>${revista}</em>.`:''}`;
+        return {
+          bib: (it.bib && it.bib.trim()) ? it.bib : fallbackBib,
+          title: titulo,
+          date: d.date||'',
+          doi: d.DOI||''
+        };
+      });
+
     _zoteroStyleLoaded=style;
     renderZoteroRefs();
   }catch(err){
@@ -1560,9 +1570,7 @@ function renderZoteroRefs(){
   const filtered=_zoteroItems.filter(it=>{
     if(!q)return true;
     const plainBib=it.bib.replace(/<[^>]+>/g,' ').toLowerCase();
-    const title=(it.data.title||'').toLowerCase();
-    const date=(it.data.date||'').toLowerCase();
-    return plainBib.includes(q)||title.includes(q)||date.includes(q);
+    return plainBib.includes(q)||it.title.toLowerCase().includes(q)||it.date.toLowerCase().includes(q);
   });
 
   statusEl.textContent=`${filtered.length} de ${_zoteroItems.length} trabalho(s) exibido(s)`;
@@ -1575,7 +1583,7 @@ function renderZoteroRefs(){
   listEl.innerHTML=filtered.map(it=>`
     <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:.8rem;line-height:1.5;color:var(--text)">
       ${it.bib}
-      ${it.data.DOI?`<div style="margin-top:4px;font-size:.7rem"><a href="https://doi.org/${String(it.data.DOI).replace(/^https?:\/\/doi\.org\//i,'')}" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;font-weight:500">DOI: ${it.data.DOI} ↗</a></div>`:''}
+      ${it.doi?`<div style="margin-top:4px;font-size:.7rem"><a href="https://doi.org/${String(it.doi).replace(/^https?:\/\/doi\.org\//i,'')}" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;font-weight:500">DOI: ${it.doi} ↗</a></div>`:''}
     </div>
   `).join('');
 }
