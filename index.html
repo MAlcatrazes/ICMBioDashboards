@@ -338,7 +338,7 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
   padding: 22px 24px;
   box-shadow: var(--sh);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -698,7 +698,7 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
       <div>
         <h2 style="font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--green)">Referências e Trabalhos</h2>
         <p style="font-size:.78rem;color:var(--text2);margin-top:2px">
-          Subcoleção <code style="background:var(--bg3);padding:1px 6px;border-radius:4px">E5XE7XPQ</code> do Zotero (ICMBio Alcatrazes) — somente referências bibliográficas, sem PDFs ou anexos.
+          Coleção <code style="background:var(--bg3);padding:1px 6px;border-radius:4px">X6GU4YMF</code> do Zotero (ICMBio Alcatrazes) — somente referências bibliográficas, sem PDFs ou anexos.
         </p>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
@@ -1605,6 +1605,132 @@ async function loadZoteroRefs(force=false){
         const revista=d.publicationTitle||d.bookTitle||d.proceedingsTitle||d.institution||d.university||'';
         const tags=Array.isArray(d.tags)?d.tags.map(t=>String(t.tag||'').trim()).filter(Boolean):[];
         const itemType=d.itemType||'';
+        const fallbackBib=`<strong>${autorResumo||titulo}</strong>${year?` (${year})`:''}. ${autorResumo?`${titulo}. `:''}${revista?`<em>${revista}</em>.`:''}`;
+        return {
+          bib: (it.bib && it.bib.trim()) ? it.bib : fallbackBib,
+          authorSummary: autorResumo,
+          title: titulo,
+          publication: revista,
+          date: d.date||'',
+          year,
+          tags,
+          itemType,
+          itemTypeLabel: formatItemType(itemType),
+          doi: d.DOI||''
+        };
+      });
+
+    populateZoteroFacets();
+    _zoteroStyleLoaded=style;
+    renderZoteroRefs();
+  }catch(err){
+    console.error(err);
+    if(statusEl)statusEl.textContent='Não foi possível carregar direto do Zotero (verifique se o grupo 5865594 e a coleção X6GU4YMF estão públicos).';
+  }
+}
+
+function populateZoteroFacets(){
+  const tagSel=document.getElementById('zot-tag');
+  if(tagSel){
+    const current=tagSel.value;
+    const tagSet=new Set();
+    _zoteroItems.forEach(it=>it.tags.forEach(t=>tagSet.add(t)));
+    const sorted=[...tagSet].sort((a,b)=>a.localeCompare(b,'pt'));
+    tagSel.innerHTML='<option value="">Todas as palavras-chave</option>'+
+      sorted.map(t=>`<option value="${t.replace(/"/g,'&quot;')}">${t}</option>`).join('');
+    if(sorted.includes(current))tagSel.value=current;
+  }
+
+  const typeSel=document.getElementById('zot-type');
+  if(typeSel){
+    const currentType=typeSel.value;
+    const typeMap=new Map();
+    _zoteroItems.forEach(it=>{
+      if(it.itemType)typeMap.set(it.itemType,it.itemTypeLabel||it.itemType);
+    });
+    const sortedTypes=[...typeMap.entries()].sort((a,b)=>a[1].localeCompare(b[1],'pt'));
+    typeSel.innerHTML='<option value="">Todos os tipos de item</option>'+
+      sortedTypes.map(([k,lbl])=>`<option value="${k.replace(/"/g,'&quot;')}">${lbl}</option>`).join('');
+    if(typeMap.has(currentType))typeSel.value=currentType;
+  }
+}
+
+function resetZoteroFilters(){
+  const s=document.getElementById('zot-search');
+  const t=document.getElementById('zot-tag');
+  const tp=document.getElementById('zot-type');
+  const so=document.getElementById('zot-sort');
+  const yf=document.getElementById('zot-year-from');
+  const yt=document.getElementById('zot-year-to');
+  const doi=document.getElementById('zot-only-doi');
+  if(s)s.value='';
+  if(t)t.value='';
+  if(tp)tp.value='';
+  if(so)so.value='year-desc';
+  if(yf)yf.value='';
+  if(yt)yt.value='';
+  if(doi)doi.checked=false;
+  renderZoteroRefs();
+}
+
+function renderZoteroRefs(){
+  const q=(document.getElementById('zot-search')?.value||'').toLowerCase().trim();
+  const tagSel=(document.getElementById('zot-tag')?.value||'').trim();
+  const typeSel=(document.getElementById('zot-type')?.value||'').trim();
+  const sortMode=document.getElementById('zot-sort')?.value||'year-desc';
+  const yearFromRaw=document.getElementById('zot-year-from')?.value;
+  const yearToRaw=document.getElementById('zot-year-to')?.value;
+  const onlyDoi=Boolean(document.getElementById('zot-only-doi')?.checked);
+  const yearFrom=yearFromRaw?parseInt(yearFromRaw,10):null;
+  const yearTo=yearToRaw?parseInt(yearToRaw,10):null;
+
+  const statusEl=document.getElementById('zot-status');
+  const listEl=document.getElementById('zot-lista');
+  if(!listEl)return;
+
+  const filtered=_zoteroItems.filter(it=>{
+    if(tagSel && !it.tags.includes(tagSel))return false;
+    if(typeSel && it.itemType!==typeSel)return false;
+    if(onlyDoi && !it.doi)return false;
+    if(yearFrom!==null && (!it.year || it.year < yearFrom))return false;
+    if(yearTo!==null && (!it.year || it.year > yearTo))return false;
+    if(!q)return true;
+    const plainBib=it.bib.replace(/<[^>]+>/g,' ').toLowerCase();
+    const tagsText=it.tags.join(' ').toLowerCase();
+    return plainBib.includes(q)||
+      it.title.toLowerCase().includes(q)||
+      it.authorSummary.toLowerCase().includes(q)||
+      it.publication.toLowerCase().includes(q)||
+      it.date.toLowerCase().includes(q)||
+      tagsText.includes(q);
+  });
+
+  filtered.sort((a,b)=>{
+    if(sortMode==='year-desc')return (b.year||0)-(a.year||0)||a.title.localeCompare(b.title,'pt');
+    if(sortMode==='year-asc')return (a.year||9999)-(b.year||9999)||a.title.localeCompare(b.title,'pt');
+    if(sortMode==='title-asc')return a.title.localeCompare(b.title,'pt');
+    if(sortMode==='author-asc')return (a.authorSummary||a.title).localeCompare(b.authorSummary||b.title,'pt');
+    return 0;
+  });
+
+  if(statusEl)statusEl.textContent=`${filtered.length} de ${_zoteroItems.length} trabalho(s) exibido(s) (PDFs e anexos ocultos)`;
+
+  if(!filtered.length){
+    listEl.innerHTML='<div style="font-size:.8rem;color:var(--text3);padding:12px 0">Nenhum trabalho encontrado com os filtros selecionados.</div>';
+    return;
+  }
+
+  listEl.innerHTML=filtered.map(it=>`
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:.8rem;line-height:1.5;color:var(--text)">
+      ${it.bib}
+      <div style="margin-top:6px;display:flex;flex-wrap:wrap;align-items:center;gap:6px">
+        ${it.itemTypeLabel?`<span style="font-size:.64rem;background:rgba(71,85,105,.12);color:var(--text2);padding:1px 7px;border-radius:10px;font-weight:500">${it.itemTypeLabel}</span>`:''}
+        ${it.year?`<span style="font-size:.64rem;background:rgba(201,122,21,.12);color:var(--fauna);padding:1px 7px;border-radius:10px;font-weight:600">${it.year}</span>`:''}
+        ${it.doi?`<a href="https://doi.org/${String(it.doi).replace(/^https?:\/\/doi\.org\//i,'')}" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--green);text-decoration:none;font-weight:600">DOI: ${it.doi} ↗</a>`:''}
+      </div>
+      ${it.tags.length?`<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px">${it.tags.map(t=>`<span style="font-size:.64rem;background:rgba(46,125,94,.1);color:var(--green);padding:1px 7px;border-radius:10px">${t}</span>`).join('')}</div>`:''}
+    </div>
+  `).join('');
 }
 </script>
 
