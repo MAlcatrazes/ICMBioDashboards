@@ -341,7 +341,7 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
   padding: 22px 24px;
   box-shadow: var(--sh);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter:blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -699,18 +699,31 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
 <!-- TRABALHOS (ZOTERO) -->
 <div id="page-referencias" class="page">
   <div class="f-card" style="max-width:960px;margin:0 auto">
-    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px">
       <div>
         <h2 style="font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--green)">Referências e Trabalhos</h2>
         <p style="font-size:.78rem;color:var(--text2);margin-top:2px">Lista bibliográfica espelhada do Zotero (sem anexos ou arquivos).</p>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-        <input class="fi" id="zot-search" type="text" placeholder="Buscar autor, título, ano…" oninput="renderZoteroRefs()" style="width:220px;padding:6px 10px;font-size:.75rem"/>
+        <input class="fi" id="zot-search" type="text" placeholder="Buscar autor, título, ano…" oninput="renderZoteroRefs()" style="width:210px;padding:6px 10px;font-size:.75rem"/>
         <select class="fi" id="zot-style" onchange="loadZoteroRefs(true)" style="width:auto;padding:6px 10px;font-size:.75rem">
           <option value="associacao-brasileira-de-normas-tecnicas">ABNT</option>
           <option value="apa">APA</option>
         </select>
       </div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:10px">
+      <select class="fi" id="zot-tag" onchange="renderZoteroRefs()" style="width:auto;min-width:180px;padding:5px 9px;font-size:.73rem;background:#fff">
+        <option value="">Todas as palavras-chave</option>
+      </select>
+      <div style="display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--text2)">
+        <span>Ano de:</span>
+        <input class="fi" id="zot-year-from" type="number" min="1800" max="2100" placeholder="Ex: 2015" oninput="renderZoteroRefs()" style="width:82px;padding:5px 8px;font-size:.73rem;background:#fff"/>
+        <span>até</span>
+        <input class="fi" id="zot-year-to" type="number" min="1800" max="2100" placeholder="Ex: 2026" oninput="renderZoteroRefs()" style="width:82px;padding:5px 8px;font-size:.73rem;background:#fff"/>
+      </div>
+      <button class="btn-clr2" type="button" onclick="resetZoteroFilters()" style="background:#fff">↺ Limpar filtros</button>
     </div>
 
     <div id="zot-status" style="font-size:.72rem;color:var(--text3);margin-bottom:10px"></div>
@@ -1304,7 +1317,8 @@ document.addEventListener('click',e=>{
       btn.onclick=()=>loadData(true);
       const cta=nav.querySelector('.nav-cta');if(cta)nav.insertBefore(btn,cta);
     }
-  },300);
+    loadZoteroRefs();
+  }, 800);
 })();
 
 /* ==========================================================================
@@ -1514,7 +1528,7 @@ async function loadZoteroRefs(force=false){
     return;
   }
 
-  statusEl.textContent='Carregando referências direto do Zotero…';
+  if(statusEl)statusEl.textContent='Carregando referências direto do Zotero…';
   listEl.innerHTML='';
 
   try{
@@ -1541,39 +1555,78 @@ async function loadZoteroRefs(force=false){
       .map(it=>{
         const d=it.data||{};
         const autorResumo=(it.meta&&it.meta.creatorSummary)||'';
-        const ano=(d.date||'').match(/\d{4}/)?.[0] || d.date || '';
+        const yearMatch=(d.date||'').match(/\b(19|20)\d{2}\b/);
+        const year=yearMatch?parseInt(yearMatch[0],10):null;
         const titulo=d.title||'Sem título';
         const revista=d.publicationTitle||d.bookTitle||d.proceedingsTitle||'';
-        const fallbackBib=`<strong>${autorResumo||titulo}</strong>${ano?` (${ano})`:''}. ${autorResumo?`${titulo}. `:''}${revista?`<em>${revista}</em>.`:''}`;
+        const tags=Array.isArray(d.tags)?d.tags.map(t=>String(t.tag||'').trim()).filter(Boolean):[];
+        const fallbackBib=`<strong>${autorResumo||titulo}</strong>${year?` (${year})`:''}. ${autorResumo?`${titulo}. `:''}${revista?`<em>${revista}</em>.`:''}`;
         return {
           bib: (it.bib && it.bib.trim()) ? it.bib : fallbackBib,
           title: titulo,
           date: d.date||'',
+          year,
+          tags,
           doi: d.DOI||''
         };
       });
 
+    populateZoteroTags();
     _zoteroStyleLoaded=style;
     renderZoteroRefs();
   }catch(err){
     console.error(err);
-    statusEl.textContent='Não foi possível carregar direto do Zotero (verifique se o grupo 5865594 está público).';
+    if(statusEl)statusEl.textContent='Não foi possível carregar direto do Zotero (verifique se o grupo 5865594 está público).';
   }
+}
+
+function populateZoteroTags(){
+  const sel=document.getElementById('zot-tag');
+  if(!sel)return;
+  const current=sel.value;
+  const tagSet=new Set();
+  _zoteroItems.forEach(it=>it.tags.forEach(t=>tagSet.add(t)));
+  const sorted=[...tagSet].sort((a,b)=>a.localeCompare(b,'pt'));
+  sel.innerHTML='<option value="">Todas as palavras-chave</option>'+
+    sorted.map(t=>`<option value="${t.replace(/"/g,'&quot;')}">${t}</option>`).join('');
+  if(sorted.includes(current))sel.value=current;
+}
+
+function resetZoteroFilters(){
+  const s=document.getElementById('zot-search');
+  const t=document.getElementById('zot-tag');
+  const yf=document.getElementById('zot-year-from');
+  const yt=document.getElementById('zot-year-to');
+  if(s)s.value='';
+  if(t)t.value='';
+  if(yf)yf.value='';
+  if(yt)yt.value='';
+  renderZoteroRefs();
 }
 
 function renderZoteroRefs(){
   const q=(document.getElementById('zot-search')?.value||'').toLowerCase().trim();
+  const tagSel=(document.getElementById('zot-tag')?.value||'').trim();
+  const yearFromRaw=document.getElementById('zot-year-from')?.value;
+  const yearToRaw=document.getElementById('zot-year-to')?.value;
+  const yearFrom=yearFromRaw?parseInt(yearFromRaw,10):null;
+  const yearTo=yearToRaw?parseInt(yearToRaw,10):null;
+
   const statusEl=document.getElementById('zot-status');
   const listEl=document.getElementById('zot-lista');
   if(!listEl)return;
 
   const filtered=_zoteroItems.filter(it=>{
+    if(tagSel && !it.tags.includes(tagSel))return false;
+    if(yearFrom!==null && (!it.year || it.year < yearFrom))return false;
+    if(yearTo!==null && (!it.year || it.year > yearTo))return false;
     if(!q)return true;
     const plainBib=it.bib.replace(/<[^>]+>/g,' ').toLowerCase();
-    return plainBib.includes(q)||it.title.toLowerCase().includes(q)||it.date.toLowerCase().includes(q);
+    const tagsText=it.tags.join(' ').toLowerCase();
+    return plainBib.includes(q)||it.title.toLowerCase().includes(q)||it.date.toLowerCase().includes(q)||tagsText.includes(q);
   });
 
-  statusEl.textContent=`${filtered.length} de ${_zoteroItems.length} trabalho(s) exibido(s)`;
+  if(statusEl)statusEl.textContent=`${filtered.length} de ${_zoteroItems.length} trabalho(s) exibido(s)`;
 
   if(!filtered.length){
     listEl.innerHTML='<div style="font-size:.8rem;color:var(--text3);padding:12px 0">Nenhuma referência encontrada.</div>';
@@ -1584,6 +1637,7 @@ function renderZoteroRefs(){
     <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:.8rem;line-height:1.5;color:var(--text)">
       ${it.bib}
       ${it.doi?`<div style="margin-top:4px;font-size:.7rem"><a href="https://doi.org/${String(it.doi).replace(/^https?:\/\/doi\.org\//i,'')}" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;font-weight:500">DOI: ${it.doi} ↗</a></div>`:''}
+      ${it.tags.length?`<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px">${it.tags.map(t=>`<span style="font-size:.64rem;background:rgba(46,125,94,.1);color:var(--green);padding:1px 7px;border-radius:10px">${t}</span>`).join('')}</div>`:''}
     </div>
   `).join('');
 }
