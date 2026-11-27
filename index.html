@@ -341,7 +341,7 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
   padding: 22px 24px;
   box-shadow: var(--sh);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -696,7 +696,7 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
   </div>
 </div>
 
- <!-- TRABALHOS (ZOTERO) -->
+<!-- TRABALHOS (ZOTERO) -->
 <div id="page-referencias" class="page">
   <div class="f-card" style="max-width:960px;margin:0 auto">
     <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px">
@@ -717,7 +717,7 @@ td em:hover, .gr-name:hover { color: var(--green); text-decoration: underline; }
     <div id="zot-lista" style="display:flex;flex-direction:column;gap:8px"></div>
   </div>
 </div>
-  
+
 <!-- SOBRE -->
 <div id="page-sobre" class="page">
   <div class="sobre-layout">
@@ -850,16 +850,6 @@ async function postToSheet(action,data){
 
 setInterval(()=>loadData(true),5*60*1000);
 
-function goPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  const target=document.getElementById('page-'+id);
-  if(target)target.classList.add('active');
-  const map={overview:0,lista:1,sobre:2};
-  if(map[id]!==undefined)document.querySelectorAll('.nav-tab')[map[id]].classList.add('active');
-  if(id==='lista'){buildListaSidebar();applyLista();setTimeout(()=>{const s=document.getElementById('sentinel');if(s)obs.observe(s);},100);}
-  if(id==='overview')applyAll();
-}
 document.addEventListener('click',e=>{if(!e.target.closest('.ms-wrap'))closeAllDrops();});
 
 const SEL={grupo:new Set(),sub:new Set(),thr:new Set(),esp:new Set()};
@@ -1492,17 +1482,19 @@ document.addEventListener('click', function(e) {
   }
 });
 
-  const ZOTERO_BASE = 'https://api.zotero.org/groups/5865594/collections/T35XCM4X';
+/* ==========================================================================
+   REFERÊNCIAS E TRABALHOS - ZOTERO (GRUPO 5865594 / COLEÇÃO T35XCM4X)
+   ========================================================================== */
+const ZOTERO_BASE = 'https://api.zotero.org/groups/5865594/collections/T35XCM4X';
 let _zoteroItems = [];
 let _zoteroStyleLoaded = '';
 
-// Substitui a goPage original para ativar a aba 'referencias'
 function goPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   const target=document.getElementById('page-'+id);
   if(target)target.classList.add('active');
-  const map={overview:0,lista:1,sobre:2,referencias:3};
+  const map={overview:0,lista:1,referencias:2,sobre:3};
   if(map[id]!==undefined&&document.querySelectorAll('.nav-tab')[map[id]]){
     document.querySelectorAll('.nav-tab')[map[id]].classList.add('active');
   }
@@ -1587,7 +1579,6 @@ function renderZoteroRefs(){
     </div>
   `).join('');
 }
-  
 </script>
 
 <!-- MODAL INATURALIST -->
