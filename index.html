@@ -1713,8 +1713,9 @@ function renderZoteroRefs(){
     return 0;
   });
 
-  if(statusEl)statusEl.textContent=`${filtered.length} de ${_zoteroItems.length} trabalho(s) exibido(s) (PDFs e anexos ocultos)`;
-
+  if (statusEl) {
+  statusEl.innerHTML = `${filtered.length} de ${_zoteroItems.length} trabalho(s) exibido(s) — Banco de trabalhos do NGI Alcatrazes. Tem um trabalho que não está aqui? <a href="mailto:ngi.alcatrazes@icmbio.gov.br?subject=Sugest%C3%A3o%20de%20trabalho%20-%20NGI%20Alcatrazes" style="color:var(--green);font-weight:600;text-decoration:none">Nos envie por e-mail!</a>`;
+}
   if(!filtered.length){
     listEl.innerHTML='<div style="font-size:.8rem;color:var(--text3);padding:12px 0">Nenhum trabalho encontrado com os filtros selecionados.</div>';
     return;
